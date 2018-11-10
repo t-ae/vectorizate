@@ -87,7 +87,6 @@ extension VectorizateNoAccelerate {
         }
     }
     
-    
     // MARK: sinh
     public static func sinh(x: UnsafePointer<Float>, out: UnsafeMutablePointer<Float>, count: Int) {
         map(x: x, out: out, operation: Foundation.sinh, count: count)
