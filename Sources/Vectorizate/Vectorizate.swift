@@ -1,8 +1,8 @@
-public enum VectorizateNoAccelerate{}
+public enum VectorizateNoAccelerate {}
 
 #if !canImport(Accelerete)
 
-public enum Vectorizate{}
+public enum Vectorizate {}
 
 #else
 

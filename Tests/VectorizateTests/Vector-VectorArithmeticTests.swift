@@ -12,7 +12,7 @@ class Vector_VectorArithmeticTests: XCTestCase {
         ia: Int, ib: Int, iOut: Int,
         accuracy: F = 0,
         file: StaticString = #file, line: UInt = #line)
-        where F.RawSignificand: FixedWidthInteger{
+        where F.RawSignificand: FixedWidthInteger {
             let a: [F] = randomArray(count: count*ia, in: 0..<10)
             let b: [F] = randomArray(count: count*ib, in: 1..<10)
             var ans1 = [F](repeating: 0, count: count*iOut)
