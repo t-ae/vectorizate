@@ -1,11 +1,11 @@
-public enum VectorizateNoAccelerate {}
+public enum VecOpsNoAccelerate {}
 
-#if !canImport(Accelerete)
+#if !canImport(Accelerete) && !VECTORIZATE_NO_ACCELERATE
 
-public enum Vectorizate {}
+public enum VecOps {}
 
 #else
 
-public typealias Vectorize = VectorizateNoAccelerate
+public typealias VecOps = VecOpsNoAccelerate
 
 #endif

@@ -1,8 +1,8 @@
-#if canImport(Accelerate)
+#if canImport(Accelerate) && !VECTORIZATE_NO_ACCELERATE
 
 import Accelerate
 
-extension Vectorizate {
+extension VecOps {
     // MARK: vabs
     public static func vabs(x: UnsafePointer<Float>, ix: Int, out: UnsafeMutablePointer<Float>, iOut: Int, count: Int) {
         vDSP_vabs(x, ix, out, iOut, UInt(count))
@@ -51,7 +51,7 @@ extension Vectorizate {
 
 #endif
 
-extension VectorizateNoAccelerate {
+extension VecOpsNoAccelerate {
     private static func map<T>(x: UnsafePointer<T>, ix: Int,
                                out: UnsafeMutablePointer<T>, iOut: Int,
                                operation: (T) -> T,

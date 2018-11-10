@@ -25,42 +25,42 @@ class SingleVectorArithmericTests: XCTestCase {
     
     
     func testVAbs() {
-        runTest(type: Float.self, func1: Vectorizate.vabs, func2: VectorizateNoAccelerate.vabs, ix: 1, iOut: 1)
-        runTest(type: Float.self, func1: Vectorizate.vabs, func2: VectorizateNoAccelerate.vabs, ix: 3, iOut: 2)
+        runTest(type: Float.self, func1: VecOps.vabs, func2: VecOpsNoAccelerate.vabs, ix: 1, iOut: 1)
+        runTest(type: Float.self, func1: VecOps.vabs, func2: VecOpsNoAccelerate.vabs, ix: 3, iOut: 2)
         
-        runTest(type: Double.self, func1: Vectorizate.vabs, func2: VectorizateNoAccelerate.vabs, ix: 1, iOut: 1)
-        runTest(type: Double.self, func1: Vectorizate.vabs, func2: VectorizateNoAccelerate.vabs, ix: 3, iOut: 2)
+        runTest(type: Double.self, func1: VecOps.vabs, func2: VecOpsNoAccelerate.vabs, ix: 1, iOut: 1)
+        runTest(type: Double.self, func1: VecOps.vabs, func2: VecOpsNoAccelerate.vabs, ix: 3, iOut: 2)
     }
     
     func testVNAbs() {
-        runTest(type: Float.self, func1: Vectorizate.vnabs, func2: VectorizateNoAccelerate.vnabs, ix: 1, iOut: 1)
-        runTest(type: Float.self, func1: Vectorizate.vnabs, func2: VectorizateNoAccelerate.vnabs, ix: 3, iOut: 2)
+        runTest(type: Float.self, func1: VecOps.vnabs, func2: VecOpsNoAccelerate.vnabs, ix: 1, iOut: 1)
+        runTest(type: Float.self, func1: VecOps.vnabs, func2: VecOpsNoAccelerate.vnabs, ix: 3, iOut: 2)
         
-        runTest(type: Double.self, func1: Vectorizate.vnabs, func2: VectorizateNoAccelerate.vnabs, ix: 1, iOut: 1)
-        runTest(type: Double.self, func1: Vectorizate.vnabs, func2: VectorizateNoAccelerate.vnabs, ix: 3, iOut: 2)
+        runTest(type: Double.self, func1: VecOps.vnabs, func2: VecOpsNoAccelerate.vnabs, ix: 1, iOut: 1)
+        runTest(type: Double.self, func1: VecOps.vnabs, func2: VecOpsNoAccelerate.vnabs, ix: 3, iOut: 2)
     }
     
     func testVNeg() {
-        runTest(type: Float.self, func1: Vectorizate.vneg, func2: VectorizateNoAccelerate.vneg, ix: 1, iOut: 1)
-        runTest(type: Float.self, func1: Vectorizate.vneg, func2: VectorizateNoAccelerate.vneg, ix: 3, iOut: 2)
+        runTest(type: Float.self, func1: VecOps.vneg, func2: VecOpsNoAccelerate.vneg, ix: 1, iOut: 1)
+        runTest(type: Float.self, func1: VecOps.vneg, func2: VecOpsNoAccelerate.vneg, ix: 3, iOut: 2)
         
-        runTest(type: Double.self, func1: Vectorizate.vneg, func2: VectorizateNoAccelerate.vneg, ix: 1, iOut: 1)
-        runTest(type: Double.self, func1: Vectorizate.vneg, func2: VectorizateNoAccelerate.vneg, ix: 3, iOut: 2)
+        runTest(type: Double.self, func1: VecOps.vneg, func2: VecOpsNoAccelerate.vneg, ix: 1, iOut: 1)
+        runTest(type: Double.self, func1: VecOps.vneg, func2: VecOpsNoAccelerate.vneg, ix: 3, iOut: 2)
     }
     
     func testVSq() {
-        runTest(type: Float.self, func1: Vectorizate.vsq, func2: VectorizateNoAccelerate.vsq, ix: 1, iOut: 1)
-        runTest(type: Float.self, func1: Vectorizate.vsq, func2: VectorizateNoAccelerate.vsq, ix: 3, iOut: 2)
+        runTest(type: Float.self, func1: VecOps.vsq, func2: VecOpsNoAccelerate.vsq, ix: 1, iOut: 1)
+        runTest(type: Float.self, func1: VecOps.vsq, func2: VecOpsNoAccelerate.vsq, ix: 3, iOut: 2)
         
-        runTest(type: Double.self, func1: Vectorizate.vsq, func2: VectorizateNoAccelerate.vsq, ix: 1, iOut: 1)
-        runTest(type: Double.self, func1: Vectorizate.vsq, func2: VectorizateNoAccelerate.vsq, ix: 3, iOut: 2)
+        runTest(type: Double.self, func1: VecOps.vsq, func2: VecOpsNoAccelerate.vsq, ix: 1, iOut: 1)
+        runTest(type: Double.self, func1: VecOps.vsq, func2: VecOpsNoAccelerate.vsq, ix: 3, iOut: 2)
     }
     
     func testVSSq() {
-        runTest(type: Float.self, func1: Vectorizate.vssq, func2: VectorizateNoAccelerate.vssq, ix: 1, iOut: 1)
-        runTest(type: Float.self, func1: Vectorizate.vssq, func2: VectorizateNoAccelerate.vssq, ix: 3, iOut: 2)
+        runTest(type: Float.self, func1: VecOps.vssq, func2: VecOpsNoAccelerate.vssq, ix: 1, iOut: 1)
+        runTest(type: Float.self, func1: VecOps.vssq, func2: VecOpsNoAccelerate.vssq, ix: 3, iOut: 2)
         
-        runTest(type: Double.self, func1: Vectorizate.vssq, func2: VectorizateNoAccelerate.vssq, ix: 1, iOut: 1)
-        runTest(type: Double.self, func1: Vectorizate.vssq, func2: VectorizateNoAccelerate.vssq, ix: 3, iOut: 2)
+        runTest(type: Double.self, func1: VecOps.vssq, func2: VecOpsNoAccelerate.vssq, ix: 1, iOut: 1)
+        runTest(type: Double.self, func1: VecOps.vssq, func2: VecOpsNoAccelerate.vssq, ix: 3, iOut: 2)
     }
 }

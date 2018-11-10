@@ -1,8 +1,8 @@
-#if canImport(Accelerate)
+#if canImport(Accelerate) && !VECTORIZATE_NO_ACCELERATE
 
 import Accelerate
 
-extension Vectorizate {
+extension VecOps {
     // MARK: vma
     public static func vma(a: UnsafePointer<Float>, ia: Int,
                              b: UnsafePointer<Float>, ib: Int,
@@ -114,7 +114,7 @@ extension Vectorizate {
 
 #endif
 
-extension VectorizateNoAccelerate {
+extension VecOpsNoAccelerate {
     // MARK: vma
     public static func vma(a: UnsafePointer<Float>, ia: Int,
                            b: UnsafePointer<Float>, ib: Int,

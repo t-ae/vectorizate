@@ -28,31 +28,31 @@ class Vector_VectorArithmeticTests: XCTestCase {
         do {
             typealias T = Float
             runTest(type: T.self,
-                    func1: Vectorizate.vadd, func2: VectorizateNoAccelerate.vadd,
+                    func1: VecOps.vadd, func2: VecOpsNoAccelerate.vadd,
                     ia: 1, ib: 1, iOut: 1)
             runTest(type: T.self,
-                    func1: Vectorizate.vadd, func2: VectorizateNoAccelerate.vadd,
+                    func1: VecOps.vadd, func2: VecOpsNoAccelerate.vadd,
                     ia: 2, ib: 2, iOut: 1)
             runTest(type: T.self,
-                    func1: Vectorizate.vadd, func2: VectorizateNoAccelerate.vadd,
+                    func1: VecOps.vadd, func2: VecOpsNoAccelerate.vadd,
                     ia: 1, ib: 1, iOut: 2)
             runTest(type: T.self,
-                    func1: Vectorizate.vadd, func2: VectorizateNoAccelerate.vadd,
+                    func1: VecOps.vadd, func2: VecOpsNoAccelerate.vadd,
                     ia: 3, ib: 2, iOut: 4)
         }
         do {
             typealias T = Double
             runTest(type: T.self,
-                    func1: Vectorizate.vadd, func2: VectorizateNoAccelerate.vadd,
+                    func1: VecOps.vadd, func2: VecOpsNoAccelerate.vadd,
                     ia: 1, ib: 1, iOut: 1)
             runTest(type: T.self,
-                    func1: Vectorizate.vadd, func2: VectorizateNoAccelerate.vadd,
+                    func1: VecOps.vadd, func2: VecOpsNoAccelerate.vadd,
                     ia: 2, ib: 2, iOut: 1)
             runTest(type: T.self,
-                    func1: Vectorizate.vadd, func2: VectorizateNoAccelerate.vadd,
+                    func1: VecOps.vadd, func2: VecOpsNoAccelerate.vadd,
                     ia: 1, ib: 1, iOut: 2)
             runTest(type: T.self,
-                    func1: Vectorizate.vadd, func2: VectorizateNoAccelerate.vadd,
+                    func1: VecOps.vadd, func2: VecOpsNoAccelerate.vadd,
                     ia: 3, ib: 2, iOut: 4)
         }
     }
@@ -61,31 +61,31 @@ class Vector_VectorArithmeticTests: XCTestCase {
         do {
             typealias T = Float
             runTest(type: T.self,
-                    func1: Vectorizate.vsub, func2: VectorizateNoAccelerate.vsub,
+                    func1: VecOps.vsub, func2: VecOpsNoAccelerate.vsub,
                     ia: 1, ib: 1, iOut: 1)
             runTest(type: T.self,
-                    func1: Vectorizate.vsub, func2: VectorizateNoAccelerate.vsub,
+                    func1: VecOps.vsub, func2: VecOpsNoAccelerate.vsub,
                     ia: 2, ib: 2, iOut: 1)
             runTest(type: T.self,
-                    func1: Vectorizate.vsub, func2: VectorizateNoAccelerate.vsub,
+                    func1: VecOps.vsub, func2: VecOpsNoAccelerate.vsub,
                     ia: 1, ib: 1, iOut: 2)
             runTest(type: T.self,
-                    func1: Vectorizate.vsub, func2: VectorizateNoAccelerate.vsub,
+                    func1: VecOps.vsub, func2: VecOpsNoAccelerate.vsub,
                     ia: 3, ib: 2, iOut: 4)
         }
         do {
             typealias T = Double
             runTest(type: T.self,
-                    func1: Vectorizate.vsub, func2: VectorizateNoAccelerate.vsub,
+                    func1: VecOps.vsub, func2: VecOpsNoAccelerate.vsub,
                     ia: 1, ib: 1, iOut: 1)
             runTest(type: T.self,
-                    func1: Vectorizate.vsub, func2: VectorizateNoAccelerate.vsub,
+                    func1: VecOps.vsub, func2: VecOpsNoAccelerate.vsub,
                     ia: 2, ib: 2, iOut: 1)
             runTest(type: T.self,
-                    func1: Vectorizate.vsub, func2: VectorizateNoAccelerate.vsub,
+                    func1: VecOps.vsub, func2: VecOpsNoAccelerate.vsub,
                     ia: 1, ib: 1, iOut: 2)
             runTest(type: T.self,
-                    func1: Vectorizate.vsub, func2: VectorizateNoAccelerate.vsub,
+                    func1: VecOps.vsub, func2: VecOpsNoAccelerate.vsub,
                     ia: 3, ib: 2, iOut: 4)
         }
     }
@@ -94,31 +94,31 @@ class Vector_VectorArithmeticTests: XCTestCase {
         do {
             typealias T = Float
             runTest(type: T.self,
-                    func1: Vectorizate.vmul, func2: VectorizateNoAccelerate.vmul,
+                    func1: VecOps.vmul, func2: VecOpsNoAccelerate.vmul,
                     ia: 1, ib: 1, iOut: 1)
             runTest(type: T.self,
-                    func1: Vectorizate.vmul, func2: VectorizateNoAccelerate.vmul,
+                    func1: VecOps.vmul, func2: VecOpsNoAccelerate.vmul,
                     ia: 2, ib: 2, iOut: 1)
             runTest(type: T.self,
-                    func1: Vectorizate.vmul, func2: VectorizateNoAccelerate.vmul,
+                    func1: VecOps.vmul, func2: VecOpsNoAccelerate.vmul,
                     ia: 1, ib: 1, iOut: 2)
             runTest(type: T.self,
-                    func1: Vectorizate.vmul, func2: VectorizateNoAccelerate.vmul,
+                    func1: VecOps.vmul, func2: VecOpsNoAccelerate.vmul,
                     ia: 3, ib: 2, iOut: 4)
         }
         do {
             typealias T = Double
             runTest(type: T.self,
-                    func1: Vectorizate.vmul, func2: VectorizateNoAccelerate.vmul,
+                    func1: VecOps.vmul, func2: VecOpsNoAccelerate.vmul,
                     ia: 1, ib: 1, iOut: 1)
             runTest(type: T.self,
-                    func1: Vectorizate.vmul, func2: VectorizateNoAccelerate.vmul,
+                    func1: VecOps.vmul, func2: VecOpsNoAccelerate.vmul,
                     ia: 2, ib: 2, iOut: 1)
             runTest(type: T.self,
-                    func1: Vectorizate.vmul, func2: VectorizateNoAccelerate.vmul,
+                    func1: VecOps.vmul, func2: VecOpsNoAccelerate.vmul,
                     ia: 1, ib: 1, iOut: 2)
             runTest(type: T.self,
-                    func1: Vectorizate.vmul, func2: VectorizateNoAccelerate.vmul,
+                    func1: VecOps.vmul, func2: VecOpsNoAccelerate.vmul,
                     ia: 3, ib: 2, iOut: 4)
         }
     }
@@ -128,32 +128,32 @@ class Vector_VectorArithmeticTests: XCTestCase {
             typealias T = Float
             let accuracy: T = 1e-4
             runTest(type: T.self,
-                    func1: Vectorizate.vdiv, func2: VectorizateNoAccelerate.vdiv,
+                    func1: VecOps.vdiv, func2: VecOpsNoAccelerate.vdiv,
                     ia: 1, ib: 1, iOut: 1, accuracy: accuracy)
             runTest(type: T.self,
-                    func1: Vectorizate.vdiv, func2: VectorizateNoAccelerate.vdiv,
+                    func1: VecOps.vdiv, func2: VecOpsNoAccelerate.vdiv,
                     ia: 2, ib: 2, iOut: 1, accuracy: accuracy)
             runTest(type: T.self,
-                    func1: Vectorizate.vdiv, func2: VectorizateNoAccelerate.vdiv,
+                    func1: VecOps.vdiv, func2: VecOpsNoAccelerate.vdiv,
                     ia: 1, ib: 1, iOut: 2, accuracy: accuracy)
             runTest(type: T.self,
-                    func1: Vectorizate.vdiv, func2: VectorizateNoAccelerate.vdiv,
+                    func1: VecOps.vdiv, func2: VecOpsNoAccelerate.vdiv,
                     ia: 3, ib: 2, iOut: 4, accuracy: accuracy)
         }
         do {
             typealias T = Double
             let accuracy: T = 1e-8
             runTest(type: T.self,
-                    func1: Vectorizate.vdiv, func2: VectorizateNoAccelerate.vdiv,
+                    func1: VecOps.vdiv, func2: VecOpsNoAccelerate.vdiv,
                     ia: 1, ib: 1, iOut: 1, accuracy: accuracy)
             runTest(type: T.self,
-                    func1: Vectorizate.vdiv, func2: VectorizateNoAccelerate.vdiv,
+                    func1: VecOps.vdiv, func2: VecOpsNoAccelerate.vdiv,
                     ia: 2, ib: 2, iOut: 1, accuracy: accuracy)
             runTest(type: T.self,
-                    func1: Vectorizate.vdiv, func2: VectorizateNoAccelerate.vdiv,
+                    func1: VecOps.vdiv, func2: VecOpsNoAccelerate.vdiv,
                     ia: 1, ib: 1, iOut: 2, accuracy: accuracy)
             runTest(type: T.self,
-                    func1: Vectorizate.vdiv, func2: VectorizateNoAccelerate.vdiv,
+                    func1: VecOps.vdiv, func2: VecOpsNoAccelerate.vdiv,
                     ia: 3, ib: 2, iOut: 4, accuracy: accuracy)
         }
     }

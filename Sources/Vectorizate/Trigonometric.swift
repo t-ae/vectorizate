@@ -1,10 +1,10 @@
 import Foundation
 
-#if canImport(Accelerate)
+#if canImport(Accelerate) && !VECTORIZATE_NO_ACCELERATE
 
 import Accelerate
 
-extension Vectorizate {
+extension VecOps {
     // MARK: sin
     public static func sin(x: UnsafePointer<Float>, out: UnsafeMutablePointer<Float>, count: Int) {
         var count = Int32(count)
@@ -85,7 +85,7 @@ extension Vectorizate {
 
 #endif
 
-extension VectorizateNoAccelerate {
+extension VecOpsNoAccelerate {
     private static func map<T>(x: UnsafePointer<T>, out: UnsafeMutablePointer<T>,
                             operation: (T) -> T,
                             count: Int) {

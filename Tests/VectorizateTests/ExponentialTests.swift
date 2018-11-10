@@ -24,42 +24,42 @@ class ExponentialTests: XCTestCase {
     }
     
     func testExp() {
-        runTest(type: Float.self, func1: Vectorizate.exp, func2: VectorizateNoAccelerate.exp, accuracy: 1e-6)
-        runTest(type: Double.self, func1: Vectorizate.exp, func2: VectorizateNoAccelerate.exp, accuracy: 1e-12)
+        runTest(type: Float.self, func1: VecOps.exp, func2: VecOpsNoAccelerate.exp, accuracy: 1e-6)
+        runTest(type: Double.self, func1: VecOps.exp, func2: VecOpsNoAccelerate.exp, accuracy: 1e-12)
     }
     
     func testExp2() {
-        runTest(type: Float.self, func1: Vectorizate.exp2, func2: VectorizateNoAccelerate.exp2, accuracy: 1e-6)
-        runTest(type: Double.self, func1: Vectorizate.exp2, func2: VectorizateNoAccelerate.exp2, accuracy: 1e-12)
+        runTest(type: Float.self, func1: VecOps.exp2, func2: VecOpsNoAccelerate.exp2, accuracy: 1e-6)
+        runTest(type: Double.self, func1: VecOps.exp2, func2: VecOpsNoAccelerate.exp2, accuracy: 1e-12)
     }
     
     func testExpm1() {
-        runTest(type: Float.self, func1: Vectorizate.expm1, func2: VectorizateNoAccelerate.expm1, accuracy: 1e-6)
-        runTest(type: Double.self, func1: Vectorizate.expm1, func2: VectorizateNoAccelerate.expm1, accuracy: 1e-12)
+        runTest(type: Float.self, func1: VecOps.expm1, func2: VecOpsNoAccelerate.expm1, accuracy: 1e-6)
+        runTest(type: Double.self, func1: VecOps.expm1, func2: VecOpsNoAccelerate.expm1, accuracy: 1e-12)
     }
     
     func testLog() {
-        runTest(type: Float.self, func1: Vectorizate.log, func2: VectorizateNoAccelerate.log, accuracy: 1e-6)
-        runTest(type: Double.self, func1: Vectorizate.log, func2: VectorizateNoAccelerate.log, accuracy: 1e-12)
+        runTest(type: Float.self, func1: VecOps.log, func2: VecOpsNoAccelerate.log, accuracy: 1e-6)
+        runTest(type: Double.self, func1: VecOps.log, func2: VecOpsNoAccelerate.log, accuracy: 1e-12)
     }
     
     func testLog1p() {
-        runTest(type: Float.self, func1: Vectorizate.log1p, func2: VectorizateNoAccelerate.log1p, accuracy: 1e-6)
-        runTest(type: Double.self, func1: Vectorizate.log1p, func2: VectorizateNoAccelerate.log1p, accuracy: 1e-12)
+        runTest(type: Float.self, func1: VecOps.log1p, func2: VecOpsNoAccelerate.log1p, accuracy: 1e-6)
+        runTest(type: Double.self, func1: VecOps.log1p, func2: VecOpsNoAccelerate.log1p, accuracy: 1e-12)
     }
     
     func testLog2() {
-        runTest(type: Float.self, func1: Vectorizate.log2, func2: VectorizateNoAccelerate.log2, accuracy: 1e-6)
-        runTest(type: Double.self, func1: Vectorizate.log2, func2: VectorizateNoAccelerate.log2, accuracy: 1e-12)
+        runTest(type: Float.self, func1: VecOps.log2, func2: VecOpsNoAccelerate.log2, accuracy: 1e-6)
+        runTest(type: Double.self, func1: VecOps.log2, func2: VecOpsNoAccelerate.log2, accuracy: 1e-12)
     }
     
     func testLog10() {
-        runTest(type: Float.self, func1: Vectorizate.log10, func2: VectorizateNoAccelerate.log10, accuracy: 1e-6)
-        runTest(type: Double.self, func1: Vectorizate.log10, func2: VectorizateNoAccelerate.log10, accuracy: 1e-12)
+        runTest(type: Float.self, func1: VecOps.log10, func2: VecOpsNoAccelerate.log10, accuracy: 1e-6)
+        runTest(type: Double.self, func1: VecOps.log10, func2: VecOpsNoAccelerate.log10, accuracy: 1e-12)
     }
     
     func testLogb() {
-        runTest(type: Float.self, func1: Vectorizate.logb, func2: VectorizateNoAccelerate.logb, accuracy: 1e-6)
-        runTest(type: Double.self, func1: Vectorizate.logb, func2: VectorizateNoAccelerate.logb, accuracy: 1e-12)
+        runTest(type: Float.self, func1: VecOps.logb, func2: VecOpsNoAccelerate.logb, accuracy: 1e-6)
+        runTest(type: Double.self, func1: VecOps.logb, func2: VecOpsNoAccelerate.logb, accuracy: 1e-12)
     }
 }
