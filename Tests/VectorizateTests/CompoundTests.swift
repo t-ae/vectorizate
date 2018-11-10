@@ -3,7 +3,7 @@ import Vectorizate
 
 class CompoundTests: XCTestCase {
     
-    let count = 1000
+    let count = 100
 
     func testVMA() {
         do {

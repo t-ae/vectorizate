@@ -3,7 +3,7 @@ import Vectorizate
 
 class Vector_VectorArithmeticTests: XCTestCase {
     
-    let count = 1000
+    let count = 100
     
     func runTest<F: BinaryFloatingPoint>(
         type: F.Type,
