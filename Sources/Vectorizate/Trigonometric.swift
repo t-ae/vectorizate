@@ -16,6 +16,16 @@ extension VecOps {
         vvsin(out, x, &count)
     }
     
+    public static func sinpi(x: UnsafePointer<Float>, out: UnsafeMutablePointer<Float>, count: Int) {
+        var count = Int32(count)
+        vvsinpif(out, x, &count)
+    }
+    
+    public static func sinpi(x: UnsafePointer<Double>, out: UnsafeMutablePointer<Double>, count: Int) {
+        var count = Int32(count)
+        vvsinpi(out, x, &count)
+    }
+    
     // MARK: cos
     public static func cos(x: UnsafePointer<Float>, out: UnsafeMutablePointer<Float>, count: Int) {
         var count = Int32(count)
@@ -27,6 +37,16 @@ extension VecOps {
         vvcos(out, x, &count)
     }
     
+    public static func cospi(x: UnsafePointer<Float>, out: UnsafeMutablePointer<Float>, count: Int) {
+        var count = Int32(count)
+        vvcospif(out, x, &count)
+    }
+    
+    public static func cospi(x: UnsafePointer<Double>, out: UnsafeMutablePointer<Double>, count: Int) {
+        var count = Int32(count)
+        vvcospi(out, x, &count)
+    }
+    
     // MARK: tan
     public static func tan(x: UnsafePointer<Float>, out: UnsafeMutablePointer<Float>, count: Int) {
         var count = Int32(count)
@@ -36,6 +56,16 @@ extension VecOps {
     public static func tan(x: UnsafePointer<Double>, out: UnsafeMutablePointer<Double>, count: Int) {
         var count = Int32(count)
         vvtan(out, x, &count)
+    }
+    
+    public static func tanpi(x: UnsafePointer<Float>, out: UnsafeMutablePointer<Float>, count: Int) {
+        var count = Int32(count)
+        vvtanpif(out, x, &count)
+    }
+    
+    public static func tanpi(x: UnsafePointer<Double>, out: UnsafeMutablePointer<Double>, count: Int) {
+        var count = Int32(count)
+        vvtanpi(out, x, &count)
     }
     
     // MARK: asin
@@ -108,6 +138,14 @@ extension VecOpsNoAccelerate {
         map(x: x, out: out, operation: Foundation.sin, count: count)
     }
     
+    public static func sinpi(x: UnsafePointer<Float>, out: UnsafeMutablePointer<Float>, count: Int) {
+        map(x: x, out: out, operation: { Foundation.sin($0 * .pi) }, count: count)
+    }
+    
+    public static func sinpi(x: UnsafePointer<Double>, out: UnsafeMutablePointer<Double>, count: Int) {
+        map(x: x, out: out, operation: { Foundation.sin($0 * .pi) }, count: count)
+    }
+    
     // MARK: cos
     public static func cos(x: UnsafePointer<Float>, out: UnsafeMutablePointer<Float>, count: Int) {
         map(x: x, out: out, operation: Foundation.cos, count: count)
@@ -117,6 +155,14 @@ extension VecOpsNoAccelerate {
         map(x: x, out: out, operation: Foundation.cos, count: count)
     }
     
+    public static func cospi(x: UnsafePointer<Float>, out: UnsafeMutablePointer<Float>, count: Int) {
+        map(x: x, out: out, operation: { Foundation.cos($0 * .pi) }, count: count)
+    }
+    
+    public static func cospi(x: UnsafePointer<Double>, out: UnsafeMutablePointer<Double>, count: Int) {
+        map(x: x, out: out, operation: { Foundation.cos($0 * .pi) }, count: count)
+    }
+    
     // MARK: tan
     public static func tan(x: UnsafePointer<Float>, out: UnsafeMutablePointer<Float>, count: Int) {
         map(x: x, out: out, operation: Foundation.tan, count: count)
@@ -124,6 +170,14 @@ extension VecOpsNoAccelerate {
     
     public static func tan(x: UnsafePointer<Double>, out: UnsafeMutablePointer<Double>, count: Int) {
         map(x: x, out: out, operation: Foundation.tan, count: count)
+    }
+    
+    public static func tanpi(x: UnsafePointer<Float>, out: UnsafeMutablePointer<Float>, count: Int) {
+        map(x: x, out: out, operation: { Foundation.tan($0 * .pi) }, count: count)
+    }
+    
+    public static func tanpi(x: UnsafePointer<Double>, out: UnsafeMutablePointer<Double>, count: Int) {
+        map(x: x, out: out, operation: { Foundation.tan($0 * .pi) }, count: count)
     }
     
     // MARK: asin

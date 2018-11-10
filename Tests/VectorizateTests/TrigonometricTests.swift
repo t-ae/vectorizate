@@ -26,16 +26,25 @@ class TrigonometricTests: XCTestCase {
     func testSin() {
         runTest(type: Float.self, func1: VecOps.sin, func2: VecOpsNoAccelerate.sin, accuracy: 1e-4)
         runTest(type: Double.self, func1: VecOps.sin, func2: VecOpsNoAccelerate.sin, accuracy: 1e-8)
+        
+        runTest(type: Float.self, func1: VecOps.sinpi, func2: VecOpsNoAccelerate.sinpi, accuracy: 1e-4)
+        runTest(type: Double.self, func1: VecOps.sinpi, func2: VecOpsNoAccelerate.sinpi, accuracy: 1e-8)
     }
     
     func testCos() {
         runTest(type: Float.self, func1: VecOps.cos, func2: VecOpsNoAccelerate.cos, accuracy: 1e-4)
         runTest(type: Double.self, func1: VecOps.cos, func2: VecOpsNoAccelerate.cos, accuracy: 1e-8)
+        
+        runTest(type: Float.self, func1: VecOps.cospi, func2: VecOpsNoAccelerate.cospi, accuracy: 1e-4)
+        runTest(type: Double.self, func1: VecOps.cospi, func2: VecOpsNoAccelerate.cospi, accuracy: 1e-8)
     }
     
     func testTan() {
         runTest(type: Float.self, func1: VecOps.tan, func2: VecOpsNoAccelerate.tan, accuracy: 1e-4)
         runTest(type: Double.self, func1: VecOps.tan, func2: VecOpsNoAccelerate.tan, accuracy: 1e-8)
+        
+        runTest(type: Float.self, func1: VecOps.tanpi, func2: VecOpsNoAccelerate.tanpi, accuracy: 1e-2)
+        runTest(type: Double.self, func1: VecOps.tanpi, func2: VecOpsNoAccelerate.tanpi, accuracy: 1e-4)
     }
     
     func testASin() {
