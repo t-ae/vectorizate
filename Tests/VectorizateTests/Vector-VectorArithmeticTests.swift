@@ -3,114 +3,158 @@ import Vectorizate
 
 class Vector_VectorArithmeticTests: XCTestCase {
     
-    let count = 10
-
+    let count = 1000
+    
+    func runTest<F: BinaryFloatingPoint>(
+        type: F.Type,
+        func1: (UnsafePointer<F>, Int, UnsafePointer<F>, Int, UnsafeMutablePointer<F>, Int, Int)->Void,
+        func2: (UnsafePointer<F>, Int, UnsafePointer<F>, Int, UnsafeMutablePointer<F>, Int, Int)->Void,
+        ia: Int, ib: Int, iOut: Int,
+        accuracy: F = 0,
+        file: StaticString = #file, line: UInt = #line)
+        where F.RawSignificand: FixedWidthInteger{
+            let a: [F] = randomArray(count: count*ia, in: 0..<10)
+            let b: [F] = randomArray(count: count*ib, in: 1..<10)
+            var ans1 = [F](repeating: 0, count: count*iOut)
+            var ans2 = [F](repeating: 0, count: count*iOut)
+            
+            func1(a, ia, b, ib, &ans1, iOut, count)
+            func2(a, ia, b, ib, &ans2, iOut, count)
+            
+            XCTAssertEqual(ans1, ans2, accuracy: accuracy, file: file, line: line)
+    }
+    
     func testVAdd() {
         do {
             typealias T = Float
-            let a: [T] = randomArray(count: count, in: 0..<1)
-            let b: [T] = randomArray(count: count, in: 0..<1)
-            var ans1 = [T](repeating: 0, count: count)
-            var ans2 = [T](repeating: 0, count: count)
-            
-            Vectorizate.vadd(a: a, ia: 1, b: b, ib: 1, out: &ans1, iOut: 1, count: count)
-            VectorizateNoAccelerate.vadd(a: a, ia: 1, b: b, ib: 1, out: &ans2, iOut: 1, count: count)
-            
-            XCTAssertEqual(ans1, ans2)
+            runTest(type: T.self,
+                    func1: Vectorizate.vadd, func2: VectorizateNoAccelerate.vadd,
+                    ia: 1, ib: 1, iOut: 1)
+            runTest(type: T.self,
+                    func1: Vectorizate.vadd, func2: VectorizateNoAccelerate.vadd,
+                    ia: 2, ib: 2, iOut: 1)
+            runTest(type: T.self,
+                    func1: Vectorizate.vadd, func2: VectorizateNoAccelerate.vadd,
+                    ia: 1, ib: 1, iOut: 2)
+            runTest(type: T.self,
+                    func1: Vectorizate.vadd, func2: VectorizateNoAccelerate.vadd,
+                    ia: 3, ib: 2, iOut: 4)
         }
         do {
             typealias T = Double
-            let a: [T] = randomArray(count: count, in: 0..<1)
-            let b: [T] = randomArray(count: count, in: 0..<1)
-            var ans1 = [T](repeating: 0, count: count)
-            var ans2 = [T](repeating: 0, count: count)
-            
-            Vectorizate.vadd(a: a, ia: 1, b: b, ib: 1, out: &ans1, iOut: 1, count: count)
-            VectorizateNoAccelerate.vadd(a: a, ia: 1, b: b, ib: 1, out: &ans2, iOut: 1, count: count)
-            
-            XCTAssertEqual(ans1, ans2)
+            runTest(type: T.self,
+                    func1: Vectorizate.vadd, func2: VectorizateNoAccelerate.vadd,
+                    ia: 1, ib: 1, iOut: 1)
+            runTest(type: T.self,
+                    func1: Vectorizate.vadd, func2: VectorizateNoAccelerate.vadd,
+                    ia: 2, ib: 2, iOut: 1)
+            runTest(type: T.self,
+                    func1: Vectorizate.vadd, func2: VectorizateNoAccelerate.vadd,
+                    ia: 1, ib: 1, iOut: 2)
+            runTest(type: T.self,
+                    func1: Vectorizate.vadd, func2: VectorizateNoAccelerate.vadd,
+                    ia: 3, ib: 2, iOut: 4)
         }
     }
     
-    func testVSSub() {
+    func testVSub() {
         do {
             typealias T = Float
-            let a: [T] = randomArray(count: count, in: 0..<1)
-            let b: [T] = randomArray(count: count, in: 0..<1)
-            var ans1 = [T](repeating: 0, count: count)
-            var ans2 = [T](repeating: 0, count: count)
-            
-            Vectorizate.vsub(a: a, ia: 1, b: b, ib: 1, out: &ans1, iOut: 1, count: count)
-            VectorizateNoAccelerate.vsub(a: a, ia: 1, b: b, ib: 1, out: &ans2, iOut: 1, count: count)
-            
-            XCTAssertEqual(ans1, ans2)
+            runTest(type: T.self,
+                    func1: Vectorizate.vsub, func2: VectorizateNoAccelerate.vsub,
+                    ia: 1, ib: 1, iOut: 1)
+            runTest(type: T.self,
+                    func1: Vectorizate.vsub, func2: VectorizateNoAccelerate.vsub,
+                    ia: 2, ib: 2, iOut: 1)
+            runTest(type: T.self,
+                    func1: Vectorizate.vsub, func2: VectorizateNoAccelerate.vsub,
+                    ia: 1, ib: 1, iOut: 2)
+            runTest(type: T.self,
+                    func1: Vectorizate.vsub, func2: VectorizateNoAccelerate.vsub,
+                    ia: 3, ib: 2, iOut: 4)
         }
         do {
             typealias T = Double
-            let a: [T] = randomArray(count: count, in: 0..<1)
-            let b: [T] = randomArray(count: count, in: 0..<1)
-            var ans1 = [T](repeating: 0, count: count)
-            var ans2 = [T](repeating: 0, count: count)
-            
-            Vectorizate.vsub(a: a, ia: 1, b: b, ib: 1, out: &ans1, iOut: 1, count: count)
-            VectorizateNoAccelerate.vsub(a: a, ia: 1, b: b, ib: 1, out: &ans2, iOut: 1, count: count)
-            
-            XCTAssertEqual(ans1, ans2)
+            runTest(type: T.self,
+                    func1: Vectorizate.vsub, func2: VectorizateNoAccelerate.vsub,
+                    ia: 1, ib: 1, iOut: 1)
+            runTest(type: T.self,
+                    func1: Vectorizate.vsub, func2: VectorizateNoAccelerate.vsub,
+                    ia: 2, ib: 2, iOut: 1)
+            runTest(type: T.self,
+                    func1: Vectorizate.vsub, func2: VectorizateNoAccelerate.vsub,
+                    ia: 1, ib: 1, iOut: 2)
+            runTest(type: T.self,
+                    func1: Vectorizate.vsub, func2: VectorizateNoAccelerate.vsub,
+                    ia: 3, ib: 2, iOut: 4)
         }
     }
     
     func testVMul() {
         do {
             typealias T = Float
-            let a: [T] = randomArray(count: count, in: 0..<1)
-            let b: [T] = randomArray(count: count, in: 0..<1)
-            var ans1 = [T](repeating: 0, count: count)
-            var ans2 = [T](repeating: 0, count: count)
-            
-            Vectorizate.vmul(a: a, ia: 1, b: b, ib: 1, out: &ans1, iOut: 1, count: count)
-            VectorizateNoAccelerate.vmul(a: a, ia: 1, b: b, ib: 1, out: &ans2, iOut: 1, count: count)
-            
-            XCTAssertEqual(ans1, ans2)
+            runTest(type: T.self,
+                    func1: Vectorizate.vmul, func2: VectorizateNoAccelerate.vmul,
+                    ia: 1, ib: 1, iOut: 1)
+            runTest(type: T.self,
+                    func1: Vectorizate.vmul, func2: VectorizateNoAccelerate.vmul,
+                    ia: 2, ib: 2, iOut: 1)
+            runTest(type: T.self,
+                    func1: Vectorizate.vmul, func2: VectorizateNoAccelerate.vmul,
+                    ia: 1, ib: 1, iOut: 2)
+            runTest(type: T.self,
+                    func1: Vectorizate.vmul, func2: VectorizateNoAccelerate.vmul,
+                    ia: 3, ib: 2, iOut: 4)
         }
         do {
             typealias T = Double
-            let a: [T] = randomArray(count: count, in: 0..<1)
-            let b: [T] = randomArray(count: count, in: 0..<1)
-            var ans1 = [T](repeating: 0, count: count)
-            var ans2 = [T](repeating: 0, count: count)
-            
-            Vectorizate.vmul(a: a, ia: 1, b: b, ib: 1, out: &ans1, iOut: 1, count: count)
-            VectorizateNoAccelerate.vmul(a: a, ia: 1, b: b, ib: 1, out: &ans2, iOut: 1, count: count)
-            
-            XCTAssertEqual(ans1, ans2)
+            runTest(type: T.self,
+                    func1: Vectorizate.vmul, func2: VectorizateNoAccelerate.vmul,
+                    ia: 1, ib: 1, iOut: 1)
+            runTest(type: T.self,
+                    func1: Vectorizate.vmul, func2: VectorizateNoAccelerate.vmul,
+                    ia: 2, ib: 2, iOut: 1)
+            runTest(type: T.self,
+                    func1: Vectorizate.vmul, func2: VectorizateNoAccelerate.vmul,
+                    ia: 1, ib: 1, iOut: 2)
+            runTest(type: T.self,
+                    func1: Vectorizate.vmul, func2: VectorizateNoAccelerate.vmul,
+                    ia: 3, ib: 2, iOut: 4)
         }
     }
     
     func testVDiv() {
         do {
             typealias T = Float
-            let a: [T] = randomArray(count: count, in: 0..<1)
-            let b: [T] = randomArray(count: count, in: 1..<2)
-            var ans1 = [T](repeating: 0, count: count)
-            var ans2 = [T](repeating: 0, count: count)
-            
-            Vectorizate.vdiv(a: a, ia: 1, b: b, ib: 1, out: &ans1, iOut: 1, count: count)
-            VectorizateNoAccelerate.vdiv(a: a, ia: 1, b: b, ib: 1, out: &ans2, iOut: 1, count: count)
-            
-            XCTAssertEqual(ans1, ans2, accuracy: 1e-4)
+            let accuracy: T = 1e-4
+            runTest(type: T.self,
+                    func1: Vectorizate.vdiv, func2: VectorizateNoAccelerate.vdiv,
+                    ia: 1, ib: 1, iOut: 1, accuracy: accuracy)
+            runTest(type: T.self,
+                    func1: Vectorizate.vdiv, func2: VectorizateNoAccelerate.vdiv,
+                    ia: 2, ib: 2, iOut: 1, accuracy: accuracy)
+            runTest(type: T.self,
+                    func1: Vectorizate.vdiv, func2: VectorizateNoAccelerate.vdiv,
+                    ia: 1, ib: 1, iOut: 2, accuracy: accuracy)
+            runTest(type: T.self,
+                    func1: Vectorizate.vdiv, func2: VectorizateNoAccelerate.vdiv,
+                    ia: 3, ib: 2, iOut: 4, accuracy: accuracy)
         }
         do {
             typealias T = Double
-            let a: [T] = randomArray(count: count, in: 0..<1)
-            let b: [T] = randomArray(count: count, in: 0..<1)
-            var ans1 = [T](repeating: 0, count: count)
-            var ans2 = [T](repeating: 0, count: count)
-            
-            Vectorizate.vdiv(a: a, ia: 1, b: b, ib: 1, out: &ans1, iOut: 1, count: count)
-            VectorizateNoAccelerate.vdiv(a: a, ia: 1, b: b, ib: 1, out: &ans2, iOut: 1, count: count)
-            
-            XCTAssertEqual(ans1, ans2, accuracy: 1e-8)
+            let accuracy: T = 1e-8
+            runTest(type: T.self,
+                    func1: Vectorizate.vdiv, func2: VectorizateNoAccelerate.vdiv,
+                    ia: 1, ib: 1, iOut: 1, accuracy: accuracy)
+            runTest(type: T.self,
+                    func1: Vectorizate.vdiv, func2: VectorizateNoAccelerate.vdiv,
+                    ia: 2, ib: 2, iOut: 1, accuracy: accuracy)
+            runTest(type: T.self,
+                    func1: Vectorizate.vdiv, func2: VectorizateNoAccelerate.vdiv,
+                    ia: 1, ib: 1, iOut: 2, accuracy: accuracy)
+            runTest(type: T.self,
+                    func1: Vectorizate.vdiv, func2: VectorizateNoAccelerate.vdiv,
+                    ia: 3, ib: 2, iOut: 4, accuracy: accuracy)
         }
     }
-
 }
