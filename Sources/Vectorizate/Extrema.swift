@@ -95,8 +95,10 @@ extension VecOps {
 #endif
 
 extension VecOpsNoAccelerate {
-    private static func reduce<T: BinaryFloatingPoint>(x: UnsafePointer<T>, ix: Int, out: inout T,
-                                                       operation: (inout T, T)-> Void, count: Int) {
+    private static func reduce<T: BinaryFloatingPoint>(
+        x: UnsafePointer<T>, ix: Int, out: inout T,
+        operation: (inout T, T)-> Void, count: Int) {
+        
         var x = x
         for _ in 0..<count {
             operation(&out, x.pointee)
@@ -104,9 +106,11 @@ extension VecOpsNoAccelerate {
         }
     }
     
-    private static func reduce<T: BinaryFloatingPoint>(x: UnsafePointer<T>, ix: Int,
-                                                       out: inout T, index: inout UInt,
-                                                       operation: (inout T, inout UInt, UInt, T)-> Void, count: Int) {
+    private static func reduce<T: BinaryFloatingPoint>(
+        x: UnsafePointer<T>, ix: Int,
+        out: inout T, index: inout UInt,
+        operation: (inout T, inout UInt, UInt, T)-> Void, count: Int) {
+        
         var x = x
         var i: UInt = 0
         for _ in 0..<UInt(count) {

@@ -87,14 +87,16 @@ extension VecOpsNoAccelerate {
                             b: UnsafePointer<Float>, ib: Int,
                             out: UnsafeMutablePointer<Float>, iOut: Int,
                             count: Int) {
-        map(a: a, ia: ia, b: b, ib: ib, out: out, iOut: iOut, operation: +, count: count)
+        map(a: a, ia: ia, b: b, ib: ib, out: out, iOut: iOut,
+            operation: +, count: count)
     }
     
     public static func vadd(a: UnsafePointer<Double>, ia: Int,
                             b: UnsafePointer<Double>, ib: Int,
                             out: UnsafeMutablePointer<Double>, iOut: Int,
                             count: Int) {
-        map(a: a, ia: ia, b: b, ib: ib, out: out, iOut: iOut, operation: +, count: count)
+        map(a: a, ia: ia, b: b, ib: ib, out: out, iOut: iOut,
+            operation: +, count: count)
     }
     
     // MARK: vsub
@@ -102,14 +104,16 @@ extension VecOpsNoAccelerate {
                             b: UnsafePointer<Float>, ib: Int,
                             out: UnsafeMutablePointer<Float>, iOut: Int,
                             count: Int) {
-        map(a: a, ia: ia, b: b, ib: ib, out: out, iOut: iOut, operation: -, count: count)
+        map(a: a, ia: ia, b: b, ib: ib, out: out, iOut: iOut,
+            operation: -, count: count)
     }
     
     public static func vsub(a: UnsafePointer<Double>, ia: Int,
                             b: UnsafePointer<Double>, ib: Int,
                             out: UnsafeMutablePointer<Double>, iOut: Int,
                             count: Int) {
-        map(a: a, ia: ia, b: b, ib: ib, out: out, iOut: iOut, operation: -, count: count)
+        map(a: a, ia: ia, b: b, ib: ib, out: out, iOut: iOut,
+            operation: -, count: count)
     }
     
     // MARK: vmul
@@ -117,14 +121,16 @@ extension VecOpsNoAccelerate {
                             b: UnsafePointer<Float>, ib: Int,
                             out: UnsafeMutablePointer<Float>, iOut: Int,
                             count: Int) {
-        map(a: a, ia: ia, b: b, ib: ib, out: out, iOut: iOut, operation: *, count: count)
+        map(a: a, ia: ia, b: b, ib: ib, out: out, iOut: iOut,
+            operation: *, count: count)
     }
     
     public static func vmul(a: UnsafePointer<Double>, ia: Int,
                             b: UnsafePointer<Double>, ib: Int,
                             out: UnsafeMutablePointer<Double>, iOut: Int,
                             count: Int) {
-        map(a: a, ia: ia, b: b, ib: ib, out: out, iOut: iOut, operation: *, count: count)
+        map(a: a, ia: ia, b: b, ib: ib, out: out, iOut: iOut,
+            operation: *, count: count)
     }
     
     // MARK: vdiv
@@ -132,13 +138,15 @@ extension VecOpsNoAccelerate {
                             b: UnsafePointer<Float>, ib: Int,
                             out: UnsafeMutablePointer<Float>, iOut: Int,
                             count: Int) {
-        map(a: a, ia: ia, b: b, ib: ib, out: out, iOut: iOut, operation: /, count: count)
+        map(a: a, ia: ia, b: b, ib: ib, out: out, iOut: iOut,
+            operation: /, count: count)
     }
     
     public static func vdiv(a: UnsafePointer<Double>, ia: Int,
                             b: UnsafePointer<Double>, ib: Int,
                             out: UnsafeMutablePointer<Double>, iOut: Int,
                             count: Int) {
-        map(a: a, ia: ia, b: b, ib: ib, out: out, iOut: iOut, operation: /, count: count)
+        map(a: a, ia: ia, b: b, ib: ib, out: out, iOut: iOut,
+            operation: /, count: count)
     }
 }

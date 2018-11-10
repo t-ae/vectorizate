@@ -102,12 +102,14 @@ extension VecOps {
     }
     
     // MARK: atan2
-    public static func atan2(y: UnsafePointer<Float>, x: UnsafePointer<Float>, out: UnsafeMutablePointer<Float>, count: Int) {
+    public static func atan2(y: UnsafePointer<Float>, x: UnsafePointer<Float>,
+                             out: UnsafeMutablePointer<Float>, count: Int) {
         var count = Int32(count)
         vvatan2f(out, y, x, &count)
     }
     
-    public static func atan2(y: UnsafePointer<Double>, x: UnsafePointer<Double>, out: UnsafeMutablePointer<Double>, count: Int) {
+    public static func atan2(y: UnsafePointer<Double>, x: UnsafePointer<Double>,
+                             out: UnsafeMutablePointer<Double>, count: Int) {
         var count = Int32(count)
         vvatan2(out, y, x, &count)
     }
@@ -208,7 +210,8 @@ extension VecOpsNoAccelerate {
     }
     
     // MARK: atan2
-    public static func atan2(y: UnsafePointer<Float>, x: UnsafePointer<Float>, out: UnsafeMutablePointer<Float>, count: Int) {
+    public static func atan2(y: UnsafePointer<Float>, x: UnsafePointer<Float>,
+                             out: UnsafeMutablePointer<Float>, count: Int) {
         var y = y
         var x = x
         var out = out
@@ -220,7 +223,8 @@ extension VecOpsNoAccelerate {
         }
     }
     
-    public static func atan2(y: UnsafePointer<Double>, x: UnsafePointer<Double>, out: UnsafeMutablePointer<Double>, count: Int) {
+    public static func atan2(y: UnsafePointer<Double>, x: UnsafePointer<Double>,
+                             out: UnsafeMutablePointer<Double>, count: Int) {
         var y = y
         var x = x
         var out = out

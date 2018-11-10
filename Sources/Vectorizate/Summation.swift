@@ -97,27 +97,27 @@ extension VecOpsNoAccelerate {
     
     // MARK: sve_svesq
     public static func sve_svesq(x: UnsafePointer<Float>, ix: Int,
-                                 sum: UnsafeMutablePointer<Float>, sum2: UnsafeMutablePointer<Float>,
+                                 sum: inout Float, sum2: inout Float,
                                  count: Int) {
         var x = x
-        sum.pointee = 0
-        sum2.pointee = 0
+        sum = 0
+        sum2 = 0
         for _ in 0..<count {
-            sum.pointee += x.pointee
-            sum2.pointee += x.pointee*x.pointee
+            sum += x.pointee
+            sum2 += x.pointee*x.pointee
             x += ix
         }
     }
     
     public static func sve_svesq(x: UnsafePointer<Double>, ix: Int,
-                                 sum: UnsafeMutablePointer<Double>, sum2: UnsafeMutablePointer<Double>,
+                                 sum: inout Double, sum2: inout Double,
                                  count: Int) {
         var x = x
-        sum.pointee = 0
-        sum2.pointee = 0
+        sum = 0
+        sum2 = 0
         for _ in 0..<count {
-            sum.pointee += x.pointee
-            sum2.pointee += x.pointee*x.pointee
+            sum += x.pointee
+            sum2 += x.pointee*x.pointee
             x += ix
         }
     }

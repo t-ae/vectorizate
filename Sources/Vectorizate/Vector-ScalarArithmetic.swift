@@ -123,14 +123,16 @@ extension VecOpsNoAccelerate {
                              b: Float,
                              out: UnsafeMutablePointer<Float>, iOut: Int,
                              count: Int) {
-        map(a: a, ia: ia, b: b, out: out, iOut: iOut, operation: +, count:  count)
+        map(a: a, ia: ia, b: b, out: out, iOut: iOut,
+            operation: +, count:  count)
     }
     
     public static func vsadd(a: UnsafePointer<Double>, ia: Int,
                              b: Double,
                              out: UnsafeMutablePointer<Double>, iOut: Int,
                              count: Int) {
-        map(a: a, ia: ia, b: b, out: out, iOut: iOut, operation: +, count:  count)
+        map(a: a, ia: ia, b: b, out: out, iOut: iOut,
+            operation: +, count:  count)
     }
     
     // MARK: vssub
@@ -138,14 +140,16 @@ extension VecOpsNoAccelerate {
                              b: Float,
                              out: UnsafeMutablePointer<Float>, iOut: Int,
                              count: Int) {
-        map(a: a, ia: ia, b: b, out: out, iOut: iOut, operation: -, count:  count)
+        map(a: a, ia: ia, b: b, out: out, iOut: iOut,
+            operation: -, count:  count)
     }
     
     public static func vssub(a: UnsafePointer<Double>, ia: Int,
                              b: Double,
                              out: UnsafeMutablePointer<Double>, iOut: Int,
                              count: Int) {
-        map(a: a, ia: ia, b: b, out: out, iOut: iOut, operation: -, count:  count)
+        map(a: a, ia: ia, b: b, out: out, iOut: iOut,
+            operation: -, count:  count)
     }
     
     // MARK: svsub
@@ -153,13 +157,15 @@ extension VecOpsNoAccelerate {
                              b: UnsafePointer<Float>, ib: Int,
                              out: UnsafeMutablePointer<Float>, iOut: Int,
                              count: Int) {
-        map(a: b, ia: ib, b: a, out: out, iOut: iOut, operation: { $1 - $0 }, count:  count)
+        map(a: b, ia: ib, b: a, out: out, iOut: iOut,
+            operation: { $1 - $0 }, count:  count)
     }
     public static func svsub(a: Double,
                              b: UnsafePointer<Double>, ib: Int,
                              out: UnsafeMutablePointer<Double>, iOut: Int,
                              count: Int) {
-        map(a: b, ia: ib, b: a, out: out, iOut: iOut, operation: { $1 - $0 }, count:  count)
+        map(a: b, ia: ib, b: a, out: out, iOut: iOut,
+            operation: { $1 - $0 }, count:  count)
     }
     
     // MARK: vsmul
@@ -167,14 +173,16 @@ extension VecOpsNoAccelerate {
                              b: Float,
                              out: UnsafeMutablePointer<Float>, iOut: Int,
                              count: Int) {
-        map(a: a, ia: ia, b: b, out: out, iOut: iOut, operation: *, count:  count)
+        map(a: a, ia: ia, b: b, out: out, iOut: iOut,
+            operation: *, count:  count)
     }
     
     public static func vsmul(a: UnsafePointer<Double>, ia: Int,
                              b: Double,
                              out: UnsafeMutablePointer<Double>, iOut: Int,
                              count: Int) {
-        map(a: a, ia: ia, b: b, out: out, iOut: iOut, operation: *, count:  count)
+        map(a: a, ia: ia, b: b, out: out, iOut: iOut,
+            operation: *, count:  count)
     }
     
     // MARK: vsdiv
@@ -182,14 +190,16 @@ extension VecOpsNoAccelerate {
                              b: Float,
                              out: UnsafeMutablePointer<Float>, iOut: Int,
                              count: Int) {
-        map(a: a, ia: ia, b: b, out: out, iOut: iOut, operation: /, count:  count)
+        map(a: a, ia: ia, b: b, out: out, iOut: iOut,
+            operation: /, count:  count)
     }
     
     public static func vsdiv(a: UnsafePointer<Double>, ia: Int,
                              b: Double,
                              out: UnsafeMutablePointer<Double>, iOut: Int,
                              count: Int) {
-        map(a: a, ia: ia, b: b, out: out, iOut: iOut, operation: /, count:  count)
+        map(a: a, ia: ia, b: b, out: out, iOut: iOut,
+            operation: /, count:  count)
     }
     
     // MARK: svdiv
@@ -197,13 +207,15 @@ extension VecOpsNoAccelerate {
                              b: UnsafePointer<Float>, ib: Int,
                              out: UnsafeMutablePointer<Float>, iOut: Int,
                              count: Int) {
-        map(a: b, ia: ib, b: a, out: out, iOut: iOut, operation: { $1 / $0 }, count:  count)
+        map(a: b, ia: ib, b: a, out: out, iOut: iOut,
+            operation: { $1 / $0 }, count:  count)
     }
     
     public static func svdiv(a: Double,
                              b: UnsafePointer<Double>, ib: Int,
                              out: UnsafeMutablePointer<Double>, iOut: Int,
                              count: Int) {
-        map(a: b, ia: ib, b: a, out: out, iOut: iOut, operation: { $1 / $0 }, count:  count)
+        map(a: b, ia: ib, b: a, out: out, iOut: iOut,
+            operation: { $1 / $0 }, count:  count)
     }
 }
