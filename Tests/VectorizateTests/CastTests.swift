@@ -222,13 +222,13 @@ class CastTests: XCTestCase {
         }
     }
     
-    func testSpDp() {
+    func testVSpDp() {
         let x = [Float](stride(from: -10, to: 10, by: 0.1)).map { $0+0.01 }
         runTest(to: Double.self, x: x, ix: 1, iOut: 1, func1: VecOps.vspdp, func2: VecOpsNoAccelerate.vspdp)
         runTest(to: Double.self, x: x, ix: 2, iOut: 3, func1: VecOps.vspdp, func2: VecOpsNoAccelerate.vspdp)
     }
     
-    func testDpSp() {
+    func testVDpSp() {
         let x = [Double](stride(from: -10, to: 10, by: 0.1)).map { $0+0.01 }
         runTest(to: Float.self, x: x, ix: 1, iOut: 1, func1: VecOps.vdpsp, func2: VecOpsNoAccelerate.vdpsp)
         runTest(to: Float.self, x: x, ix: 2, iOut: 3, func1: VecOps.vdpsp, func2: VecOpsNoAccelerate.vdpsp)

@@ -20,19 +20,22 @@ Also there is `VecOpsNoAccelerate` which is equivalent to `VecOps` but doesn't u
 If Accelerate Framework is not available, `VecOps` becomes typealias of `VecOpsNoAccelerate`.
 
 ## Supported operations
+
+### From vDSP(https://developer.apple.com/documentation/accelerate/vdsp)
 vma, vmsb, vmsa, vsma, vsmsb, vsmsb,  
 vadd, vsub, vmul, vdiv,  
 vsadd, vssub, svsub, vsmul, vsdiv, svdiv,  
 vabs, vnabs, vneg, vsq, vssq,  
-sin, cos, tan, asin, acos, atan, atan2,  
-sinh, cosh, tanh, asinh, acoish, atanh,  
-exp, exp2, exp1m, log, log1p, log2, log10, logb,  
-vflt, vfix, vfixr, spdp, dpsp,  
+vflt, vfix, vfixr, vspdp, vdpsp,  
 sve, svesq, sve_svesq, svs,
 vmax, vmagmg, vmin, vminmg,  
 vclip, viclip,  
 minv, minvi, minmgvi, maxv, maxvi, maxmgv, maxmgvi,  
 
+### From [vForce](https://developer.apple.com/documentation/accelerate/veclib/vforce)
+sin, cos, tan, asin, acos, atan, atan2,  
+sinh, cosh, tanh, asinh, acoish, atanh,  
+exp, exp2, exp1m, log, log1p, log2, log10, logb,  
 
 ## Lisence
 [The MIT License](https://github.com/t-ae/vectorizate/blob/master/LICENSE)
