@@ -1,3 +1,4 @@
 # Vectorizate
 
-A description of this package.
+Simple wrapper of Accelerate Framework & complementation for Linux.
+
