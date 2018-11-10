@@ -25,8 +25,27 @@ extension Vectorizate {
     public static func vneg(x: UnsafePointer<Float>, ix: Int, out: UnsafeMutablePointer<Float>, iOut: Int, count: Int) {
         vDSP_vneg(x, ix, out, iOut, UInt(count))
     }
+    
     public static func vneg(x: UnsafePointer<Double>, ix: Int, out: UnsafeMutablePointer<Double>, iOut: Int, count: Int) {
         vDSP_vnegD(x, ix, out, iOut, UInt(count))
+    }
+    
+    // MARK: vsq
+    public static func vsq(x: UnsafePointer<Float>, ix: Int, out: UnsafeMutablePointer<Float>, iOut: Int, count: Int) {
+        vDSP_vsq(x, ix, out, iOut, UInt(count))
+    }
+    
+    public static func vsq(x: UnsafePointer<Double>, ix: Int, out: UnsafeMutablePointer<Double>, iOut: Int, count: Int) {
+        vDSP_vsqD(x, ix, out, iOut, UInt(count))
+    }
+    
+    // MARK: vssq
+    public static func vssq(x: UnsafePointer<Float>, ix: Int, out: UnsafeMutablePointer<Float>, iOut: Int, count: Int) {
+        vDSP_vssq(x, ix, out, iOut, UInt(count))
+    }
+    
+    public static func vssq(x: UnsafePointer<Double>, ix: Int, out: UnsafeMutablePointer<Double>, iOut: Int, count: Int) {
+        vDSP_vssqD(x, ix, out, iOut, UInt(count))
     }
 }
 
@@ -68,7 +87,26 @@ extension VectorizateNoAccelerate {
     public static func vneg(x: UnsafePointer<Float>, ix: Int, out: UnsafeMutablePointer<Float>, iOut: Int, count: Int) {
         map(x: x, ix: ix, out: out, iOut: iOut, operation: -, count: count)
     }
+    
     public static func vneg(x: UnsafePointer<Double>, ix: Int, out: UnsafeMutablePointer<Double>, iOut: Int, count: Int) {
         map(x: x, ix: ix, out: out, iOut: iOut, operation: -, count: count)
+    }
+    
+    // MARK: vsq
+    public static func vsq(x: UnsafePointer<Float>, ix: Int, out: UnsafeMutablePointer<Float>, iOut: Int, count: Int) {
+        map(x: x, ix: ix, out: out, iOut: iOut, operation: { $0*$0 }, count: count)
+    }
+    
+    public static func vsq(x: UnsafePointer<Double>, ix: Int, out: UnsafeMutablePointer<Double>, iOut: Int, count: Int) {
+        map(x: x, ix: ix, out: out, iOut: iOut, operation: { $0*$0 }, count: count)
+    }
+    
+    // MARK: vssq
+    public static func vssq(x: UnsafePointer<Float>, ix: Int, out: UnsafeMutablePointer<Float>, iOut: Int, count: Int) {
+        map(x: x, ix: ix, out: out, iOut: iOut, operation: { $0*abs($0) }, count: count)
+    }
+    
+    public static func vssq(x: UnsafePointer<Double>, ix: Int, out: UnsafeMutablePointer<Double>, iOut: Int, count: Int) {
+        map(x: x, ix: ix, out: out, iOut: iOut, operation: { $0*abs($0) }, count: count)
     }
 }

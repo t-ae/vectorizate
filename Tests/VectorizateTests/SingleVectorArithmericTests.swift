@@ -47,4 +47,20 @@ class SingleVectorArithmericTests: XCTestCase {
         runTest(type: Double.self, func1: Vectorizate.vneg, func2: VectorizateNoAccelerate.vneg, ix: 1, iOut: 1)
         runTest(type: Double.self, func1: Vectorizate.vneg, func2: VectorizateNoAccelerate.vneg, ix: 3, iOut: 2)
     }
+    
+    func testVSq() {
+        runTest(type: Float.self, func1: Vectorizate.vsq, func2: VectorizateNoAccelerate.vsq, ix: 1, iOut: 1)
+        runTest(type: Float.self, func1: Vectorizate.vsq, func2: VectorizateNoAccelerate.vsq, ix: 3, iOut: 2)
+        
+        runTest(type: Double.self, func1: Vectorizate.vsq, func2: VectorizateNoAccelerate.vsq, ix: 1, iOut: 1)
+        runTest(type: Double.self, func1: Vectorizate.vsq, func2: VectorizateNoAccelerate.vsq, ix: 3, iOut: 2)
+    }
+    
+    func testVSSq() {
+        runTest(type: Float.self, func1: Vectorizate.vssq, func2: VectorizateNoAccelerate.vssq, ix: 1, iOut: 1)
+        runTest(type: Float.self, func1: Vectorizate.vssq, func2: VectorizateNoAccelerate.vssq, ix: 3, iOut: 2)
+        
+        runTest(type: Double.self, func1: Vectorizate.vssq, func2: VectorizateNoAccelerate.vssq, ix: 1, iOut: 1)
+        runTest(type: Double.self, func1: Vectorizate.vssq, func2: VectorizateNoAccelerate.vssq, ix: 3, iOut: 2)
+    }
 }
