@@ -4,14 +4,14 @@ import Accelerate
 
 extension VecOps {
     // MARK: vabs
-    /// out[i*iOut] = abs(x[i*ix]), for 0 <= i < count
+    /// out[i * iOut] = abs(x[i * ix]), for 0 <= i < count
     public static func vabs(x: UnsafePointer<Float>, ix: Int,
                             out: UnsafeMutablePointer<Float>, iOut: Int,
                             count: Int) {
         vDSP_vabs(x, ix, out, iOut, UInt(count))
     }
     
-    /// out[i*iOut] = abs(x[i*ix]), for 0 <= i < count
+    /// out[i * iOut] = abs(x[i * ix]), for 0 <= i < count
     public static func vabs(x: UnsafePointer<Double>, ix: Int,
                             out: UnsafeMutablePointer<Double>, iOut: Int,
                             count: Int) {
@@ -20,14 +20,14 @@ extension VecOps {
     
     // MARK: vnabs
     
-    /// out[i*iOut] = -abs(x[i*ix]), for 0 <= i < count
+    /// out[i * iOut] = -abs(x[i * ix]), for 0 <= i < count
     public static func vnabs(x: UnsafePointer<Float>, ix: Int,
                              out: UnsafeMutablePointer<Float>, iOut: Int,
                              count: Int) {
         vDSP_vnabs(x, ix, out, iOut, UInt(count))
     }
     
-    /// out[i*iOut] = -abs(x[i*ix]), for 0 <= i < count
+    /// out[i * iOut] = -abs(x[i * ix]), for 0 <= i < count
     public static func vnabs(x: UnsafePointer<Double>, ix: Int,
                              out: UnsafeMutablePointer<Double>, iOut: Int,
                              count: Int) {
@@ -36,14 +36,14 @@ extension VecOps {
     
     // MARK: vneg
     
-    /// out[i*iOut] = -x[i*ix], for 0 <= i < count
+    /// out[i * iOut] = -x[i * ix], for 0 <= i < count
     public static func vneg(x: UnsafePointer<Float>, ix: Int,
                             out: UnsafeMutablePointer<Float>, iOut: Int,
                             count: Int) {
         vDSP_vneg(x, ix, out, iOut, UInt(count))
     }
     
-    /// out[i*iOut] = -x[i*ix], for 0 <= i < count
+    /// out[i * iOut] = -x[i * ix], for 0 <= i < count
     public static func vneg(x: UnsafePointer<Double>, ix: Int,
                             out: UnsafeMutablePointer<Double>, iOut: Int,
                             count: Int) {
@@ -51,14 +51,14 @@ extension VecOps {
     }
     
     // MARK: vsq
-    /// out[i*iOut] = x[i*ix]**2, for 0 <= i < count
+    /// out[i * iOut] = x[i * ix]**2, for 0 <= i < count
     public static func vsq(x: UnsafePointer<Float>, ix: Int,
                            out: UnsafeMutablePointer<Float>, iOut: Int,
                            count: Int) {
         vDSP_vsq(x, ix, out, iOut, UInt(count))
     }
     
-    /// out[i*iOut] = x[i*ix]**2, for 0 <= i < count
+    /// out[i * iOut] = x[i * ix]**2, for 0 <= i < count
     public static func vsq(x: UnsafePointer<Double>, ix: Int,
                            out: UnsafeMutablePointer<Double>, iOut: Int,
                            count: Int) {
@@ -67,14 +67,14 @@ extension VecOps {
     
     // MARK: vssq
     
-    /// out[i*iOut] = x[i*ix]*abs(x[i*ix]), for 0 <= i < count
+    /// out[i * iOut] = x[i * ix]*abs(x[i * ix]), for 0 <= i < count
     public static func vssq(x: UnsafePointer<Float>, ix: Int,
                             out: UnsafeMutablePointer<Float>, iOut: Int,
                             count: Int) {
         vDSP_vssq(x, ix, out, iOut, UInt(count))
     }
     
-    /// out[i*iOut] = x[i*ix]*abs(x[i*ix]), for 0 <= i < count
+    /// out[i * iOut] = x[i * ix]*abs(x[i * ix]), for 0 <= i < count
     public static func vssq(x: UnsafePointer<Double>, ix: Int,
                             out: UnsafeMutablePointer<Double>, iOut: Int,
                             count: Int) {
@@ -100,7 +100,7 @@ extension VecOpsNoAccelerate {
     
     // MARK: vabs
     
-    /// out[i*iOut] = abs(x[i*ix]), for 0 <= i < count
+    /// out[i * iOut] = abs(x[i * ix]), for 0 <= i < count
     public static func vabs(x: UnsafePointer<Float>, ix: Int,
                             out: UnsafeMutablePointer<Float>, iOut: Int,
                             count: Int) {
@@ -108,7 +108,7 @@ extension VecOpsNoAccelerate {
             operation: abs, count: count)
     }
     
-    /// out[i*iOut] = abs(x[i*ix]), for 0 <= i < count
+    /// out[i * iOut] = abs(x[i * ix]), for 0 <= i < count
     public static func vabs(x: UnsafePointer<Double>, ix: Int,
                             out: UnsafeMutablePointer<Double>, iOut: Int,
                             count: Int) {
@@ -118,7 +118,7 @@ extension VecOpsNoAccelerate {
     
     // MARK: vnabs
     
-    /// out[i*iOut] = -abs(x[i*ix]), for 0 <= i < count
+    /// out[i * iOut] = -abs(x[i * ix]), for 0 <= i < count
     public static func vnabs(x: UnsafePointer<Float>, ix: Int,
                              out: UnsafeMutablePointer<Float>, iOut: Int,
                              count: Int) {
@@ -126,7 +126,7 @@ extension VecOpsNoAccelerate {
             operation: { -abs($0) }, count: count)
     }
     
-    /// out[i*iOut] = -abs(x[i*ix]), for 0 <= i < count
+    /// out[i * iOut] = -abs(x[i * ix]), for 0 <= i < count
     public static func vnabs(x: UnsafePointer<Double>, ix: Int,
                              out: UnsafeMutablePointer<Double>, iOut: Int,
                              count: Int) {
@@ -136,7 +136,7 @@ extension VecOpsNoAccelerate {
     
     // MARK: vneg
     
-    /// out[i*iOut] = -x[i*ix], for 0 <= i < count
+    /// out[i * iOut] = -x[i * ix], for 0 <= i < count
     public static func vneg(x: UnsafePointer<Float>, ix: Int,
                             out: UnsafeMutablePointer<Float>, iOut: Int,
                             count: Int) {
@@ -144,7 +144,7 @@ extension VecOpsNoAccelerate {
             operation: -, count: count)
     }
     
-    /// out[i*iOut] = -x[i*ix], for 0 <= i < count
+    /// out[i * iOut] = -x[i * ix], for 0 <= i < count
     public static func vneg(x: UnsafePointer<Double>, ix: Int,
                             out: UnsafeMutablePointer<Double>, iOut: Int,
                             count: Int) {
@@ -154,7 +154,7 @@ extension VecOpsNoAccelerate {
     
     // MARK: vsq
     
-    /// out[i*iOut] = x[i*ix]**2, for 0 <= i < count
+    /// out[i * iOut] = x[i * ix]**2, for 0 <= i < count
     public static func vsq(x: UnsafePointer<Float>, ix: Int,
                            out: UnsafeMutablePointer<Float>, iOut: Int,
                            count: Int) {
@@ -162,7 +162,7 @@ extension VecOpsNoAccelerate {
             operation: { $0*$0 }, count: count)
     }
     
-    /// out[i*iOut] = x[i*ix]**2, for 0 <= i < count
+    /// out[i * iOut] = x[i * ix]**2, for 0 <= i < count
     public static func vsq(x: UnsafePointer<Double>, ix: Int,
                            out: UnsafeMutablePointer<Double>, iOut: Int,
                            count: Int) {
@@ -172,7 +172,7 @@ extension VecOpsNoAccelerate {
     
     // MARK: vssq
     
-    /// out[i*iOut] = x[i*ix]*abs(x[i*ix]), for 0 <= i < count
+    /// out[i * iOut] = x[i * ix]*abs(x[i * ix]), for 0 <= i < count
     public static func vssq(x: UnsafePointer<Float>, ix: Int,
                             out: UnsafeMutablePointer<Float>, iOut: Int,
                             count: Int) {
@@ -180,7 +180,7 @@ extension VecOpsNoAccelerate {
             operation: { $0*abs($0) }, count: count)
     }
     
-    /// out[i*iOut] = x[i*ix]*abs(x[i*ix]), for 0 <= i < count
+    /// out[i * iOut] = x[i * ix]*abs(x[i * ix]), for 0 <= i < count
     public static func vssq(x: UnsafePointer<Double>, ix: Int,
                             out: UnsafeMutablePointer<Double>, iOut: Int,
                             count: Int) {

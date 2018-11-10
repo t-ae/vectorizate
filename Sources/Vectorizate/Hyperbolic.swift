@@ -7,13 +7,13 @@ import Accelerate
 extension VecOps {
     // MARK: sinh
     
-    /// out[i*iOut] = sinh(x[i*ix]), for 0 <= i < count
+    /// out[i * iOut] = sinh(x[i * ix]), for 0 <= i < count
     public static func sinh(x: UnsafePointer<Float>, out: UnsafeMutablePointer<Float>, count: Int) {
         var count = Int32(count)
         vvsinhf(out, x, &count)
     }
     
-    /// out[i*iOut] = sinh(x[i*ix]), for 0 <= i < count
+    /// out[i * iOut] = sinh(x[i * ix]), for 0 <= i < count
     public static func sinh(x: UnsafePointer<Double>, out: UnsafeMutablePointer<Double>, count: Int) {
         var count = Int32(count)
         vvsinh(out, x, &count)
@@ -21,13 +21,13 @@ extension VecOps {
     
     // MARK: cosh
     
-    /// out[i*iOut] = cosh(x[i*ix]), for 0 <= i < count
+    /// out[i * iOut] = cosh(x[i * ix]), for 0 <= i < count
     public static func cosh(x: UnsafePointer<Float>, out: UnsafeMutablePointer<Float>, count: Int) {
         var count = Int32(count)
         vvcoshf(out, x, &count)
     }
     
-    /// out[i*iOut] = cosh(x[i*ix]), for 0 <= i < count
+    /// out[i * iOut] = cosh(x[i * ix]), for 0 <= i < count
     public static func cosh(x: UnsafePointer<Double>, out: UnsafeMutablePointer<Double>, count: Int) {
         var count = Int32(count)
         vvcosh(out, x, &count)
@@ -35,13 +35,13 @@ extension VecOps {
     
     // MARK: tanh
     
-    /// out[i*iOut] = tanh(x[i*ix]), for 0 <= i < count
+    /// out[i * iOut] = tanh(x[i * ix]), for 0 <= i < count
     public static func tanh(x: UnsafePointer<Float>, out: UnsafeMutablePointer<Float>, count: Int) {
         var count = Int32(count)
         vvtanhf(out, x, &count)
     }
     
-    /// out[i*iOut] = tanh(x[i*ix]), for 0 <= i < count
+    /// out[i * iOut] = tanh(x[i * ix]), for 0 <= i < count
     public static func tanh(x: UnsafePointer<Double>, out: UnsafeMutablePointer<Double>, count: Int) {
         var count = Int32(count)
         vvtanh(out, x, &count)
@@ -49,13 +49,13 @@ extension VecOps {
     
     // MARK: asinh
     
-    /// out[i*iOut] = asinh(x[i*ix]), for 0 <= i < count
+    /// out[i * iOut] = asinh(x[i * ix]), for 0 <= i < count
     public static func asinh(x: UnsafePointer<Float>, out: UnsafeMutablePointer<Float>, count: Int) {
         var count = Int32(count)
         vvasinhf(out, x, &count)
     }
     
-    /// out[i*iOut] = asinh(x[i*ix]), for 0 <= i < count
+    /// out[i * iOut] = asinh(x[i * ix]), for 0 <= i < count
     public static func asinh(x: UnsafePointer<Double>, out: UnsafeMutablePointer<Double>, count: Int) {
         var count = Int32(count)
         vvasinh(out, x, &count)
@@ -63,13 +63,13 @@ extension VecOps {
     
     // MARK: acosh
     
-    /// out[i*iOut] = acosh(x[i*ix]), for 0 <= i < count
+    /// out[i * iOut] = acosh(x[i * ix]), for 0 <= i < count
     public static func acosh(x: UnsafePointer<Float>, out: UnsafeMutablePointer<Float>, count: Int) {
         var count = Int32(count)
         vvacoshf(out, x, &count)
     }
     
-    /// out[i*iOut] = acosh(x[i*ix]), for 0 <= i < count
+    /// out[i * iOut] = acosh(x[i * ix]), for 0 <= i < count
     public static func acosh(x: UnsafePointer<Double>, out: UnsafeMutablePointer<Double>, count: Int) {
         var count = Int32(count)
         vvacosh(out, x, &count)
@@ -77,13 +77,13 @@ extension VecOps {
     
     // MARK: atanh
     
-    /// out[i*iOut] = atanh(x[i*ix]), for 0 <= i < count
+    /// out[i * iOut] = atanh(x[i * ix]), for 0 <= i < count
     public static func atanh(x: UnsafePointer<Float>, out: UnsafeMutablePointer<Float>, count: Int) {
         var count = Int32(count)
         vvatanhf(out, x, &count)
     }
     
-    /// out[i*iOut] = atanh(x[i*ix]), for 0 <= i < count
+    /// out[i * iOut] = atanh(x[i * ix]), for 0 <= i < count
     public static func atanh(x: UnsafePointer<Double>, out: UnsafeMutablePointer<Double>, count: Int) {
         var count = Int32(count)
         vvatanh(out, x, &count)
@@ -107,72 +107,72 @@ extension VecOpsNoAccelerate {
     
     // MARK: sinh
     
-    /// out[i*iOut] = sinh(x[i*ix]), for 0 <= i < count
+    /// out[i * iOut] = sinh(x[i * ix]), for 0 <= i < count
     public static func sinh(x: UnsafePointer<Float>, out: UnsafeMutablePointer<Float>, count: Int) {
         map(x: x, out: out, operation: Foundation.sinh, count: count)
     }
     
-    /// out[i*iOut] = sinh(x[i*ix]), for 0 <= i < count
+    /// out[i * iOut] = sinh(x[i * ix]), for 0 <= i < count
     public static func sinh(x: UnsafePointer<Double>, out: UnsafeMutablePointer<Double>, count: Int) {
         map(x: x, out: out, operation: Foundation.sinh, count: count)
     }
     
     // MARK: cosh
     
-    /// out[i*iOut] = cosh(x[i*ix]), for 0 <= i < count
+    /// out[i * iOut] = cosh(x[i * ix]), for 0 <= i < count
     public static func cosh(x: UnsafePointer<Float>, out: UnsafeMutablePointer<Float>, count: Int) {
         map(x: x, out: out, operation: Foundation.cosh, count: count)
     }
     
-    /// out[i*iOut] = cosh(x[i*ix]), for 0 <= i < count
+    /// out[i * iOut] = cosh(x[i * ix]), for 0 <= i < count
     public static func cosh(x: UnsafePointer<Double>, out: UnsafeMutablePointer<Double>, count: Int) {
         map(x: x, out: out, operation: Foundation.cosh, count: count)
     }
     
     // MARK: tanh
     
-    /// out[i*iOut] = tanh(x[i*ix]), for 0 <= i < count
+    /// out[i * iOut] = tanh(x[i * ix]), for 0 <= i < count
     public static func tanh(x: UnsafePointer<Float>, out: UnsafeMutablePointer<Float>, count: Int) {
         map(x: x, out: out, operation: Foundation.tanh, count: count)
     }
     
-    /// out[i*iOut] = tanh(x[i*ix]), for 0 <= i < count
+    /// out[i * iOut] = tanh(x[i * ix]), for 0 <= i < count
     public static func tanh(x: UnsafePointer<Double>, out: UnsafeMutablePointer<Double>, count: Int) {
         map(x: x, out: out, operation: Foundation.tanh, count: count)
     }
     
     // MARK: asinh
     
-    /// out[i*iOut] = asinh(x[i*ix]), for 0 <= i < count
+    /// out[i * iOut] = asinh(x[i * ix]), for 0 <= i < count
     public static func asinh(x: UnsafePointer<Float>, out: UnsafeMutablePointer<Float>, count: Int) {
         map(x: x, out: out, operation: Foundation.asinh, count: count)
     }
     
-    /// out[i*iOut] = asinh(x[i*ix]), for 0 <= i < count
+    /// out[i * iOut] = asinh(x[i * ix]), for 0 <= i < count
     public static func asinh(x: UnsafePointer<Double>, out: UnsafeMutablePointer<Double>, count: Int) {
         map(x: x, out: out, operation: Foundation.asinh, count: count)
     }
     
     // MARK: acosh
     
-    /// out[i*iOut] = acosh(x[i*ix]), for 0 <= i < count
+    /// out[i * iOut] = acosh(x[i * ix]), for 0 <= i < count
     public static func acosh(x: UnsafePointer<Float>, out: UnsafeMutablePointer<Float>, count: Int) {
         map(x: x, out: out, operation: Foundation.acosh, count: count)
     }
     
-    /// out[i*iOut] = acosh(x[i*ix]), for 0 <= i < count
+    /// out[i * iOut] = acosh(x[i * ix]), for 0 <= i < count
     public static func acosh(x: UnsafePointer<Double>, out: UnsafeMutablePointer<Double>, count: Int) {
         map(x: x, out: out, operation: Foundation.acosh, count: count)
     }
     
     // MARK: atanh
     
-    /// out[i*iOut] = atanh(x[i*ix]), for 0 <= i < count
+    /// out[i * iOut] = atanh(x[i * ix]), for 0 <= i < count
     public static func atanh(x: UnsafePointer<Float>, out: UnsafeMutablePointer<Float>, count: Int) {
         map(x: x, out: out, operation: Foundation.atanh, count: count)
     }
     
-    /// out[i*iOut] = atanh(x[i*ix]), for 0 <= i < count
+    /// out[i * iOut] = atanh(x[i * ix]), for 0 <= i < count
     public static func atanh(x: UnsafePointer<Double>, out: UnsafeMutablePointer<Double>, count: Int) {
         map(x: x, out: out, operation: Foundation.atanh, count: count)
     }

@@ -7,13 +7,13 @@ import Accelerate
 extension VecOps {
     // MARK: maxv
     
-    /// out = max(x[i*ix]), for 0 <= i < count
+    /// out = max(x[i * ix]), for 0 <= i < count
     /// - Note: If count is 0, out = -infinity.
     public static func maxv(x: UnsafePointer<Float>, ix: Int, out: inout Float, count: Int) {
         vDSP_maxv(x, ix, &out, UInt(count))
     }
     
-    /// out = max(x[i*ix]), for 0 <= i < count
+    /// out = max(x[i * ix]), for 0 <= i < count
     /// - Note: If count is 0, out = -infinity.
     public static func maxv(x: UnsafePointer<Double>, ix: Int, out: inout Double, count: Int) {
         vDSP_maxvD(x, ix, &out, UInt(count))
@@ -21,7 +21,7 @@ extension VecOps {
     
     // MARK: maxvi
     
-    /// out = max(x[i*ix]), for 0 <= i < count
+    /// out = max(x[i * ix]), for 0 <= i < count
     /// index = index of out
     /// - Note: If count is 0, out = -infinity, and index is not defined.
     public static func maxvi(x: UnsafePointer<Float>, ix: Int,
@@ -30,7 +30,7 @@ extension VecOps {
         vDSP_maxvi(x, ix, &out, &index, UInt(count))
     }
     
-    /// out = max(x[i*ix]), for 0 <= i < count
+    /// out = max(x[i * ix]), for 0 <= i < count
     /// index = index of out
     /// - Note: If count is 0, out = -infinity, and index is not defined.
     public static func maxvi(x: UnsafePointer<Double>, ix: Int,
@@ -41,13 +41,13 @@ extension VecOps {
     
     // MARK: maxmgv
     
-    /// out = max(abs(x[i*ix])), for 0 <= i < count
+    /// out = max(abs(x[i * ix])), for 0 <= i < count
     /// - Note: If count is 0, out = 0.
     public static func maxmgv(x: UnsafePointer<Float>, ix: Int, out: inout Float, count: Int) {
         vDSP_maxmgv(x, ix, &out, UInt(count))
     }
     
-    /// out = max(abs(x[i*ix])), for 0 <= i < count
+    /// out = max(abs(x[i * ix])), for 0 <= i < count
     /// - Note: If count is 0, out = 0.
     public static func maxmgv(x: UnsafePointer<Double>, ix: Int, out: inout Double, count: Int) {
         vDSP_maxmgvD(x, ix, &out, UInt(count))
@@ -55,7 +55,7 @@ extension VecOps {
     
     // MARK: maxmgvi
     
-    /// out = max(abs(x[i*ix])), for 0 <= i < count
+    /// out = max(abs(x[i * ix])), for 0 <= i < count
     /// index = index of out
     /// - Note: If count is 0, out = 0, and index is not defined.
     public static func maxmgvi(x: UnsafePointer<Float>, ix: Int,
@@ -64,7 +64,7 @@ extension VecOps {
         vDSP_maxmgvi(x, ix, &out, &index, UInt(count))
     }
     
-    /// out = max(abs(x[i*ix])), for 0 <= i < count
+    /// out = max(abs(x[i * ix])), for 0 <= i < count
     /// index = index of out
     /// - Note: If count is 0, out = 0, and index is not defined.
     public static func maxmgvi(x: UnsafePointer<Double>, ix: Int,
@@ -75,13 +75,13 @@ extension VecOps {
     
     // MARK: minv
     
-    /// out = min(x[i*ix]), for 0 <= i < count
+    /// out = min(x[i * ix]), for 0 <= i < count
     /// - Note: If count is 0, out = infinity.
     public static func minv(x: UnsafePointer<Float>, ix: Int, out: inout Float, count: Int) {
         vDSP_minv(x, ix, &out, UInt(count))
     }
     
-    /// out = min(x[i*ix]), for 0 <= i < count
+    /// out = min(x[i * ix]), for 0 <= i < count
     /// - Note: If count is 0, out = infinity.
     public static func minv(x: UnsafePointer<Double>, ix: Int, out: inout Double, count: Int) {
         vDSP_minvD(x, ix, &out, UInt(count))
@@ -89,7 +89,7 @@ extension VecOps {
     
     // MARK: minvi
     
-    /// out = min(x[i*ix]), for 0 <= i < count
+    /// out = min(x[i * ix]), for 0 <= i < count
     /// index = index of out
     /// - Note: If count is 0, out = 0, and index is not defined.
     public static func minvi(x: UnsafePointer<Float>, ix: Int,
@@ -98,7 +98,7 @@ extension VecOps {
         vDSP_minvi(x, ix, &out, &index, UInt(count))
     }
     
-    /// out = min(x[i*ix]), for 0 <= i < count
+    /// out = min(x[i * ix]), for 0 <= i < count
     /// index = index of out
     /// - Note: If count is 0, out = 0, and index is not defined.
     public static func minvi(x: UnsafePointer<Double>, ix: Int,
@@ -109,13 +109,13 @@ extension VecOps {
     
     // MARK: maxmgv
     
-    /// out = min(abs(x[i*ix])), for 0 <= i < count
+    /// out = min(abs(x[i * ix])), for 0 <= i < count
     /// - Note: If count is 0, out = infinity.
     public static func minmgv(x: UnsafePointer<Float>, ix: Int, out: inout Float, count: Int) {
         vDSP_minmgv(x, ix, &out, UInt(count))
     }
     
-    /// out = min(abs(x[i*ix])), for 0 <= i < count
+    /// out = min(abs(x[i * ix])), for 0 <= i < count
     /// - Note: If count is 0, out = infinity.
     public static func minmgv(x: UnsafePointer<Double>, ix: Int, out: inout Double, count: Int) {
         vDSP_minmgvD(x, ix, &out, UInt(count))
@@ -123,7 +123,7 @@ extension VecOps {
     
     // MARK: maxmgvi
     
-    /// out = min(abs(x[i*ix])), for 0 <= i < count
+    /// out = min(abs(x[i * ix])), for 0 <= i < count
     /// index = index of out
     /// - Note: If count is 0, out = 0, and index is not defined.
     public static func minmgvi(x: UnsafePointer<Float>, ix: Int,
@@ -132,7 +132,7 @@ extension VecOps {
         vDSP_minmgvi(x, ix, &out, &index, UInt(count))
     }
     
-    /// out = min(abs(x[i*ix])), for 0 <= i < count
+    /// out = min(abs(x[i * ix])), for 0 <= i < count
     /// index = index of out
     /// - Note: If count is 0, out = 0, and index is not defined.
     public static func minmgvi(x: UnsafePointer<Double>, ix: Int,
