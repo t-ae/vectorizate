@@ -43,8 +43,8 @@ class TrigonometricTests: XCTestCase {
         runTest(type: Float.self, func1: VecOps.tan, func2: VecOpsNoAccelerate.tan, accuracy: 1e-4)
         runTest(type: Double.self, func1: VecOps.tan, func2: VecOpsNoAccelerate.tan, accuracy: 1e-8)
         
-        runTest(type: Float.self, func1: VecOps.tanpi, func2: VecOpsNoAccelerate.tanpi, accuracy: 1e-2)
-        runTest(type: Double.self, func1: VecOps.tanpi, func2: VecOpsNoAccelerate.tanpi, accuracy: 1e-4)
+        runTest(type: Float.self, func1: VecOps.tanpi, func2: VecOpsNoAccelerate.tanpi, range: 0..<0.3, accuracy: 1e-4)
+        runTest(type: Double.self, func1: VecOps.tanpi, func2: VecOpsNoAccelerate.tanpi, range: 0..<0.9, accuracy: 1e-8)
     }
     
     func testASin() {
@@ -58,8 +58,8 @@ class TrigonometricTests: XCTestCase {
     }
     
     func testATan() {
-        runTest(type: Float.self, func1: VecOps.atan, func2: VecOpsNoAccelerate.atan, accuracy: 1e-4)
-        runTest(type: Double.self, func1: VecOps.atan, func2: VecOpsNoAccelerate.atan, accuracy: 1e-8)
+        runTest(type: Float.self, func1: VecOps.atan, func2: VecOpsNoAccelerate.atan, range: 0..<0.9, accuracy: 1e-4)
+        runTest(type: Double.self, func1: VecOps.atan, func2: VecOpsNoAccelerate.atan, range: 0..<0.9, accuracy: 1e-8)
     }
     
     func testATan2() {
