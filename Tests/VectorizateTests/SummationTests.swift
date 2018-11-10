@@ -7,8 +7,8 @@ class SummationTests: XCTestCase {
     
     func runTest<F: BinaryFloatingPoint>(
         type: F.Type,
-        func1: (UnsafePointer<F>, Int, UnsafeMutablePointer<F>, Int)->Void,
-        func2: (UnsafePointer<F>, Int, UnsafeMutablePointer<F>, Int)->Void,
+        func1: (UnsafePointer<F>, Int, inout F, Int)->Void,
+        func2: (UnsafePointer<F>, Int, inout F, Int)->Void,
         ia: Int,
         accuracy: F = 0,
         file: StaticString = #file, line: UInt = #line)
