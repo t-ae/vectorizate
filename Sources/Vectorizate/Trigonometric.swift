@@ -1,5 +1,3 @@
-import Foundation
-
 #if canImport(Accelerate) && !VECTORIZATE_NO_ACCELERATE
 
 import Accelerate
@@ -162,102 +160,102 @@ extension VecOpsNoAccelerate {
     
     /// out[i * iOut] = vsin(x[i * ix]), for 0 <= i < count
     public static func vsin(x: UnsafePointer<Float>, out: UnsafeMutablePointer<Float>, count: Int) {
-        map(x: x, out: out, operation: Foundation.sin, count: count)
+        map(x: x, out: out, operation: sin, count: count)
     }
     
     /// out[i * iOut] = vsin(x[i * ix]), for 0 <= i < count
     public static func vsin(x: UnsafePointer<Double>, out: UnsafeMutablePointer<Double>, count: Int) {
-        map(x: x, out: out, operation: Foundation.sin, count: count)
+        map(x: x, out: out, operation: sin, count: count)
     }
     
     /// out[i * iOut] = vsin(x[i * ix] * pi), for 0 <= i < count
     public static func vsinpi(x: UnsafePointer<Float>, out: UnsafeMutablePointer<Float>, count: Int) {
-        map(x: x, out: out, operation: { Foundation.sin($0 * .pi) }, count: count)
+        map(x: x, out: out, operation: { sin($0 * .pi) }, count: count)
     }
     
     /// out[i * iOut] = vsin(x[i * ix] * pi), for 0 <= i < count
     public static func vsinpi(x: UnsafePointer<Double>, out: UnsafeMutablePointer<Double>, count: Int) {
-        map(x: x, out: out, operation: { Foundation.sin($0 * .pi) }, count: count)
+        map(x: x, out: out, operation: { sin($0 * .pi) }, count: count)
     }
     
     // MARK: vcos
     
     /// out[i * iOut] = vcos(x[i * ix]), for 0 <= i < count
     public static func vcos(x: UnsafePointer<Float>, out: UnsafeMutablePointer<Float>, count: Int) {
-        map(x: x, out: out, operation: Foundation.cos, count: count)
+        map(x: x, out: out, operation: cos, count: count)
     }
     
     /// out[i * iOut] = vcos(x[i * ix]), for 0 <= i < count
     public static func vcos(x: UnsafePointer<Double>, out: UnsafeMutablePointer<Double>, count: Int) {
-        map(x: x, out: out, operation: Foundation.cos, count: count)
+        map(x: x, out: out, operation: cos, count: count)
     }
     
     /// out[i * iOut] = vcos(x[i * ix] * pi), for 0 <= i < count
     public static func vcospi(x: UnsafePointer<Float>, out: UnsafeMutablePointer<Float>, count: Int) {
-        map(x: x, out: out, operation: { Foundation.cos($0 * .pi) }, count: count)
+        map(x: x, out: out, operation: { cos($0 * .pi) }, count: count)
     }
     
     /// out[i * iOut] = vcos(x[i * ix] * pi), for 0 <= i < count
     public static func vcospi(x: UnsafePointer<Double>, out: UnsafeMutablePointer<Double>, count: Int) {
-        map(x: x, out: out, operation: { Foundation.cos($0 * .pi) }, count: count)
+        map(x: x, out: out, operation: { cos($0 * .pi) }, count: count)
     }
     
     // MARK: vtan
     
     /// out[i * iOut] = vtan(x[i * ix]), for 0 <= i < count
     public static func vtan(x: UnsafePointer<Float>, out: UnsafeMutablePointer<Float>, count: Int) {
-        map(x: x, out: out, operation: Foundation.tan, count: count)
+        map(x: x, out: out, operation: tan, count: count)
     }
     
     /// out[i * iOut] = vtan(x[i * ix]), for 0 <= i < count
     public static func vtan(x: UnsafePointer<Double>, out: UnsafeMutablePointer<Double>, count: Int) {
-        map(x: x, out: out, operation: Foundation.tan, count: count)
+        map(x: x, out: out, operation: tan, count: count)
     }
     
     /// out[i * iOut] = vtan(x[i * ix] * pi), for 0 <= i < count
     public static func vtanpi(x: UnsafePointer<Float>, out: UnsafeMutablePointer<Float>, count: Int) {
-        map(x: x, out: out, operation: { Foundation.tan($0 * .pi) }, count: count)
+        map(x: x, out: out, operation: { tan($0 * .pi) }, count: count)
     }
     
     /// out[i * iOut] = vtan(x[i * ix] * pi), for 0 <= i < count
     public static func vtanpi(x: UnsafePointer<Double>, out: UnsafeMutablePointer<Double>, count: Int) {
-        map(x: x, out: out, operation: { Foundation.tan($0 * .pi) }, count: count)
+        map(x: x, out: out, operation: { tan($0 * .pi) }, count: count)
     }
     
     // MARK: vasin
     
     /// out[i * iOut] = vasin(x[i * ix]), for 0 <= i < count
     public static func vasin(x: UnsafePointer<Float>, out: UnsafeMutablePointer<Float>, count: Int) {
-        map(x: x, out: out, operation: Foundation.asin, count: count)
+        map(x: x, out: out, operation: asin, count: count)
     }
     
     /// out[i * iOut] = vasin(x[i * ix]), for 0 <= i < count
     public static func vasin(x: UnsafePointer<Double>, out: UnsafeMutablePointer<Double>, count: Int) {
-        map(x: x, out: out, operation: Foundation.asin, count: count)
+        map(x: x, out: out, operation: asin, count: count)
     }
     
     // MARK: vacos
     
     /// out[i * iOut] = vacos(x[i * ix]), for 0 <= i < count
     public static func vacos(x: UnsafePointer<Float>, out: UnsafeMutablePointer<Float>, count: Int) {
-        map(x: x, out: out, operation: Foundation.acos, count: count)
+        map(x: x, out: out, operation: acos, count: count)
     }
     
     /// out[i * iOut] = vacos(x[i * ix]), for 0 <= i < count
     public static func vacos(x: UnsafePointer<Double>, out: UnsafeMutablePointer<Double>, count: Int) {
-        map(x: x, out: out, operation: Foundation.acos, count: count)
+        map(x: x, out: out, operation: acos, count: count)
     }
     
     // MARK: vatan
     
     /// out[i * iOut] = vatan(x[i * ix]), for 0 <= i < count
     public static func vatan(x: UnsafePointer<Float>, out: UnsafeMutablePointer<Float>, count: Int) {
-        map(x: x, out: out, operation: Foundation.atan, count: count)
+        map(x: x, out: out, operation: atan, count: count)
     }
     
     /// out[i * iOut] = vatan(x[i * ix]), for 0 <= i < count
     public static func vatan(x: UnsafePointer<Double>, out: UnsafeMutablePointer<Double>, count: Int) {
-        map(x: x, out: out, operation: Foundation.atan, count: count)
+        map(x: x, out: out, operation: atan, count: count)
     }
     
     // MARK: vatan2
@@ -269,7 +267,7 @@ extension VecOpsNoAccelerate {
         var x = x
         var out = out
         for _ in 0..<count {
-            out.pointee = Foundation.atan2(y.pointee, x.pointee)
+            out.pointee = atan2(y.pointee, x.pointee)
             y += 1
             x += 1
             out += 1
@@ -283,7 +281,7 @@ extension VecOpsNoAccelerate {
         var x = x
         var out = out
         for _ in 0..<count {
-            out.pointee = Foundation.atan2(y.pointee, x.pointee)
+            out.pointee = atan2(y.pointee, x.pointee)
             y += 1
             x += 1
             out += 1

@@ -1,5 +1,3 @@
-import Foundation
-
 #if canImport(Accelerate) && !VECTORIZATE_NO_ACCELERATE
 
 import Accelerate
@@ -137,95 +135,95 @@ extension VecOpsNoAccelerate {
     
     /// out[i * iOut] = vexp(x[i * ix]), for 0 <= i < count
     public static func vexp(x: UnsafePointer<Float>, out: UnsafeMutablePointer<Float>, count: Int) {
-        map(x: x, out: out, operation: Foundation.exp, count: count)
+        map(x: x, out: out, operation: exp, count: count)
     }
     
     /// out[i * iOut] = vexp(x[i * ix]), for 0 <= i < count
     public static func vexp(x: UnsafePointer<Double>, out: UnsafeMutablePointer<Double>, count: Int) {
-        map(x: x, out: out, operation: Foundation.exp, count: count)
+        map(x: x, out: out, operation: exp, count: count)
     }
     
     // MARK: vexp2
     
     /// out[i * iOut] = vexp2(x[i * ix]), for 0 <= i < count
     public static func vexp2(x: UnsafePointer<Float>, out: UnsafeMutablePointer<Float>, count: Int) {
-        map(x: x, out: out, operation: Foundation.exp2, count: count)
+        map(x: x, out: out, operation: exp2, count: count)
     }
     
     /// out[i * iOut] = vexp2(x[i * ix]), for 0 <= i < count
     public static func vexp2(x: UnsafePointer<Double>, out: UnsafeMutablePointer<Double>, count: Int) {
-        map(x: x, out: out, operation: Foundation.exp2, count: count)
+        map(x: x, out: out, operation: exp2, count: count)
     }
     
     // MARK: vexpm1
     
     /// out[i * iOut] = vexp(x[i * ix]) - 1, for 0 <= i < count
     public static func vexpm1(x: UnsafePointer<Float>, out: UnsafeMutablePointer<Float>, count: Int) {
-        map(x: x, out: out, operation: Foundation.expm1, count: count)
+        map(x: x, out: out, operation: expm1, count: count)
     }
     
     /// out[i * iOut] = vexp(x[i * ix]) - 1, for 0 <= i < count
     public static func vexpm1(x: UnsafePointer<Double>, out: UnsafeMutablePointer<Double>, count: Int) {
-        map(x: x, out: out, operation: Foundation.expm1, count: count)
+        map(x: x, out: out, operation: expm1, count: count)
     }
     
     // MARK: vlog
     
     /// out[i * iOut] = vlog(x[i * ix]), for 0 <= i < count
     public static func vlog(x: UnsafePointer<Float>, out: UnsafeMutablePointer<Float>, count: Int) {
-        map(x: x, out: out, operation: Foundation.log, count: count)
+        map(x: x, out: out, operation: log, count: count)
     }
     
     /// out[i * iOut] = vlog(x[i * ix]), for 0 <= i < count
     public static func vlog(x: UnsafePointer<Double>, out: UnsafeMutablePointer<Double>, count: Int) {
-        map(x: x, out: out, operation: Foundation.log, count: count)
+        map(x: x, out: out, operation: log, count: count)
     }
     
     // MARK: vlog1p
     
     /// out[i * iOut] = vlog(x[i * ix] + 1), for 0 <= i < count
     public static func vlog1p(x: UnsafePointer<Float>, out: UnsafeMutablePointer<Float>, count: Int) {
-        map(x: x, out: out, operation: Foundation.log1p, count: count)
+        map(x: x, out: out, operation: log1p, count: count)
     }
     
     /// out[i * iOut] = vlog(x[i * ix] + 1), for 0 <= i < count
     public static func vlog1p(x: UnsafePointer<Double>, out: UnsafeMutablePointer<Double>, count: Int) {
-        map(x: x, out: out, operation: Foundation.log1p, count: count)
+        map(x: x, out: out, operation: log1p, count: count)
     }
     
     // MARK: vlog2
     
     /// out[i * iOut] = vlog2(x[i * ix]), for 0 <= i < count
     public static func vlog2(x: UnsafePointer<Float>, out: UnsafeMutablePointer<Float>, count: Int) {
-        map(x: x, out: out, operation: Foundation.log2, count: count)
+        map(x: x, out: out, operation: log2, count: count)
     }
     
     /// out[i * iOut] = vlog2(x[i * ix]), for 0 <= i < count
     public static func vlog2(x: UnsafePointer<Double>, out: UnsafeMutablePointer<Double>, count: Int) {
-        map(x: x, out: out, operation: Foundation.log2, count: count)
+        map(x: x, out: out, operation: log2, count: count)
     }
     
     // MARK: vlog10
     
     /// out[i * iOut] = vlog10(x[i * ix]), for 0 <= i < count
     public static func vlog10(x: UnsafePointer<Float>, out: UnsafeMutablePointer<Float>, count: Int) {
-        map(x: x, out: out, operation: Foundation.log10, count: count)
+        map(x: x, out: out, operation: log10, count: count)
     }
     
     /// out[i * iOut] = vlog10(x[i * ix]), for 0 <= i < count
     public static func vlog10(x: UnsafePointer<Double>, out: UnsafeMutablePointer<Double>, count: Int) {
-        map(x: x, out: out, operation: Foundation.log10, count: count)
+        map(x: x, out: out, operation: log10, count: count)
     }
     
     // MARK: vlogb
     
     /// out[i * iOut] = vlogb(x[i * ix]), for 0 <= i < count
     public static func vlogb(x: UnsafePointer<Float>, out: UnsafeMutablePointer<Float>, count: Int) {
-        map(x: x, out: out, operation: Foundation.logb, count: count)
+        map(x: x, out: out, operation: logb, count: count)
     }
     
     /// out[i * iOut] = vlogb(x[i * ix]), for 0 <= i < count
     public static func vlogb(x: UnsafePointer<Double>, out: UnsafeMutablePointer<Double>, count: Int) {
-        map(x: x, out: out, operation: Foundation.logb, count: count)
+        map(x: x, out: out, operation: logb, count: count)
     }
 }

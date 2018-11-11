@@ -1,5 +1,3 @@
-import Foundation
-
 #if canImport(Accelerate) && !VECTORIZATE_NO_ACCELERATE
 
 import Accelerate
@@ -109,71 +107,71 @@ extension VecOpsNoAccelerate {
     
     /// out[i * iOut] = vsinh(x[i * ix]), for 0 <= i < count
     public static func vsinh(x: UnsafePointer<Float>, out: UnsafeMutablePointer<Float>, count: Int) {
-        map(x: x, out: out, operation: Foundation.sinh, count: count)
+        map(x: x, out: out, operation: sinh, count: count)
     }
     
     /// out[i * iOut] = vsinh(x[i * ix]), for 0 <= i < count
     public static func vsinh(x: UnsafePointer<Double>, out: UnsafeMutablePointer<Double>, count: Int) {
-        map(x: x, out: out, operation: Foundation.sinh, count: count)
+        map(x: x, out: out, operation: sinh, count: count)
     }
     
     // MARK: vcosh
     
     /// out[i * iOut] = vcosh(x[i * ix]), for 0 <= i < count
     public static func vcosh(x: UnsafePointer<Float>, out: UnsafeMutablePointer<Float>, count: Int) {
-        map(x: x, out: out, operation: Foundation.cosh, count: count)
+        map(x: x, out: out, operation: cosh, count: count)
     }
     
     /// out[i * iOut] = vcosh(x[i * ix]), for 0 <= i < count
     public static func vcosh(x: UnsafePointer<Double>, out: UnsafeMutablePointer<Double>, count: Int) {
-        map(x: x, out: out, operation: Foundation.cosh, count: count)
+        map(x: x, out: out, operation: cosh, count: count)
     }
     
     // MARK: vtanh
     
     /// out[i * iOut] = vtanh(x[i * ix]), for 0 <= i < count
     public static func vtanh(x: UnsafePointer<Float>, out: UnsafeMutablePointer<Float>, count: Int) {
-        map(x: x, out: out, operation: Foundation.tanh, count: count)
+        map(x: x, out: out, operation: tanh, count: count)
     }
     
     /// out[i * iOut] = vtanh(x[i * ix]), for 0 <= i < count
     public static func vtanh(x: UnsafePointer<Double>, out: UnsafeMutablePointer<Double>, count: Int) {
-        map(x: x, out: out, operation: Foundation.tanh, count: count)
+        map(x: x, out: out, operation: tanh, count: count)
     }
     
     // MARK: vasinh
     
     /// out[i * iOut] = vasinh(x[i * ix]), for 0 <= i < count
     public static func vasinh(x: UnsafePointer<Float>, out: UnsafeMutablePointer<Float>, count: Int) {
-        map(x: x, out: out, operation: Foundation.asinh, count: count)
+        map(x: x, out: out, operation: asinh, count: count)
     }
     
     /// out[i * iOut] = vasinh(x[i * ix]), for 0 <= i < count
     public static func vasinh(x: UnsafePointer<Double>, out: UnsafeMutablePointer<Double>, count: Int) {
-        map(x: x, out: out, operation: Foundation.asinh, count: count)
+        map(x: x, out: out, operation: asinh, count: count)
     }
     
     // MARK: vacosh
     
     /// out[i * iOut] = vacosh(x[i * ix]), for 0 <= i < count
     public static func vacosh(x: UnsafePointer<Float>, out: UnsafeMutablePointer<Float>, count: Int) {
-        map(x: x, out: out, operation: Foundation.acosh, count: count)
+        map(x: x, out: out, operation: acosh, count: count)
     }
     
     /// out[i * iOut] = vacosh(x[i * ix]), for 0 <= i < count
     public static func vacosh(x: UnsafePointer<Double>, out: UnsafeMutablePointer<Double>, count: Int) {
-        map(x: x, out: out, operation: Foundation.acosh, count: count)
+        map(x: x, out: out, operation: acosh, count: count)
     }
     
     // MARK: vatanh
     
     /// out[i * iOut] = vatanh(x[i * ix]), for 0 <= i < count
     public static func vatanh(x: UnsafePointer<Float>, out: UnsafeMutablePointer<Float>, count: Int) {
-        map(x: x, out: out, operation: Foundation.atanh, count: count)
+        map(x: x, out: out, operation: atanh, count: count)
     }
     
     /// out[i * iOut] = vatanh(x[i * ix]), for 0 <= i < count
     public static func vatanh(x: UnsafePointer<Double>, out: UnsafeMutablePointer<Double>, count: Int) {
-        map(x: x, out: out, operation: Foundation.atanh, count: count)
+        map(x: x, out: out, operation: atanh, count: count)
     }
 }
