@@ -8,11 +8,13 @@ extension VecOps {
     // MARK: sve
     
     /// out = sum(x[i * ix]), for 0 <= i < count
+    /// out = 0 if count == 0
     public static func sve(x: UnsafePointer<Float>, ix: Int, out: inout Float, count: Int) {
         vDSP_sve(x, ix, &out, UInt(count))
     }
     
     /// out = sum(x[i * ix]), for 0 <= i < count
+    /// out = 0 if count == 0
     public static func sve(x: UnsafePointer<Double>, ix: Int, out: inout Double, count: Int) {
         vDSP_sveD(x, ix, &out, UInt(count))
     }
@@ -20,11 +22,13 @@ extension VecOps {
     // MARK: svemg
     
     /// out = sum(abs(x[i * ix])), for 0 <= i < count
+    /// out = 0 if count == 0
     public static func svemg(x: UnsafePointer<Float>, ix: Int, out: inout Float, count: Int) {
         vDSP_svemg(x, ix, &out, UInt(count))
     }
     
     /// out = sum(abs(x[i * ix])), for 0 <= i < count
+    /// out = 0 if count == 0
     public static func svemg(x: UnsafePointer<Double>, ix: Int, out: inout Double, count: Int) {
         vDSP_svemgD(x, ix, &out, UInt(count))
     }
@@ -32,11 +36,13 @@ extension VecOps {
     // MARK: svesq
     
     /// out = sum(x[i * ix] ** 2), for 0 <= i < count
+    /// out = 0 if count == 0
     public static func svesq(x: UnsafePointer<Float>, ix: Int, out: inout Float, count: Int) {
         vDSP_svesq(x, ix, &out, UInt(count))
     }
     
     /// out = sum(x[i * ix] ** 2), for 0 <= i < count
+    /// out = 0 if count == 0
     public static func svesq(x: UnsafePointer<Double>, ix: Int, out: inout Double, count: Int) {
         vDSP_svesqD(x, ix, &out, UInt(count))
     }
@@ -45,6 +51,7 @@ extension VecOps {
     
     /// sum = sum(x[i * ix]), for 0 <= i < count
     /// sum2 = sum(x[i * ix] ** 2), for 0 <= i < count
+    /// sum = 0, sum2 = 0 if count == 0
     public static func sve_svesq(x: UnsafePointer<Float>, ix: Int,
                    sum: inout Float, sum2: inout Float,
                    count: Int) {
@@ -53,6 +60,7 @@ extension VecOps {
     
     /// sum = sum(x[i * ix]), for 0 <= i < count
     /// sum2 = sum(x[i * ix] ** 2), for 0 <= i < count
+    /// sum = 0, sum2 = 0 if count == 0
     public static func sve_svesq(x: UnsafePointer<Double>, ix: Int,
                    sum: inout Double, sum2: inout Double,
                    count: Int) {
@@ -62,11 +70,13 @@ extension VecOps {
     // MARK: svs
     
     /// out = sum(x[i * ix] * abs(x[i * ix])), for 0 <= i < count
+    /// out = 0 if count == 0
     public static func svs(x: UnsafePointer<Float>, ix: Int, out: inout Float, count: Int) {
         vDSP_svs(x, ix, &out, UInt(count))
     }
     
     /// out = sum(x[i * ix] * abs(x[i * ix])), for 0 <= i < count
+    /// out = 0 if count == 0
     public static func svs(x: UnsafePointer<Double>, ix: Int, out: inout Double, count: Int) {
         vDSP_svsD(x, ix, &out, UInt(count))
     }
@@ -78,11 +88,13 @@ extension VecOpsNoAccelerate {
     // MARK: sve
     
     /// out = sum(x[i * ix]), for 0 <= i < count
+    /// out = 0 if count == 0
     public static func sve(x: UnsafePointer<Float>, ix: Int, out: inout Float, count: Int) {
         reduce(x: x, ix: ix, out: &out, operation: +=, count: count)
     }
     
     /// out = sum(x[i * ix]), for 0 <= i < count
+    /// out = 0 if count == 0
     public static func sve(x: UnsafePointer<Double>, ix: Int, out: inout Double, count: Int) {
         reduce(x: x, ix: ix, out: &out, operation: +=, count: count)
     }
@@ -90,11 +102,13 @@ extension VecOpsNoAccelerate {
     // MARK: svemg
     
     /// out = sum(abs(x[i * ix])), for 0 <= i < count
+    /// out = 0 if count == 0
     public static func svemg(x: UnsafePointer<Float>, ix: Int, out: inout Float, count: Int) {
         reduce(x: x, ix: ix, out: &out, operation: { $0 += abs($1) }, count: count)
     }
     
     /// out = sum(abs(x[i * ix])), for 0 <= i < count
+    /// out = 0 if count == 0
     public static func svemg(x: UnsafePointer<Double>, ix: Int, out: inout Double, count: Int) {
         reduce(x: x, ix: ix, out: &out, operation: { $0 += abs($1) }, count: count)
     }
@@ -102,11 +116,13 @@ extension VecOpsNoAccelerate {
     // MARK: svesq
     
     /// out = sum(x[i * ix] ** 2), for 0 <= i < count
+    /// out = 0 if count == 0
     public static func svesq(x: UnsafePointer<Float>, ix: Int, out: inout Float, count: Int) {
         reduce(x: x, ix: ix, out: &out, operation: { $0 += $1*$1 }, count: count)
     }
     
     /// out = sum(x[i * ix] ** 2), for 0 <= i < count
+    /// out = 0 if count == 0
     public static func svesq(x: UnsafePointer<Double>, ix: Int, out: inout Double, count: Int) {
         reduce(x: x, ix: ix, out: &out, operation: { $0 += $1*$1 }, count: count)
     }
@@ -115,6 +131,7 @@ extension VecOpsNoAccelerate {
     
     /// sum = sum(x[i * ix]), for 0 <= i < count
     /// sum2 = sum(x[i * ix] ** 2), for 0 <= i < count
+    /// sum = 0, sum2 = 0 if count == 0
     public static func sve_svesq(x: UnsafePointer<Float>, ix: Int,
                                  sum: inout Float, sum2: inout Float,
                                  count: Int) {
@@ -126,6 +143,7 @@ extension VecOpsNoAccelerate {
     
     /// sum = sum(x[i * ix]), for 0 <= i < count
     /// sum2 = sum(x[i * ix] ** 2), for 0 <= i < count
+    /// sum = 0, sum2 = 0 if count == 0
     public static func sve_svesq(x: UnsafePointer<Double>, ix: Int,
                                  sum: inout Double, sum2: inout Double,
                                  count: Int) {
@@ -138,11 +156,13 @@ extension VecOpsNoAccelerate {
     // MARK: svs
     
     /// out = sum(x[i * ix] * abs(x[i * ix])), for 0 <= i < count
+    /// out = 0 if count == 0
     public static func svs(x: UnsafePointer<Float>, ix: Int, out: inout Float, count: Int) {
         reduce(x: x, ix: ix, out: &out, operation: { $0 += abs($1)*$1 }, count: count)
     }
     
     /// out = sum(x[i * ix] * abs(x[i * ix])), for 0 <= i < count
+    /// out = 0 if count == 0
     public static func svs(x: UnsafePointer<Double>, ix: Int, out: inout Double, count: Int) {
         reduce(x: x, ix: ix, out: &out, operation: { $0 += abs($1)*$1 }, count: count)
     }
