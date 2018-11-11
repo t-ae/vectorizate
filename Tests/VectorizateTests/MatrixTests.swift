@@ -1,6 +1,5 @@
 import XCTest
 import Vectorizate
-import Accelerate
 
 class MatrixTests: XCTestCase {
 
