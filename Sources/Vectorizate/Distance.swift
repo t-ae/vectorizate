@@ -95,6 +95,6 @@ extension VecOpsNoAccelerate {
     public static func distancesq(a: UnsafePointer<Double>, ia: Int,
                                   b: UnsafePointer<Double>, ib: Int,
                                   out: inout Double, count: Int) {
-        vDSP_distancesqD(a, ia, b, ib, &out, UInt(count))
+        _distancesq(a: a, ia: ia, b: b, ib: ib, out: &out, count: count)
     }
 }
