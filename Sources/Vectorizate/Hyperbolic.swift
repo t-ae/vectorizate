@@ -1,3 +1,5 @@
+import Foundation
+
 #if canImport(Accelerate) && !VECTORIZATE_NO_ACCELERATE
 
 import Accelerate
