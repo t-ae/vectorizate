@@ -90,7 +90,7 @@ extension VecOpsNoAccelerate {
     /// out[i] = base[i] ** exponent[i], for 0 <= i < count
     public static func vpow(base: UnsafePointer<Float>, exponent: UnsafePointer<Float>,
                             out: UnsafeMutablePointer<Float>, count: Int) {
-        map2(x: base, ix: 1, y: exponent, iy: 1, out: out, iOut: 1, operation: {
+        map2(a: base, ia: 1, b: exponent, ib: 1, out: out, iOut: 1, operation: {
             $0 = pow($1, $2)
         }, count: count)
     }
@@ -98,7 +98,7 @@ extension VecOpsNoAccelerate {
     /// out[i] = base[i] ** exponent[i], for 0 <= i < count
     public static func vpow(base: UnsafePointer<Double>, exponent: UnsafePointer<Double>,
                             out: UnsafeMutablePointer<Double>, count: Int) {
-        map2(x: base, ix: 1, y: exponent, iy: 1, out: out, iOut: 1, operation: {
+        map2(a: base, ia: 1, b: exponent, ib: 1, out: out, iOut: 1, operation: {
             $0 = pow($1, $2)
         }, count: count)
     }

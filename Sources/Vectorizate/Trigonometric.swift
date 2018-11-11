@@ -316,14 +316,14 @@ extension VecOpsNoAccelerate {
     /// out[i * iOut] = atan2(y[i * iy], x[i * ix]), for 0 <= i < count
     public static func vatan2(y: UnsafePointer<Float>, x: UnsafePointer<Float>,
                              out: UnsafeMutablePointer<Float>, count: Int) {
-        map2(x: x, ix: 1, y: y, iy: 1, out: out, iOut: 1,
+        map2(a: x, ia: 1, b: y, ib: 1, out: out, iOut: 1,
              operation: { $0 = atan2($2, $1) }, count: count)
     }
     
     /// out[i * iOut] = atan2(y[i * iy], x[i * ix]), for 0 <= i < count
     public static func vatan2(y: UnsafePointer<Double>, x: UnsafePointer<Double>,
                              out: UnsafeMutablePointer<Double>, count: Int) {
-        map2(x: x, ix: 1, y: y, iy: 1, out: out, iOut: 1,
+        map2(a: x, ia: 1, b: y, ib: 1, out: out, iOut: 1,
              operation: { $0 = atan2($2, $1) }, count: count)
     }
 }

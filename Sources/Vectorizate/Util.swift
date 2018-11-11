@@ -11,18 +11,18 @@ func map<T, R>(x: UnsafePointer<T>, ix: Int,
     }
 }
 
-func map2<T1, T2, R>(x: UnsafePointer<T1>, ix: Int,
-                     y: UnsafePointer<T2>, iy: Int,
+func map2<T1, T2, R>(a: UnsafePointer<T1>, ia: Int,
+                     b: UnsafePointer<T2>, ib: Int,
                      out: UnsafeMutablePointer<R>, iOut: Int,
                      operation: (_ out: inout R, _ x: T1, _ y: T2)->Void,
                      count: Int) {
-    var x = x
-    var y = y
+    var x = a
+    var y = b
     var out = out
     for _ in 0..<count {
         operation(&out.pointee, x.pointee, y.pointee)
-        x += ix
-        y += iy
+        x += ia
+        y += ib
         out += iOut
     }
 }
@@ -43,21 +43,21 @@ func map2<T, R1, R2>(x: UnsafePointer<T>, ix: Int,
     }
 }
 
-func map3<T1, T2, T3, R>(x: UnsafePointer<T1>, ix: Int,
-                         y: UnsafePointer<T2>, iy: Int,
-                         z: UnsafePointer<T3>, iz: Int,
+func map3<T1, T2, T3, R>(a: UnsafePointer<T1>, ia: Int,
+                         b: UnsafePointer<T2>, ib: Int,
+                         c: UnsafePointer<T3>, ic: Int,
                          out: UnsafeMutablePointer<R>, iOut: Int,
                          operation: (_ out: inout R, _ x: T1, _ y: T2, _ z: T3)->Void,
                          count: Int) {
-    var x = x
-    var y = y
-    var z = z
+    var x = a
+    var y = b
+    var z = c
     var out = out
     for _ in 0..<count {
         operation(&out.pointee, x.pointee, y.pointee, z.pointee)
-        x += ix
-        y += iy
-        z += iz
+        x += ia
+        y += ib
+        z += ic
         out += iOut
     }
 }

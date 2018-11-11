@@ -86,7 +86,7 @@ extension VecOpsNoAccelerate {
                             b: UnsafePointer<Float>, ib: Int,
                             out: UnsafeMutablePointer<Float>, iOut: Int,
                             count: Int) {
-        map2(x: a, ix: ia, y: b, iy: ib, out: out, iOut: iOut,
+        map2(a: a, ia: ia, b: b, ib: ib, out: out, iOut: iOut,
              operation: { $0 = $1 + $2 }, count: count)
     }
     
@@ -95,7 +95,7 @@ extension VecOpsNoAccelerate {
                             b: UnsafePointer<Double>, ib: Int,
                             out: UnsafeMutablePointer<Double>, iOut: Int,
                             count: Int) {
-        map2(x: a, ix: ia, y: b, iy: ib, out: out, iOut: iOut,
+        map2(a: a, ia: ia, b: b, ib: ib, out: out, iOut: iOut,
              operation: { $0 = $1 + $2 }, count: count)
     }
     
@@ -106,7 +106,7 @@ extension VecOpsNoAccelerate {
                             b: UnsafePointer<Float>, ib: Int,
                             out: UnsafeMutablePointer<Float>, iOut: Int,
                             count: Int) {
-        map2(x: a, ix: ia, y: b, iy: ib, out: out, iOut: iOut,
+        map2(a: a, ia: ia, b: b, ib: ib, out: out, iOut: iOut,
              operation: { $0 = $1 - $2 }, count: count)
     }
     
@@ -115,7 +115,7 @@ extension VecOpsNoAccelerate {
                             b: UnsafePointer<Double>, ib: Int,
                             out: UnsafeMutablePointer<Double>, iOut: Int,
                             count: Int) {
-        map2(x: a, ix: ia, y: b, iy: ib, out: out, iOut: iOut,
+        map2(a: a, ia: ia, b: b, ib: ib, out: out, iOut: iOut,
              operation: { $0 = $1 - $2 }, count: count)
     }
     
@@ -126,7 +126,7 @@ extension VecOpsNoAccelerate {
                             b: UnsafePointer<Float>, ib: Int,
                             out: UnsafeMutablePointer<Float>, iOut: Int,
                             count: Int) {
-        map2(x: a, ix: ia, y: b, iy: ib, out: out, iOut: iOut,
+        map2(a: a, ia: ia, b: b, ib: ib, out: out, iOut: iOut,
              operation: { $0 = $1 * $2 }, count: count)
     }
     
@@ -135,7 +135,7 @@ extension VecOpsNoAccelerate {
                             b: UnsafePointer<Double>, ib: Int,
                             out: UnsafeMutablePointer<Double>, iOut: Int,
                             count: Int) {
-        map2(x: a, ix: ia, y: b, iy: ib, out: out, iOut: iOut,
+        map2(a: a, ia: ia, b: b, ib: ib, out: out, iOut: iOut,
              operation: { $0 = $1 * $2 }, count: count)
     }
     
@@ -146,7 +146,7 @@ extension VecOpsNoAccelerate {
                             b: UnsafePointer<Float>, ib: Int,
                             out: UnsafeMutablePointer<Float>, iOut: Int,
                             count: Int) {
-        map2(x: a, ix: ia, y: b, iy: ib, out: out, iOut: iOut,
+        map2(a: a, ia: ia, b: b, ib: ib, out: out, iOut: iOut,
              operation: { $0 = $1 / $2 }, count: count)
     }
     
@@ -155,7 +155,7 @@ extension VecOpsNoAccelerate {
                             b: UnsafePointer<Double>, ib: Int,
                             out: UnsafeMutablePointer<Double>, iOut: Int,
                             count: Int) {
-        map2(x: a, ix: ia, y: b, iy: ib, out: out, iOut: iOut,
+        map2(a: a, ia: ia, b: b, ib: ib, out: out, iOut: iOut,
              operation: { $0 = $1 / $2 }, count: count)
     }
 }
