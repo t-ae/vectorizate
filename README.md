@@ -32,12 +32,14 @@ vmax, vmagmg, vmin, vminmg,
 vclip, viclip,  
 minv, minvi, minmgvi, maxv, maxvi, maxmgv, maxmgvi,  
 mmul, mtrans, mmov,  
-vgathr,
+vgathr
 
 ### From [vForce](https://developer.apple.com/documentation/accelerate/veclib/vforce)
 vsin, vcos, vtan, vasin, vacos, vatan, vatan2,  
 vsinh, vcosh, vtanh, vasinh, vacoish, vatanh,  
 vexp, vexp2, vexp1m, vlog, vlog1p, vlog2, vlog10, vlogb,  
+vpow, vpows, vsqrt, vrsqrt, vcbrt,  
+vceil, vfloor, vint, vnint  
 
 ## Lisence
 [The MIT License](https://github.com/t-ae/vectorizate/blob/master/LICENSE)
