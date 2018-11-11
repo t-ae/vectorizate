@@ -36,14 +36,14 @@ extension VecOps {
     // MAKR: vint
     
     /// Rounding towards 0.
-    /// out[i] = Float(Int(x[i])), for 0 <= i < count
+    /// out[i] = trunc(x[i]), for 0 <= i < count
     public static func vint(x: UnsafePointer<Float>, out: UnsafeMutablePointer<Float>, count: Int) {
         var count = Int32(count)
         vvintf(out, x, &count)
     }
     
     /// Rounding towards 0.
-    /// out[i] = Double(Int(x[i])), for 0 <= i < count
+    /// out[i] = trunc(x[i]), for 0 <= i < count
     public static func vint(x: UnsafePointer<Double>, out: UnsafeMutablePointer<Double>, count: Int) {
         var count = Int32(count)
         vvint(out, x, &count)
@@ -102,18 +102,18 @@ extension VecOpsNoAccelerate {
     // MAKR: vint
     
     /// Rounding towards 0.
-    /// out[i] = Float(Int(x[i])), for 0 <= i < count
+    /// out[i] = trunc(x[i]), for 0 <= i < count
     public static func vint(x: UnsafePointer<Float>, out: UnsafeMutablePointer<Float>, count: Int) {
         map(x: x, ix: 1, out: out, iOut: 1, operation: {
-            $0 = Float(Int($1))
+            $0 = trunc($1)
         }, count: count)
     }
     
     /// Rounding towards 0.
-    /// out[i] = Double(Int(x[i])), for 0 <= i < count
+    /// out[i] = trunc(x[i]), for 0 <= i < count
     public static func vint(x: UnsafePointer<Double>, out: UnsafeMutablePointer<Double>, count: Int) {
         map(x: x, ix: 1, out: out, iOut: 1, operation: {
-            $0 = Double(Int($1))
+            $0 = trunc($1)
         }, count: count)
     }
     
