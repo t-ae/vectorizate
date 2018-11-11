@@ -141,17 +141,8 @@ extension VecOpsNoAccelerate {
                            c: UnsafePointer<Float>, ic: Int,
                            out: UnsafeMutablePointer<Float>, iOut: Int,
                            count: Int) {
-        var a = a
-        var b = b
-        var c = c
-        var out = out
-        for _ in 0..<count {
-            out.pointee = a.pointee * b.pointee + c.pointee
-            a += ia
-            b += ib
-            c += ic
-            out += iOut
-        }
+        map3(a: a, ia: ia, b: b, ib: ib, c: c, ic: ic, out: out, iOut: iOut,
+             operation: { $0 = $1 * $2 + $3 }, count: count)
     }
     
     /// out[i * iOut] = a[i * ia] * b[i * ib] + c[i * ic], for 0 <= i < count
@@ -160,17 +151,8 @@ extension VecOpsNoAccelerate {
                            c: UnsafePointer<Double>, ic: Int,
                            out: UnsafeMutablePointer<Double>, iOut: Int,
                            count: Int) {
-        var a = a
-        var b = b
-        var c = c
-        var out = out
-        for _ in 0..<count {
-            out.pointee = a.pointee * b.pointee + c.pointee
-            a += ia
-            b += ib
-            c += ic
-            out += iOut
-        }
+        map3(a: a, ia: ia, b: b, ib: ib, c: c, ic: ic, out: out, iOut: iOut,
+             operation: { $0 = $1 * $2 + $3 }, count: count)
     }
     
     // MARK: vmsb
@@ -181,17 +163,8 @@ extension VecOpsNoAccelerate {
                             c: UnsafePointer<Float>, ic: Int,
                             out: UnsafeMutablePointer<Float>, iOut: Int,
                             count: Int) {
-        var a = a
-        var b = b
-        var c = c
-        var out = out
-        for _ in 0..<count {
-            out.pointee = a.pointee * b.pointee - c.pointee
-            a += ia
-            b += ib
-            c += ic
-            out += iOut
-        }
+        map3(a: a, ia: ia, b: b, ib: ib, c: c, ic: ic, out: out, iOut: iOut,
+             operation: { $0 = $1 * $2 - $3 }, count: count)
     }
     
     /// out[i * iOut] = a[i * ia] * b[i * ib] - c[i * ic], for 0 <= i < count
@@ -200,17 +173,8 @@ extension VecOpsNoAccelerate {
                             c: UnsafePointer<Double>, ic: Int,
                             out: UnsafeMutablePointer<Double>, iOut: Int,
                             count: Int) {
-        var a = a
-        var b = b
-        var c = c
-        var out = out
-        for _ in 0..<count {
-            out.pointee = a.pointee * b.pointee - c.pointee
-            a += ia
-            b += ib
-            c += ic
-            out += iOut
-        }
+        map3(a: a, ia: ia, b: b, ib: ib, c: c, ic: ic, out: out, iOut: iOut,
+             operation: { $0 = $1 * $2 - $3 }, count: count)
     }
     
     // MARK: vmsa
@@ -221,15 +185,8 @@ extension VecOpsNoAccelerate {
                             c: Float,
                             out: UnsafeMutablePointer<Float>, iOut: Int,
                             count: Int) {
-        var a = a
-        var b = b
-        var out = out
-        for _ in 0..<count {
-            out.pointee = a.pointee * b.pointee + c
-            a += ia
-            b += ib
-            out += iOut
-        }
+        map2(a: a, ia: ia, b: b, ib: ib, out: out, iOut: iOut,
+             operation: { $0 = $1 * $2 + c }, count: count)
     }
     
     /// out[i * iOut] = a[i * ia] * b[i * ib] + c, for 0 <= i < count
@@ -238,15 +195,8 @@ extension VecOpsNoAccelerate {
                             c: Double,
                             out: UnsafeMutablePointer<Double>, iOut: Int,
                             count: Int) {
-        var a = a
-        var b = b
-        var out = out
-        for _ in 0..<count {
-            out.pointee = a.pointee * b.pointee + c
-            a += ia
-            b += ib
-            out += iOut
-        }
+        map2(a: a, ia: ia, b: b, ib: ib, out: out, iOut: iOut,
+             operation: { $0 = $1 * $2 + c }, count: count)
     }
     
     // MARK: vsma
@@ -257,15 +207,8 @@ extension VecOpsNoAccelerate {
                             c: UnsafePointer<Float>, ic: Int,
                             out: UnsafeMutablePointer<Float>, iOut: Int,
                             count: Int) {
-        var a = a
-        var c = c
-        var out = out
-        for _ in 0..<count {
-            out.pointee = a.pointee * b + c.pointee
-            a += ia
-            c += ic
-            out += iOut
-        }
+        map2(a: a, ia: ia, b: c, ib: ic, out: out, iOut: iOut,
+             operation: { $0 = $1 * b + $2 }, count: count)
     }
     
     /// out[i * iOut] = a[i * ia] * b + c[i * ic], for 0 <= i < count
@@ -274,15 +217,8 @@ extension VecOpsNoAccelerate {
                             c: UnsafePointer<Double>, ic: Int,
                             out: UnsafeMutablePointer<Double>, iOut: Int,
                             count: Int) {
-        var a = a
-        var c = c
-        var out = out
-        for _ in 0..<count {
-            out.pointee = a.pointee * b + c.pointee
-            a += ia
-            c += ic
-            out += iOut
-        }
+        map2(a: a, ia: ia, b: c, ib: ic, out: out, iOut: iOut,
+             operation: { $0 = $1 * b + $2 }, count: count)
     }
     
     // MARK: vsmsb
@@ -293,15 +229,8 @@ extension VecOpsNoAccelerate {
                              c: UnsafePointer<Float>, ic: Int,
                              out: UnsafeMutablePointer<Float>, iOut: Int,
                              count: Int) {
-        var a = a
-        var c = c
-        var out = out
-        for _ in 0..<count {
-            out.pointee = a.pointee * b - c.pointee
-            a += ia
-            c += ic
-            out += iOut
-        }
+        map2(a: a, ia: ia, b: c, ib: ic, out: out, iOut: iOut,
+             operation: { $0 = $1 * b - $2 }, count: count)
     }
     
     /// out[i * iOut] = a[i * ia] * b - c[i * ic], for 0 <= i < count
@@ -310,15 +239,8 @@ extension VecOpsNoAccelerate {
                              c: UnsafePointer<Double>, ic: Int,
                              out: UnsafeMutablePointer<Double>, iOut: Int,
                              count: Int) {
-        var a = a
-        var c = c
-        var out = out
-        for _ in 0..<count {
-            out.pointee = a.pointee * b - c.pointee
-            a += ia
-            c += ic
-            out += iOut
-        }
+        map2(a: a, ia: ia, b: c, ib: ic, out: out, iOut: iOut,
+             operation: { $0 = $1 * b - $2 }, count: count)
     }
     
     // MARK: vsmsa
@@ -328,13 +250,8 @@ extension VecOpsNoAccelerate {
                              b: Float, c: Float,
                              out: UnsafeMutablePointer<Float>, iOut: Int,
                              count: Int) {
-        var a = a
-        var out = out
-        for _ in 0..<count {
-            out.pointee = a.pointee * b + c
-            a += ia
-            out += iOut
-        }
+        map(x: a, ix: ia, out: out, iOut: iOut,
+            operation: { $0 = $1 * b + c }, count: count)
     }
     
     /// out[i * iOut] = a[i * ia] * b + c, for 0 <= i < count
@@ -342,12 +259,7 @@ extension VecOpsNoAccelerate {
                              b: Double, c: Double,
                              out: UnsafeMutablePointer<Double>, iOut: Int,
                              count: Int) {
-        var a = a
-        var out = out
-        for _ in 0..<count {
-            out.pointee = a.pointee * b + c
-            a += ia
-            out += iOut
-        }
+        map(x: a, ix: ia, out: out, iOut: iOut,
+            operation: { $0 = $1 * b + c }, count: count)
     }
 }
