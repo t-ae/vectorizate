@@ -81,24 +81,6 @@ extension VecOps {
 #endif
 
 extension VecOpsNoAccelerate {
-    
-    private static func map<T>(a: UnsafePointer<T>, ia: Int,
-                               b: UnsafePointer<T>, ib: Int,
-                               out: UnsafeMutablePointer<T>, iOut: Int,
-                               operation: (inout T, T, T)->Void,
-                               count: Int) {
-        var a = a
-        var b = b
-        var out = out
-        for _ in 0..<count {
-            operation(&out.pointee, a.pointee, b.pointee)
-            
-            a += ia
-            b += ib
-            out += iOut
-        }
-    }
-    
     // MARK: vmin
     
     /// out[i * iOut] = min(a[i * ia], b[i * ib]), for 0 <= i < count
@@ -106,8 +88,8 @@ extension VecOpsNoAccelerate {
                             b: UnsafePointer<Float>, ib: Int,
                             out: UnsafeMutablePointer<Float>, iOut: Int,
                             count: Int) {
-        map(a: a, ia: ia, b: b, ib: ib, out: out, iOut: iOut,
-            operation: { $0 = min($1, $2) }, count: count)
+        map2(x: a, ix: ia, y: b, iy: ib, out: out, iOut: iOut,
+             operation: { $0 = min($1, $2) }, count: count)
     }
     
     /// out[i * iOut] = min(a[i * ia], b[i * ib]), for 0 <= i < count
@@ -115,8 +97,8 @@ extension VecOpsNoAccelerate {
                             b: UnsafePointer<Double>, ib: Int,
                             out: UnsafeMutablePointer<Double>, iOut: Int,
                             count: Int) {
-        map(a: a, ia: ia, b: b, ib: ib, out: out, iOut: iOut,
-            operation: { $0 = min($1, $2) }, count: count)
+        map2(x: a, ix: ia, y: b, iy: ib, out: out, iOut: iOut,
+             operation: { $0 = min($1, $2) }, count: count)
     }
     
     // MARK: vminmg
@@ -126,8 +108,8 @@ extension VecOpsNoAccelerate {
                               b: UnsafePointer<Float>, ib: Int,
                               out: UnsafeMutablePointer<Float>, iOut: Int,
                               count: Int) {
-        map(a: a, ia: ia, b: b, ib: ib, out: out, iOut: iOut,
-            operation: { $0 = min(abs($1), abs($2)) }, count: count)
+        map2(x: a, ix: ia, y: b, iy: ib, out: out, iOut: iOut,
+             operation: { $0 = min(abs($1), abs($2)) }, count: count)
     }
     
     /// out[i * iOut] = min(abs(a[i * ia]), abs(b[i * ib])), for 0 <= i < count
@@ -135,8 +117,8 @@ extension VecOpsNoAccelerate {
                               b: UnsafePointer<Double>, ib: Int,
                               out: UnsafeMutablePointer<Double>, iOut: Int,
                               count: Int) {
-        map(a: a, ia: ia, b: b, ib: ib, out: out, iOut: iOut,
-            operation: { $0 = min(abs($1), abs($2)) }, count: count)
+        map2(x: a, ix: ia, y: b, iy: ib, out: out, iOut: iOut,
+             operation: { $0 = min(abs($1), abs($2)) }, count: count)
     }
     
     // MARK: vmax
@@ -146,8 +128,8 @@ extension VecOpsNoAccelerate {
                             b: UnsafePointer<Float>, ib: Int,
                             out: UnsafeMutablePointer<Float>, iOut: Int,
                             count: Int) {
-        map(a: a, ia: ia, b: b, ib: ib, out: out, iOut: iOut,
-            operation: { $0 = max($1, $2) }, count: count)
+        map2(x: a, ix: ia, y: b, iy: ib, out: out, iOut: iOut,
+             operation: { $0 = max($1, $2) }, count: count)
     }
     
     /// out[i * iOut] = max(a[i * ia], b[i * ib]), for 0 <= i < count
@@ -155,8 +137,8 @@ extension VecOpsNoAccelerate {
                             b: UnsafePointer<Double>, ib: Int,
                             out: UnsafeMutablePointer<Double>, iOut: Int,
                             count: Int) {
-        map(a: a, ia: ia, b: b, ib: ib, out: out, iOut: iOut,
-            operation: { $0 = max($1, $2) }, count: count)
+        map2(x: a, ix: ia, y: b, iy: ib, out: out, iOut: iOut,
+             operation: { $0 = max($1, $2) }, count: count)
     }
     
     // MARK: vmaxmg
@@ -166,8 +148,8 @@ extension VecOpsNoAccelerate {
                               b: UnsafePointer<Float>, ib: Int,
                               out: UnsafeMutablePointer<Float>, iOut: Int,
                               count: Int) {
-        map(a: a, ia: ia, b: b, ib: ib, out: out, iOut: iOut,
-            operation: { $0 = max(abs($1), abs($2)) }, count: count)
+        map2(x: a, ix: ia, y: b, iy: ib, out: out, iOut: iOut,
+             operation: { $0 = max(abs($1), abs($2)) }, count: count)
     }
     
     /// out[i * iOut] = max(abs(a[i * ia]), abs(b[i * ib])), for 0 <= i < count
@@ -175,7 +157,7 @@ extension VecOpsNoAccelerate {
                               b: UnsafePointer<Double>, ib: Int,
                               out: UnsafeMutablePointer<Double>, iOut: Int,
                               count: Int) {
-        map(a: a, ia: ia, b: b, ib: ib, out: out, iOut: iOut,
-            operation: { $0 = max(abs($1), abs($2)) }, count: count)
+        map2(x: a, ix: ia, y: b, iy: ib, out: out, iOut: iOut,
+             operation: { $0 = max(abs($1), abs($2)) }, count: count)
     }
 }

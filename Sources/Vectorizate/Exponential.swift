@@ -119,111 +119,115 @@ extension VecOps {
 #endif
 
 extension VecOpsNoAccelerate {
-    private static func map<T>(x: UnsafePointer<T>, out: UnsafeMutablePointer<T>,
-                               operation: (T) -> T,
-                               count: Int) {
-        var x = x
-        var out = out
-        for _ in 0..<count {
-            out.pointee = operation(x.pointee)
-            x += 1
-            out += 1
-        }
-    }
-    
     // MARK: vexp
     
     /// out[i * iOut] = vexp(x[i * ix]), for 0 <= i < count
     public static func vexp(x: UnsafePointer<Float>, out: UnsafeMutablePointer<Float>, count: Int) {
-        map(x: x, out: out, operation: exp, count: count)
+        map(x: x, ix: 1, out: out, iOut: 1,
+            operation: { $0 = exp($1) }, count: count)
     }
     
     /// out[i * iOut] = vexp(x[i * ix]), for 0 <= i < count
     public static func vexp(x: UnsafePointer<Double>, out: UnsafeMutablePointer<Double>, count: Int) {
-        map(x: x, out: out, operation: exp, count: count)
+        map(x: x, ix: 1, out: out, iOut: 1,
+            operation: { $0 = exp($1) }, count: count)
     }
     
     // MARK: vexp2
     
     /// out[i * iOut] = vexp2(x[i * ix]), for 0 <= i < count
     public static func vexp2(x: UnsafePointer<Float>, out: UnsafeMutablePointer<Float>, count: Int) {
-        map(x: x, out: out, operation: exp2, count: count)
+        map(x: x, ix: 1, out: out, iOut: 1,
+            operation: { $0 = exp2($1) }, count: count)
     }
     
     /// out[i * iOut] = vexp2(x[i * ix]), for 0 <= i < count
     public static func vexp2(x: UnsafePointer<Double>, out: UnsafeMutablePointer<Double>, count: Int) {
-        map(x: x, out: out, operation: exp2, count: count)
+        map(x: x, ix: 1, out: out, iOut: 1,
+            operation: { $0 = exp2($1) }, count: count)
     }
     
     // MARK: vexpm1
     
     /// out[i * iOut] = vexp(x[i * ix]) - 1, for 0 <= i < count
     public static func vexpm1(x: UnsafePointer<Float>, out: UnsafeMutablePointer<Float>, count: Int) {
-        map(x: x, out: out, operation: expm1, count: count)
+        map(x: x, ix: 1, out: out, iOut: 1,
+            operation: { $0 = expm1($1) }, count: count)
     }
     
     /// out[i * iOut] = vexp(x[i * ix]) - 1, for 0 <= i < count
     public static func vexpm1(x: UnsafePointer<Double>, out: UnsafeMutablePointer<Double>, count: Int) {
-        map(x: x, out: out, operation: expm1, count: count)
+        map(x: x, ix: 1, out: out, iOut: 1,
+            operation: { $0 = expm1($1) }, count: count)
     }
     
     // MARK: vlog
     
     /// out[i * iOut] = vlog(x[i * ix]), for 0 <= i < count
     public static func vlog(x: UnsafePointer<Float>, out: UnsafeMutablePointer<Float>, count: Int) {
-        map(x: x, out: out, operation: log, count: count)
+        map(x: x, ix: 1, out: out, iOut: 1,
+            operation: { $0 = log($1) }, count: count)
     }
     
     /// out[i * iOut] = vlog(x[i * ix]), for 0 <= i < count
     public static func vlog(x: UnsafePointer<Double>, out: UnsafeMutablePointer<Double>, count: Int) {
-        map(x: x, out: out, operation: log, count: count)
+        map(x: x, ix: 1, out: out, iOut: 1,
+            operation: { $0 = log($1) }, count: count)
     }
     
     // MARK: vlog1p
     
     /// out[i * iOut] = vlog(x[i * ix] + 1), for 0 <= i < count
     public static func vlog1p(x: UnsafePointer<Float>, out: UnsafeMutablePointer<Float>, count: Int) {
-        map(x: x, out: out, operation: log1p, count: count)
+        map(x: x, ix: 1, out: out, iOut: 1,
+            operation: { $0 = log1p($1) }, count: count)
     }
     
     /// out[i * iOut] = vlog(x[i * ix] + 1), for 0 <= i < count
     public static func vlog1p(x: UnsafePointer<Double>, out: UnsafeMutablePointer<Double>, count: Int) {
-        map(x: x, out: out, operation: log1p, count: count)
+        map(x: x, ix: 1, out: out, iOut: 1,
+            operation: { $0 = log1p($1) }, count: count)
     }
     
     // MARK: vlog2
     
     /// out[i * iOut] = vlog2(x[i * ix]), for 0 <= i < count
     public static func vlog2(x: UnsafePointer<Float>, out: UnsafeMutablePointer<Float>, count: Int) {
-        map(x: x, out: out, operation: log2, count: count)
+        map(x: x, ix: 1, out: out, iOut: 1,
+            operation: { $0 = log2($1) }, count: count)
     }
     
     /// out[i * iOut] = vlog2(x[i * ix]), for 0 <= i < count
     public static func vlog2(x: UnsafePointer<Double>, out: UnsafeMutablePointer<Double>, count: Int) {
-        map(x: x, out: out, operation: log2, count: count)
+        map(x: x, ix: 1, out: out, iOut: 1,
+            operation: { $0 = log2($1) }, count: count)
     }
     
     // MARK: vlog10
     
     /// out[i * iOut] = vlog10(x[i * ix]), for 0 <= i < count
     public static func vlog10(x: UnsafePointer<Float>, out: UnsafeMutablePointer<Float>, count: Int) {
-        map(x: x, out: out, operation: log10, count: count)
+        map(x: x, ix: 1, out: out, iOut: 1,
+            operation: { $0 = log10($1) }, count: count)
     }
     
     /// out[i * iOut] = vlog10(x[i * ix]), for 0 <= i < count
     public static func vlog10(x: UnsafePointer<Double>, out: UnsafeMutablePointer<Double>, count: Int) {
-        map(x: x, out: out, operation: log10, count: count)
+        map(x: x, ix: 1, out: out, iOut: 1,
+            operation: { $0 = log10($1) }, count: count)
     }
     
     // MARK: vlogb
     
     /// out[i * iOut] = vlogb(x[i * ix]), for 0 <= i < count
     public static func vlogb(x: UnsafePointer<Float>, out: UnsafeMutablePointer<Float>, count: Int) {
-        map(x: x, out: out, operation: logb, count: count)
+        map(x: x, ix: 1, out: out, iOut: 1,
+            operation: { $0 = logb($1) }, count: count)
     }
     
     /// out[i * iOut] = vlogb(x[i * ix]), for 0 <= i < count
     public static func vlogb(x: UnsafePointer<Double>, out: UnsafeMutablePointer<Double>, count: Int) {
-        map(x: x, out: out, operation: logb, count: count)
+        map(x: x, ix: 1, out: out, iOut: 1,
+            operation: { $0 = logb($1) }, count: count)
     }
 }

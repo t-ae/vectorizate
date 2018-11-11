@@ -145,18 +145,7 @@ extension VecOps {
 #endif
 
 extension VecOpsNoAccelerate {
-    private static func reduce<T: BinaryFloatingPoint>(
-        x: UnsafePointer<T>, ix: Int, out: inout T,
-        operation: (inout T, T)-> Void, count: Int) {
-        
-        var x = x
-        for _ in 0..<count {
-            operation(&out, x.pointee)
-            x += ix
-        }
-    }
-    
-    private static func reduce<T: BinaryFloatingPoint>(
+    private static func reduceWithIndex<T: BinaryFloatingPoint>(
         x: UnsafePointer<T>, ix: Int,
         out: inout T, index: inout UInt,
         operation: (inout T, inout UInt, UInt, T)-> Void, count: Int) {
@@ -187,7 +176,7 @@ extension VecOpsNoAccelerate {
                              count: Int) {
         out = -Float.infinity
         index = 0
-        reduce(x: x, ix: ix, out: &out, index: &index, operation: { acc, index, i, v in
+        reduceWithIndex(x: x, ix: ix, out: &out, index: &index, operation: { acc, index, i, v in
             if acc < v {
                 acc = v
                 index = i
@@ -200,7 +189,7 @@ extension VecOpsNoAccelerate {
                              count: Int) {
         out = -Double.infinity
         index = 0
-        reduce(x: x, ix: ix, out: &out, index: &index, operation: { acc, index, i, v in
+        reduceWithIndex(x: x, ix: ix, out: &out, index: &index, operation: { acc, index, i, v in
             if acc < v {
                 acc = v
                 index = i
@@ -225,7 +214,7 @@ extension VecOpsNoAccelerate {
                                count: Int) {
         out = 0
         index = 0
-        reduce(x: x, ix: ix, out: &out, index: &index, operation: { acc, index, i, v in
+        reduceWithIndex(x: x, ix: ix, out: &out, index: &index, operation: { acc, index, i, v in
             let absv = abs(v)
             if acc < absv {
                 acc = absv
@@ -239,7 +228,7 @@ extension VecOpsNoAccelerate {
                                count: Int) {
         out = 0
         index = 0
-        reduce(x: x, ix: ix, out: &out, index: &index, operation: { acc, index, i, v in
+        reduceWithIndex(x: x, ix: ix, out: &out, index: &index, operation: { acc, index, i, v in
             let absv = abs(v)
             if acc < absv {
                 acc = absv
@@ -265,7 +254,7 @@ extension VecOpsNoAccelerate {
                              count: Int) {
         out = Float.infinity
         index = 0
-        reduce(x: x, ix: ix, out: &out, index: &index, operation: { acc, index, i, v in
+        reduceWithIndex(x: x, ix: ix, out: &out, index: &index, operation: { acc, index, i, v in
             if acc > v {
                 acc = v
                 index = i
@@ -278,7 +267,7 @@ extension VecOpsNoAccelerate {
                              count: Int) {
         out = Double.infinity
         index = 0
-        reduce(x: x, ix: ix, out: &out, index: &index, operation: { acc, index, i, v in
+        reduceWithIndex(x: x, ix: ix, out: &out, index: &index, operation: { acc, index, i, v in
             if acc > v {
                 acc = v
                 index = i
@@ -303,7 +292,7 @@ extension VecOpsNoAccelerate {
                                count: Int) {
         out = Float.infinity
         index = 0
-        reduce(x: x, ix: ix, out: &out, index: &index, operation: { acc, index, i, v in
+        reduceWithIndex(x: x, ix: ix, out: &out, index: &index, operation: { acc, index, i, v in
             let absv = abs(v)
             if acc > absv {
                 acc = absv
@@ -317,7 +306,7 @@ extension VecOpsNoAccelerate {
                                count: Int) {
         out = Double.infinity
         index = 0
-        reduce(x: x, ix: ix, out: &out, index: &index, operation: { acc, index, i, v in
+        reduceWithIndex(x: x, ix: ix, out: &out, index: &index, operation: { acc, index, i, v in
             let absv = abs(v)
             if acc > absv {
                 acc = absv

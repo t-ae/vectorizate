@@ -79,21 +79,6 @@ extension VecOps {
 #endif
 
 extension VecOpsNoAccelerate {
-    private static func map<T>(a: UnsafePointer<T>, ia: Int,
-                               b: UnsafePointer<T>, ib: Int,
-                               out: UnsafeMutablePointer<T>, iOut: Int,
-                               operation: (T, T) -> T,
-                               count: Int) {
-        var a = a
-        var b = b
-        var out = out
-        for _ in 0..<count {
-            out.pointee = operation(a.pointee, b.pointee)
-            a += ia
-            b += ib
-            out += iOut
-        }
-    }
     // MARK: vadd
     
     /// out[i * iOut] = a[i * ia] + b[i * ib], for 0 <= i < count
@@ -101,8 +86,8 @@ extension VecOpsNoAccelerate {
                             b: UnsafePointer<Float>, ib: Int,
                             out: UnsafeMutablePointer<Float>, iOut: Int,
                             count: Int) {
-        map(a: a, ia: ia, b: b, ib: ib, out: out, iOut: iOut,
-            operation: +, count: count)
+        map2(x: a, ix: ia, y: b, iy: ib, out: out, iOut: iOut,
+             operation: { $0 = $1 + $2 }, count: count)
     }
     
     /// out[i * iOut] = a[i * ia] + b[i * ib], for 0 <= i < count
@@ -110,8 +95,8 @@ extension VecOpsNoAccelerate {
                             b: UnsafePointer<Double>, ib: Int,
                             out: UnsafeMutablePointer<Double>, iOut: Int,
                             count: Int) {
-        map(a: a, ia: ia, b: b, ib: ib, out: out, iOut: iOut,
-            operation: +, count: count)
+        map2(x: a, ix: ia, y: b, iy: ib, out: out, iOut: iOut,
+             operation: { $0 = $1 + $2 }, count: count)
     }
     
     // MARK: vsub
@@ -121,8 +106,8 @@ extension VecOpsNoAccelerate {
                             b: UnsafePointer<Float>, ib: Int,
                             out: UnsafeMutablePointer<Float>, iOut: Int,
                             count: Int) {
-        map(a: a, ia: ia, b: b, ib: ib, out: out, iOut: iOut,
-            operation: -, count: count)
+        map2(x: a, ix: ia, y: b, iy: ib, out: out, iOut: iOut,
+             operation: { $0 = $1 - $2 }, count: count)
     }
     
     /// out[i * iOut] = a[i * ia] - b[i * ib], for 0 <= i < count
@@ -130,8 +115,8 @@ extension VecOpsNoAccelerate {
                             b: UnsafePointer<Double>, ib: Int,
                             out: UnsafeMutablePointer<Double>, iOut: Int,
                             count: Int) {
-        map(a: a, ia: ia, b: b, ib: ib, out: out, iOut: iOut,
-            operation: -, count: count)
+        map2(x: a, ix: ia, y: b, iy: ib, out: out, iOut: iOut,
+             operation: { $0 = $1 - $2 }, count: count)
     }
     
     // MARK: vmul
@@ -141,8 +126,8 @@ extension VecOpsNoAccelerate {
                             b: UnsafePointer<Float>, ib: Int,
                             out: UnsafeMutablePointer<Float>, iOut: Int,
                             count: Int) {
-        map(a: a, ia: ia, b: b, ib: ib, out: out, iOut: iOut,
-            operation: *, count: count)
+        map2(x: a, ix: ia, y: b, iy: ib, out: out, iOut: iOut,
+             operation: { $0 = $1 * $2 }, count: count)
     }
     
     /// out[i * iOut] = a[i * ia] * b[i * ib], for 0 <= i < count
@@ -150,8 +135,8 @@ extension VecOpsNoAccelerate {
                             b: UnsafePointer<Double>, ib: Int,
                             out: UnsafeMutablePointer<Double>, iOut: Int,
                             count: Int) {
-        map(a: a, ia: ia, b: b, ib: ib, out: out, iOut: iOut,
-            operation: *, count: count)
+        map2(x: a, ix: ia, y: b, iy: ib, out: out, iOut: iOut,
+             operation: { $0 = $1 * $2 }, count: count)
     }
     
     // MARK: vdiv
@@ -161,8 +146,8 @@ extension VecOpsNoAccelerate {
                             b: UnsafePointer<Float>, ib: Int,
                             out: UnsafeMutablePointer<Float>, iOut: Int,
                             count: Int) {
-        map(a: a, ia: ia, b: b, ib: ib, out: out, iOut: iOut,
-            operation: /, count: count)
+        map2(x: a, ix: ia, y: b, iy: ib, out: out, iOut: iOut,
+             operation: { $0 = $1 / $2 }, count: count)
     }
     
     /// out[i * iOut] = a[i * ia] / b[i * ib], for 0 <= i < count
@@ -170,7 +155,7 @@ extension VecOpsNoAccelerate {
                             b: UnsafePointer<Double>, ib: Int,
                             out: UnsafeMutablePointer<Double>, iOut: Int,
                             count: Int) {
-        map(a: a, ia: ia, b: b, ib: ib, out: out, iOut: iOut,
-            operation: /, count: count)
+        map2(x: a, ix: ia, y: b, iy: ib, out: out, iOut: iOut,
+             operation: { $0 = $1 / $2 }, count: count)
     }
 }

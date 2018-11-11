@@ -75,16 +75,6 @@ extension VecOps {
 #endif
 
 extension VecOpsNoAccelerate {
-    private static func reduce<T: BinaryFloatingPoint>(x: UnsafePointer<T>, ix: Int, out: inout T,
-                                                       operation: (inout T, T)-> Void, count: Int) {
-        var x = x
-        out = 0
-        for _ in 0..<count {
-            operation(&out, x.pointee)
-            x += ix
-        }
-    }
-    
     // MARK: sve
     
     /// out = sum(x[i * ix]), for 0 <= i < count
@@ -128,14 +118,10 @@ extension VecOpsNoAccelerate {
     public static func sve_svesq(x: UnsafePointer<Float>, ix: Int,
                                  sum: inout Float, sum2: inout Float,
                                  count: Int) {
-        var x = x
-        sum = 0
-        sum2 = 0
-        for _ in 0..<count {
-            sum += x.pointee
-            sum2 += x.pointee*x.pointee
-            x += ix
-        }
+        reduce2(x: x, ix: ix, out1: &sum, out2: &sum2, operation: {
+            $0 += $2
+            $1 += $2*$2
+        }, count: count)
     }
     
     /// sum = sum(x[i * ix]), for 0 <= i < count
@@ -143,14 +129,10 @@ extension VecOpsNoAccelerate {
     public static func sve_svesq(x: UnsafePointer<Double>, ix: Int,
                                  sum: inout Double, sum2: inout Double,
                                  count: Int) {
-        var x = x
-        sum = 0
-        sum2 = 0
-        for _ in 0..<count {
-            sum += x.pointee
-            sum2 += x.pointee*x.pointee
-            x += ix
-        }
+        reduce2(x: x, ix: ix, out1: &sum, out2: &sum2, operation: {
+            $0 += $2
+            $1 += $2*$2
+        }, count: count)
     }
     
     // MARK: svs

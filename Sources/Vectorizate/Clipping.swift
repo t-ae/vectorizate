@@ -52,19 +52,6 @@ extension VecOps {
 #endif
 
 extension VecOpsNoAccelerate {
-    private static func _vclip<T: Comparable>(x: UnsafePointer<T>, ix: Int,
-                                              low: T, high: T,
-                                              out: UnsafeMutablePointer<T>, iOut: Int,
-                                              count: Int) {
-        var x = x
-        var out = out
-        for _ in 0..<count {
-            out.pointee = max(min(x.pointee, high), low)
-            x += ix
-            out += iOut
-        }
-    }
-    
     private static func _viclip<T: BinaryFloatingPoint>(x: UnsafePointer<T>, ix: Int,
                                                         low: T, high: T,
                                                         out: UnsafeMutablePointer<T>, iOut: Int,
@@ -91,7 +78,8 @@ extension VecOpsNoAccelerate {
                              low: Float, high: Float,
                              out: UnsafeMutablePointer<Float>, iOut: Int,
                              count: Int) {
-        _vclip(x: x, ix: ix, low: low, high: high, out: out, iOut: iOut, count: count)
+        map(x: x, ix: ix, out: out, iOut: iOut,
+            operation: { $0 = min(max($1, low), high) }, count: count)
     }
     
     /// out[i * iOut] = max(min(x[i * ix], high), low), for 0 <= i < count
@@ -99,7 +87,8 @@ extension VecOpsNoAccelerate {
                              low: Double, high: Double,
                              out: UnsafeMutablePointer<Double>, iOut: Int,
                              count: Int) {
-        _vclip(x: x, ix: ix, low: low, high: high, out: out, iOut: iOut, count: count)
+        map(x: x, ix: ix, out: out, iOut: iOut,
+            operation: { $0 = min(max($1, low), high) }, count: count)
     }
     
     // MARK: viclip
