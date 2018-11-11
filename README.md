@@ -31,6 +31,7 @@ sve, svesq, sve_svesq, svs,
 vmax, vmagmg, vmin, vminmg,  
 vclip, viclip,  
 minv, minvi, minmgvi, maxv, maxvi, maxmgv, maxmgvi,  
+vgathr,
 
 ### From [vForce](https://developer.apple.com/documentation/accelerate/veclib/vforce)
 sin, cos, tan, asin, acos, atan, atan2,  
