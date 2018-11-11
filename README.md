@@ -32,6 +32,7 @@ vmax, vmagmg, vmin, vminmg,
 vclip, viclip,  
 minv, minvi, minmgvi, maxv, maxvi, maxmgv, maxmgvi,  
 mmul, mtrans, mmov,  
+vdist, distancesq,
 vgathr
 
 ### From [vForce](https://developer.apple.com/documentation/accelerate/veclib/vforce)
