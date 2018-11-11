@@ -27,6 +27,22 @@ func map2<T1, T2, R>(x: UnsafePointer<T1>, ix: Int,
     }
 }
 
+func map2<T, R1, R2>(x: UnsafePointer<T>, ix: Int,
+                     out1: UnsafeMutablePointer<R1>, iOut1: Int,
+                     out2: UnsafeMutablePointer<R2>, iOut2: Int,
+                     operation: (_ out1: inout R1, _ out2: inout R2, _ x: T)->Void,
+                     count: Int) {
+    var x = x
+    var out1 = out1
+    var out2 = out2
+    for _ in 0..<count {
+        operation(&out1.pointee, &out2.pointee, x.pointee)
+        x += ix
+        out1 += iOut1
+        out2 += iOut2
+    }
+}
+
 func map3<T1, T2, T3, R>(x: UnsafePointer<T1>, ix: Int,
                          y: UnsafePointer<T2>, iy: Int,
                          z: UnsafePointer<T3>, iz: Int,

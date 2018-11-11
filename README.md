@@ -38,7 +38,7 @@ vgathr
 
 ### From [vForce](https://developer.apple.com/documentation/accelerate/veclib/vforce)
 vsin, vcos, vtan, vasin, vacos, vatan, vatan2,  
-vsinh, vcosh, vtanh, vasinh, vacoish, vatanh,  
+vsinh, vcosh, vsincos, vtanh, vasinh, vacoish, vatanh,  
 vexp, vexp2, vexp1m, vlog, vlog1p, vlog2, vlog10, vlogb,  
 vpow, vpows, vsqrt, vrsqrt, vcbrt,  
 vceil, vfloor, vint, vnint  

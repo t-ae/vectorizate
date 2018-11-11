@@ -39,6 +39,37 @@ class TrigonometricTests: XCTestCase {
         runTest(type: Double.self, func1: VecOps.vcospi, func2: VecOpsNoAccelerate.vcospi, accuracy: 1e-8)
     }
     
+    func testSinCos() {
+        do {
+            typealias F = Float
+            let x = stride(from: -1, to: 1, by: 0.1).map { F($0) }
+            var sin1 = [F](repeating: 0, count: x.count)
+            var cos1 = [F](repeating: 0, count: x.count)
+            var sin2 = [F](repeating: 0, count: x.count)
+            var cos2 = [F](repeating: 0, count: x.count)
+            
+            VecOps.vsincos(x: x, sin: &sin1, cos: &cos1, count: x.count)
+            VecOpsNoAccelerate.vsincos(x: x, sin: &sin2, cos: &cos2, count: x.count)
+            
+            XCTAssertEqual(sin1, sin2, accuracy: 1e-4)
+            XCTAssertEqual(cos1, cos2, accuracy: 1e-4)
+        }
+        do {
+            typealias F = Double
+            let x = stride(from: -1, to: 1, by: 0.1).map { F($0) }
+            var sin1 = [F](repeating: 0, count: x.count)
+            var cos1 = [F](repeating: 0, count: x.count)
+            var sin2 = [F](repeating: 0, count: x.count)
+            var cos2 = [F](repeating: 0, count: x.count)
+            
+            VecOps.vsincos(x: x, sin: &sin1, cos: &cos1, count: x.count)
+            VecOpsNoAccelerate.vsincos(x: x, sin: &sin2, cos: &cos2, count: x.count)
+            
+            XCTAssertEqual(sin1, sin2, accuracy: 1e-8)
+            XCTAssertEqual(cos1, cos2, accuracy: 1e-8)
+        }
+    }
+    
     func testVTan() {
         runTest(type: Float.self, func1: VecOps.vtan, func2: VecOpsNoAccelerate.vtan, accuracy: 1e-4)
         runTest(type: Double.self, func1: VecOps.vtan, func2: VecOpsNoAccelerate.vtan, accuracy: 1e-8)
