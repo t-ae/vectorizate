@@ -35,9 +35,9 @@ mmul, mtrans, mmov,
 vgathr,
 
 ### From [vForce](https://developer.apple.com/documentation/accelerate/veclib/vforce)
-sin, cos, tan, asin, acos, atan, atan2,  
-sinh, cosh, tanh, asinh, acoish, atanh,  
-exp, exp2, exp1m, log, log1p, log2, log10, logb,  
+vsin, vcos, vtan, vasin, vacos, vatan, vatan2,  
+vsinh, vcosh, vtanh, vasinh, vacoish, vatanh,  
+vexp, vexp2, vexp1m, vlog, vlog1p, vlog2, vlog10, vlogb,  
 
 ## Lisence
 [The MIT License](https://github.com/t-ae/vectorizate/blob/master/LICENSE)

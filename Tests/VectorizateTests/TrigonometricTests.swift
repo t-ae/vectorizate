@@ -23,46 +23,46 @@ class TrigonometricTests: XCTestCase {
         XCTAssertEqual(ans1, ans2, accuracy: accuracy, file: file, line: line)
     }
 
-    func testSin() {
-        runTest(type: Float.self, func1: VecOps.sin, func2: VecOpsNoAccelerate.sin, accuracy: 1e-4)
-        runTest(type: Double.self, func1: VecOps.sin, func2: VecOpsNoAccelerate.sin, accuracy: 1e-8)
+    func testVSin() {
+        runTest(type: Float.self, func1: VecOps.vsin, func2: VecOpsNoAccelerate.vsin, accuracy: 1e-4)
+        runTest(type: Double.self, func1: VecOps.vsin, func2: VecOpsNoAccelerate.vsin, accuracy: 1e-8)
         
-        runTest(type: Float.self, func1: VecOps.sinpi, func2: VecOpsNoAccelerate.sinpi, accuracy: 1e-4)
-        runTest(type: Double.self, func1: VecOps.sinpi, func2: VecOpsNoAccelerate.sinpi, accuracy: 1e-8)
+        runTest(type: Float.self, func1: VecOps.vsinpi, func2: VecOpsNoAccelerate.vsinpi, accuracy: 1e-4)
+        runTest(type: Double.self, func1: VecOps.vsinpi, func2: VecOpsNoAccelerate.vsinpi, accuracy: 1e-8)
     }
     
-    func testCos() {
-        runTest(type: Float.self, func1: VecOps.cos, func2: VecOpsNoAccelerate.cos, accuracy: 1e-4)
-        runTest(type: Double.self, func1: VecOps.cos, func2: VecOpsNoAccelerate.cos, accuracy: 1e-8)
+    func testVCos() {
+        runTest(type: Float.self, func1: VecOps.vcos, func2: VecOpsNoAccelerate.vcos, accuracy: 1e-4)
+        runTest(type: Double.self, func1: VecOps.vcos, func2: VecOpsNoAccelerate.vcos, accuracy: 1e-8)
         
-        runTest(type: Float.self, func1: VecOps.cospi, func2: VecOpsNoAccelerate.cospi, accuracy: 1e-4)
-        runTest(type: Double.self, func1: VecOps.cospi, func2: VecOpsNoAccelerate.cospi, accuracy: 1e-8)
+        runTest(type: Float.self, func1: VecOps.vcospi, func2: VecOpsNoAccelerate.vcospi, accuracy: 1e-4)
+        runTest(type: Double.self, func1: VecOps.vcospi, func2: VecOpsNoAccelerate.vcospi, accuracy: 1e-8)
     }
     
-    func testTan() {
-        runTest(type: Float.self, func1: VecOps.tan, func2: VecOpsNoAccelerate.tan, accuracy: 1e-4)
-        runTest(type: Double.self, func1: VecOps.tan, func2: VecOpsNoAccelerate.tan, accuracy: 1e-8)
+    func testVTan() {
+        runTest(type: Float.self, func1: VecOps.vtan, func2: VecOpsNoAccelerate.vtan, accuracy: 1e-4)
+        runTest(type: Double.self, func1: VecOps.vtan, func2: VecOpsNoAccelerate.vtan, accuracy: 1e-8)
         
-        runTest(type: Float.self, func1: VecOps.tanpi, func2: VecOpsNoAccelerate.tanpi, range: 0..<0.3, accuracy: 1e-4)
-        runTest(type: Double.self, func1: VecOps.tanpi, func2: VecOpsNoAccelerate.tanpi, range: 0..<0.9, accuracy: 1e-8)
+        runTest(type: Float.self, func1: VecOps.vtanpi, func2: VecOpsNoAccelerate.vtanpi, range: 0..<0.3, accuracy: 1e-4)
+        runTest(type: Double.self, func1: VecOps.vtanpi, func2: VecOpsNoAccelerate.vtanpi, range: 0..<0.9, accuracy: 1e-8)
     }
     
-    func testASin() {
-        runTest(type: Float.self, func1: VecOps.asin, func2: VecOpsNoAccelerate.asin, accuracy: 1e-4)
-        runTest(type: Double.self, func1: VecOps.asin, func2: VecOpsNoAccelerate.asin, accuracy: 1e-8)
+    func testVASin() {
+        runTest(type: Float.self, func1: VecOps.vasin, func2: VecOpsNoAccelerate.vasin, accuracy: 1e-4)
+        runTest(type: Double.self, func1: VecOps.vasin, func2: VecOpsNoAccelerate.vasin, accuracy: 1e-8)
     }
     
-    func testACos() {
-        runTest(type: Float.self, func1: VecOps.acos, func2: VecOpsNoAccelerate.acos, accuracy: 1e-4)
-        runTest(type: Double.self, func1: VecOps.acos, func2: VecOpsNoAccelerate.acos, accuracy: 1e-8)
+    func testVACos() {
+        runTest(type: Float.self, func1: VecOps.vacos, func2: VecOpsNoAccelerate.vacos, accuracy: 1e-4)
+        runTest(type: Double.self, func1: VecOps.vacos, func2: VecOpsNoAccelerate.vacos, accuracy: 1e-8)
     }
     
-    func testATan() {
-        runTest(type: Float.self, func1: VecOps.atan, func2: VecOpsNoAccelerate.atan, range: 0..<0.9, accuracy: 1e-4)
-        runTest(type: Double.self, func1: VecOps.atan, func2: VecOpsNoAccelerate.atan, range: 0..<0.9, accuracy: 1e-8)
+    func testVATan() {
+        runTest(type: Float.self, func1: VecOps.vatan, func2: VecOpsNoAccelerate.vatan, range: 0..<0.9, accuracy: 1e-4)
+        runTest(type: Double.self, func1: VecOps.vatan, func2: VecOpsNoAccelerate.vatan, range: 0..<0.9, accuracy: 1e-8)
     }
     
-    func testATan2() {
+    func testVATan2() {
         do {
             typealias F = Float
             let x: [F] = randomArray(count: count, in: 0..<1)
@@ -71,8 +71,8 @@ class TrigonometricTests: XCTestCase {
             var ans1 = [F](repeating: 0, count: count)
             var ans2 = [F](repeating: 0, count: count)
             
-            VecOps.atan2(y: y, x: x, out: &ans1, count: count)
-            VecOpsNoAccelerate.atan2(y: y, x: x, out: &ans2, count: count)
+            VecOps.vatan2(y: y, x: x, out: &ans1, count: count)
+            VecOpsNoAccelerate.vatan2(y: y, x: x, out: &ans2, count: count)
             
             XCTAssertEqual(ans1, ans2, accuracy: 1e-6)
         }
@@ -84,8 +84,8 @@ class TrigonometricTests: XCTestCase {
             var ans1 = [F](repeating: 0, count: count)
             var ans2 = [F](repeating: 0, count: count)
             
-            VecOps.atan2(y: y, x: x, out: &ans1, count: count)
-            VecOpsNoAccelerate.atan2(y: y, x: x, out: &ans2, count: count)
+            VecOps.vatan2(y: y, x: x, out: &ans1, count: count)
+            VecOpsNoAccelerate.vatan2(y: y, x: x, out: &ans2, count: count)
             
             XCTAssertEqual(ans1, ans2, accuracy: 1e-12)
         }

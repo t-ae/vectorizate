@@ -5,137 +5,137 @@ import Foundation
 import Accelerate
 
 extension VecOps {
-    // MARK: sin
+    // MARK: vsin
     
-    /// out[i * iOut] = sin(x[i * ix]), for 0 <= i < count
-    public static func sin(x: UnsafePointer<Float>, out: UnsafeMutablePointer<Float>, count: Int) {
+    /// out[i * iOut] = vsin(x[i * ix]), for 0 <= i < count
+    public static func vsin(x: UnsafePointer<Float>, out: UnsafeMutablePointer<Float>, count: Int) {
         var count = Int32(count)
         vvsinf(out, x, &count)
     }
     
-    /// out[i * iOut] = sin(x[i * ix]), for 0 <= i < count
-    public static func sin(x: UnsafePointer<Double>, out: UnsafeMutablePointer<Double>, count: Int) {
+    /// out[i * iOut] = vsin(x[i * ix]), for 0 <= i < count
+    public static func vsin(x: UnsafePointer<Double>, out: UnsafeMutablePointer<Double>, count: Int) {
         var count = Int32(count)
         vvsin(out, x, &count)
     }
     
-    /// out[i * iOut] = sin(x[i * ix] * pi), for 0 <= i < count
-    public static func sinpi(x: UnsafePointer<Float>, out: UnsafeMutablePointer<Float>, count: Int) {
+    /// out[i * iOut] = vsin(x[i * ix] * pi), for 0 <= i < count
+    public static func vsinpi(x: UnsafePointer<Float>, out: UnsafeMutablePointer<Float>, count: Int) {
         var count = Int32(count)
         vvsinpif(out, x, &count)
     }
     
-    /// out[i * iOut] = sin(x[i * ix] * pi), for 0 <= i < count
-    public static func sinpi(x: UnsafePointer<Double>, out: UnsafeMutablePointer<Double>, count: Int) {
+    /// out[i * iOut] = vsin(x[i * ix] * pi), for 0 <= i < count
+    public static func vsinpi(x: UnsafePointer<Double>, out: UnsafeMutablePointer<Double>, count: Int) {
         var count = Int32(count)
         vvsinpi(out, x, &count)
     }
     
-    // MARK: cos
+    // MARK: vcos
     
-    /// out[i * iOut] = cos(x[i * ix]), for 0 <= i < count
-    public static func cos(x: UnsafePointer<Float>, out: UnsafeMutablePointer<Float>, count: Int) {
+    /// out[i * iOut] = vcos(x[i * ix]), for 0 <= i < count
+    public static func vcos(x: UnsafePointer<Float>, out: UnsafeMutablePointer<Float>, count: Int) {
         var count = Int32(count)
         vvcosf(out, x, &count)
     }
     
-    /// out[i * iOut] = cos(x[i * ix]), for 0 <= i < count
-    public static func cos(x: UnsafePointer<Double>, out: UnsafeMutablePointer<Double>, count: Int) {
+    /// out[i * iOut] = vcos(x[i * ix]), for 0 <= i < count
+    public static func vcos(x: UnsafePointer<Double>, out: UnsafeMutablePointer<Double>, count: Int) {
         var count = Int32(count)
         vvcos(out, x, &count)
     }
     
-    /// out[i * iOut] = cos(x[i * ix] * pi), for 0 <= i < count
-    public static func cospi(x: UnsafePointer<Float>, out: UnsafeMutablePointer<Float>, count: Int) {
+    /// out[i * iOut] = vcos(x[i * ix] * pi), for 0 <= i < count
+    public static func vcospi(x: UnsafePointer<Float>, out: UnsafeMutablePointer<Float>, count: Int) {
         var count = Int32(count)
         vvcospif(out, x, &count)
     }
     
-    /// out[i * iOut] = cos(x[i * ix] * pi), for 0 <= i < count
-    public static func cospi(x: UnsafePointer<Double>, out: UnsafeMutablePointer<Double>, count: Int) {
+    /// out[i * iOut] = vcos(x[i * ix] * pi), for 0 <= i < count
+    public static func vcospi(x: UnsafePointer<Double>, out: UnsafeMutablePointer<Double>, count: Int) {
         var count = Int32(count)
         vvcospi(out, x, &count)
     }
     
-    // MARK: tan
+    // MARK: vtan
     
-    /// out[i * iOut] = tan(x[i * ix]), for 0 <= i < count
-    public static func tan(x: UnsafePointer<Float>, out: UnsafeMutablePointer<Float>, count: Int) {
+    /// out[i * iOut] = vtan(x[i * ix]), for 0 <= i < count
+    public static func vtan(x: UnsafePointer<Float>, out: UnsafeMutablePointer<Float>, count: Int) {
         var count = Int32(count)
         vvtanf(out, x, &count)
     }
     
-    /// out[i * iOut] = tan(x[i * ix]), for 0 <= i < count
-    public static func tan(x: UnsafePointer<Double>, out: UnsafeMutablePointer<Double>, count: Int) {
+    /// out[i * iOut] = vtan(x[i * ix]), for 0 <= i < count
+    public static func vtan(x: UnsafePointer<Double>, out: UnsafeMutablePointer<Double>, count: Int) {
         var count = Int32(count)
         vvtan(out, x, &count)
     }
     
-    /// out[i * iOut] = tan(x[i * ix] * pi), for 0 <= i < count
-    public static func tanpi(x: UnsafePointer<Float>, out: UnsafeMutablePointer<Float>, count: Int) {
+    /// out[i * iOut] = vtan(x[i * ix] * pi), for 0 <= i < count
+    public static func vtanpi(x: UnsafePointer<Float>, out: UnsafeMutablePointer<Float>, count: Int) {
         var count = Int32(count)
         vvtanpif(out, x, &count)
     }
     
-    /// out[i * iOut] = tan(x[i * ix] * pi), for 0 <= i < count
-    public static func tanpi(x: UnsafePointer<Double>, out: UnsafeMutablePointer<Double>, count: Int) {
+    /// out[i * iOut] = vtan(x[i * ix] * pi), for 0 <= i < count
+    public static func vtanpi(x: UnsafePointer<Double>, out: UnsafeMutablePointer<Double>, count: Int) {
         var count = Int32(count)
         vvtanpi(out, x, &count)
     }
     
-    // MARK: asin
+    // MARK: vasin
     
-    /// out[i * iOut] = asin(x[i * ix]), for 0 <= i < count
-    public static func asin(x: UnsafePointer<Float>, out: UnsafeMutablePointer<Float>, count: Int) {
+    /// out[i * iOut] = vasin(x[i * ix]), for 0 <= i < count
+    public static func vasin(x: UnsafePointer<Float>, out: UnsafeMutablePointer<Float>, count: Int) {
         var count = Int32(count)
         vvasinf(out, x, &count)
     }
     
-    /// out[i * iOut] = asin(x[i * ix]), for 0 <= i < count
-    public static func asin(x: UnsafePointer<Double>, out: UnsafeMutablePointer<Double>, count: Int) {
+    /// out[i * iOut] = vasin(x[i * ix]), for 0 <= i < count
+    public static func vasin(x: UnsafePointer<Double>, out: UnsafeMutablePointer<Double>, count: Int) {
         var count = Int32(count)
         vvasin(out, x, &count)
     }
     
-    // MARK: acos
+    // MARK: vacos
     
-    /// out[i * iOut] = acos(x[i * ix]), for 0 <= i < count
-    public static func acos(x: UnsafePointer<Float>, out: UnsafeMutablePointer<Float>, count: Int) {
+    /// out[i * iOut] = vacos(x[i * ix]), for 0 <= i < count
+    public static func vacos(x: UnsafePointer<Float>, out: UnsafeMutablePointer<Float>, count: Int) {
         var count = Int32(count)
         vvacosf(out, x, &count)
     }
     
-    /// out[i * iOut] = acos(x[i * ix]), for 0 <= i < count
-    public static func acos(x: UnsafePointer<Double>, out: UnsafeMutablePointer<Double>, count: Int) {
+    /// out[i * iOut] = vacos(x[i * ix]), for 0 <= i < count
+    public static func vacos(x: UnsafePointer<Double>, out: UnsafeMutablePointer<Double>, count: Int) {
         var count = Int32(count)
         vvacos(out, x, &count)
     }
     
-    // MARK: atan
+    // MARK: vatan
     
-    /// out[i * iOut] = atan(x[i * ix]), for 0 <= i < count
-    public static func atan(x: UnsafePointer<Float>, out: UnsafeMutablePointer<Float>, count: Int) {
+    /// out[i * iOut] = vatan(x[i * ix]), for 0 <= i < count
+    public static func vatan(x: UnsafePointer<Float>, out: UnsafeMutablePointer<Float>, count: Int) {
         var count = Int32(count)
         vvatanf(out, x, &count)
     }
     
-    /// out[i * iOut] = atan(x[i * ix]), for 0 <= i < count
-    public static func atan(x: UnsafePointer<Double>, out: UnsafeMutablePointer<Double>, count: Int) {
+    /// out[i * iOut] = vatan(x[i * ix]), for 0 <= i < count
+    public static func vatan(x: UnsafePointer<Double>, out: UnsafeMutablePointer<Double>, count: Int) {
         var count = Int32(count)
         vvatan(out, x, &count)
     }
     
-    // MARK: atan2
+    // MARK: vatan2
     
-    /// out[i * iOut] = atan2(y[i * iy], x[i * ix]), for 0 <= i < count
-    public static func atan2(y: UnsafePointer<Float>, x: UnsafePointer<Float>,
+    /// out[i * iOut] = vatan2(y[i * iy], x[i * ix]), for 0 <= i < count
+    public static func vatan2(y: UnsafePointer<Float>, x: UnsafePointer<Float>,
                              out: UnsafeMutablePointer<Float>, count: Int) {
         var count = Int32(count)
         vvatan2f(out, y, x, &count)
     }
     
-    /// out[i * iOut] = atan2(y[i * iy], x[i * ix]), for 0 <= i < count
-    public static func atan2(y: UnsafePointer<Double>, x: UnsafePointer<Double>,
+    /// out[i * iOut] = vatan2(y[i * iy], x[i * ix]), for 0 <= i < count
+    public static func vatan2(y: UnsafePointer<Double>, x: UnsafePointer<Double>,
                              out: UnsafeMutablePointer<Double>, count: Int) {
         var count = Int32(count)
         vvatan2(out, y, x, &count)
@@ -158,112 +158,112 @@ extension VecOpsNoAccelerate {
     }
     
     
-    // MARK: sin
+    // MARK: vsin
     
-    /// out[i * iOut] = sin(x[i * ix]), for 0 <= i < count
-    public static func sin(x: UnsafePointer<Float>, out: UnsafeMutablePointer<Float>, count: Int) {
+    /// out[i * iOut] = vsin(x[i * ix]), for 0 <= i < count
+    public static func vsin(x: UnsafePointer<Float>, out: UnsafeMutablePointer<Float>, count: Int) {
         map(x: x, out: out, operation: Foundation.sin, count: count)
     }
     
-    /// out[i * iOut] = sin(x[i * ix]), for 0 <= i < count
-    public static func sin(x: UnsafePointer<Double>, out: UnsafeMutablePointer<Double>, count: Int) {
+    /// out[i * iOut] = vsin(x[i * ix]), for 0 <= i < count
+    public static func vsin(x: UnsafePointer<Double>, out: UnsafeMutablePointer<Double>, count: Int) {
         map(x: x, out: out, operation: Foundation.sin, count: count)
     }
     
-    /// out[i * iOut] = sin(x[i * ix] * pi), for 0 <= i < count
-    public static func sinpi(x: UnsafePointer<Float>, out: UnsafeMutablePointer<Float>, count: Int) {
+    /// out[i * iOut] = vsin(x[i * ix] * pi), for 0 <= i < count
+    public static func vsinpi(x: UnsafePointer<Float>, out: UnsafeMutablePointer<Float>, count: Int) {
         map(x: x, out: out, operation: { Foundation.sin($0 * .pi) }, count: count)
     }
     
-    /// out[i * iOut] = sin(x[i * ix] * pi), for 0 <= i < count
-    public static func sinpi(x: UnsafePointer<Double>, out: UnsafeMutablePointer<Double>, count: Int) {
+    /// out[i * iOut] = vsin(x[i * ix] * pi), for 0 <= i < count
+    public static func vsinpi(x: UnsafePointer<Double>, out: UnsafeMutablePointer<Double>, count: Int) {
         map(x: x, out: out, operation: { Foundation.sin($0 * .pi) }, count: count)
     }
     
-    // MARK: cos
+    // MARK: vcos
     
-    /// out[i * iOut] = cos(x[i * ix]), for 0 <= i < count
-    public static func cos(x: UnsafePointer<Float>, out: UnsafeMutablePointer<Float>, count: Int) {
+    /// out[i * iOut] = vcos(x[i * ix]), for 0 <= i < count
+    public static func vcos(x: UnsafePointer<Float>, out: UnsafeMutablePointer<Float>, count: Int) {
         map(x: x, out: out, operation: Foundation.cos, count: count)
     }
     
-    /// out[i * iOut] = cos(x[i * ix]), for 0 <= i < count
-    public static func cos(x: UnsafePointer<Double>, out: UnsafeMutablePointer<Double>, count: Int) {
+    /// out[i * iOut] = vcos(x[i * ix]), for 0 <= i < count
+    public static func vcos(x: UnsafePointer<Double>, out: UnsafeMutablePointer<Double>, count: Int) {
         map(x: x, out: out, operation: Foundation.cos, count: count)
     }
     
-    /// out[i * iOut] = cos(x[i * ix] * pi), for 0 <= i < count
-    public static func cospi(x: UnsafePointer<Float>, out: UnsafeMutablePointer<Float>, count: Int) {
+    /// out[i * iOut] = vcos(x[i * ix] * pi), for 0 <= i < count
+    public static func vcospi(x: UnsafePointer<Float>, out: UnsafeMutablePointer<Float>, count: Int) {
         map(x: x, out: out, operation: { Foundation.cos($0 * .pi) }, count: count)
     }
     
-    /// out[i * iOut] = cos(x[i * ix] * pi), for 0 <= i < count
-    public static func cospi(x: UnsafePointer<Double>, out: UnsafeMutablePointer<Double>, count: Int) {
+    /// out[i * iOut] = vcos(x[i * ix] * pi), for 0 <= i < count
+    public static func vcospi(x: UnsafePointer<Double>, out: UnsafeMutablePointer<Double>, count: Int) {
         map(x: x, out: out, operation: { Foundation.cos($0 * .pi) }, count: count)
     }
     
-    // MARK: tan
+    // MARK: vtan
     
-    /// out[i * iOut] = tan(x[i * ix]), for 0 <= i < count
-    public static func tan(x: UnsafePointer<Float>, out: UnsafeMutablePointer<Float>, count: Int) {
+    /// out[i * iOut] = vtan(x[i * ix]), for 0 <= i < count
+    public static func vtan(x: UnsafePointer<Float>, out: UnsafeMutablePointer<Float>, count: Int) {
         map(x: x, out: out, operation: Foundation.tan, count: count)
     }
     
-    /// out[i * iOut] = tan(x[i * ix]), for 0 <= i < count
-    public static func tan(x: UnsafePointer<Double>, out: UnsafeMutablePointer<Double>, count: Int) {
+    /// out[i * iOut] = vtan(x[i * ix]), for 0 <= i < count
+    public static func vtan(x: UnsafePointer<Double>, out: UnsafeMutablePointer<Double>, count: Int) {
         map(x: x, out: out, operation: Foundation.tan, count: count)
     }
     
-    /// out[i * iOut] = tan(x[i * ix] * pi), for 0 <= i < count
-    public static func tanpi(x: UnsafePointer<Float>, out: UnsafeMutablePointer<Float>, count: Int) {
+    /// out[i * iOut] = vtan(x[i * ix] * pi), for 0 <= i < count
+    public static func vtanpi(x: UnsafePointer<Float>, out: UnsafeMutablePointer<Float>, count: Int) {
         map(x: x, out: out, operation: { Foundation.tan($0 * .pi) }, count: count)
     }
     
-    /// out[i * iOut] = tan(x[i * ix] * pi), for 0 <= i < count
-    public static func tanpi(x: UnsafePointer<Double>, out: UnsafeMutablePointer<Double>, count: Int) {
+    /// out[i * iOut] = vtan(x[i * ix] * pi), for 0 <= i < count
+    public static func vtanpi(x: UnsafePointer<Double>, out: UnsafeMutablePointer<Double>, count: Int) {
         map(x: x, out: out, operation: { Foundation.tan($0 * .pi) }, count: count)
     }
     
-    // MARK: asin
+    // MARK: vasin
     
-    /// out[i * iOut] = asin(x[i * ix]), for 0 <= i < count
-    public static func asin(x: UnsafePointer<Float>, out: UnsafeMutablePointer<Float>, count: Int) {
+    /// out[i * iOut] = vasin(x[i * ix]), for 0 <= i < count
+    public static func vasin(x: UnsafePointer<Float>, out: UnsafeMutablePointer<Float>, count: Int) {
         map(x: x, out: out, operation: Foundation.asin, count: count)
     }
     
-    /// out[i * iOut] = asin(x[i * ix]), for 0 <= i < count
-    public static func asin(x: UnsafePointer<Double>, out: UnsafeMutablePointer<Double>, count: Int) {
+    /// out[i * iOut] = vasin(x[i * ix]), for 0 <= i < count
+    public static func vasin(x: UnsafePointer<Double>, out: UnsafeMutablePointer<Double>, count: Int) {
         map(x: x, out: out, operation: Foundation.asin, count: count)
     }
     
-    // MARK: acos
+    // MARK: vacos
     
-    /// out[i * iOut] = acos(x[i * ix]), for 0 <= i < count
-    public static func acos(x: UnsafePointer<Float>, out: UnsafeMutablePointer<Float>, count: Int) {
+    /// out[i * iOut] = vacos(x[i * ix]), for 0 <= i < count
+    public static func vacos(x: UnsafePointer<Float>, out: UnsafeMutablePointer<Float>, count: Int) {
         map(x: x, out: out, operation: Foundation.acos, count: count)
     }
     
-    /// out[i * iOut] = acos(x[i * ix]), for 0 <= i < count
-    public static func acos(x: UnsafePointer<Double>, out: UnsafeMutablePointer<Double>, count: Int) {
+    /// out[i * iOut] = vacos(x[i * ix]), for 0 <= i < count
+    public static func vacos(x: UnsafePointer<Double>, out: UnsafeMutablePointer<Double>, count: Int) {
         map(x: x, out: out, operation: Foundation.acos, count: count)
     }
     
-    // MARK: atan
+    // MARK: vatan
     
-    /// out[i * iOut] = atan(x[i * ix]), for 0 <= i < count
-    public static func atan(x: UnsafePointer<Float>, out: UnsafeMutablePointer<Float>, count: Int) {
+    /// out[i * iOut] = vatan(x[i * ix]), for 0 <= i < count
+    public static func vatan(x: UnsafePointer<Float>, out: UnsafeMutablePointer<Float>, count: Int) {
         map(x: x, out: out, operation: Foundation.atan, count: count)
     }
     
-    /// out[i * iOut] = atan(x[i * ix]), for 0 <= i < count
-    public static func atan(x: UnsafePointer<Double>, out: UnsafeMutablePointer<Double>, count: Int) {
+    /// out[i * iOut] = vatan(x[i * ix]), for 0 <= i < count
+    public static func vatan(x: UnsafePointer<Double>, out: UnsafeMutablePointer<Double>, count: Int) {
         map(x: x, out: out, operation: Foundation.atan, count: count)
     }
     
-    // MARK: atan2
+    // MARK: vatan2
     
-    /// out[i * iOut] = atan2(y[i * iy], x[i * ix]), for 0 <= i < count
-    public static func atan2(y: UnsafePointer<Float>, x: UnsafePointer<Float>,
+    /// out[i * iOut] = vatan2(y[i * iy], x[i * ix]), for 0 <= i < count
+    public static func vatan2(y: UnsafePointer<Float>, x: UnsafePointer<Float>,
                              out: UnsafeMutablePointer<Float>, count: Int) {
         var y = y
         var x = x
@@ -276,8 +276,8 @@ extension VecOpsNoAccelerate {
         }
     }
     
-    /// out[i * iOut] = atan2(y[i * iy], x[i * ix]), for 0 <= i < count
-    public static func atan2(y: UnsafePointer<Double>, x: UnsafePointer<Double>,
+    /// out[i * iOut] = vatan2(y[i * iy], x[i * ix]), for 0 <= i < count
+    public static func vatan2(y: UnsafePointer<Double>, x: UnsafePointer<Double>,
                              out: UnsafeMutablePointer<Double>, count: Int) {
         var y = y
         var x = x

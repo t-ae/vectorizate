@@ -23,34 +23,34 @@ class HyperbolicTests: XCTestCase {
         XCTAssertEqual(ans1, ans2, accuracy: accuracy, file: file, line: line)
     }
     
-    func testSinh() {
-        runTest(type: Float.self, func1: VecOps.sinh, func2: VecOpsNoAccelerate.sinh, accuracy: 1e-4)
-        runTest(type: Double.self, func1: VecOps.sinh, func2: VecOpsNoAccelerate.sinh, accuracy: 1e-8)
+    func testVSinh() {
+        runTest(type: Float.self, func1: VecOps.vsinh, func2: VecOpsNoAccelerate.vsinh, accuracy: 1e-4)
+        runTest(type: Double.self, func1: VecOps.vsinh, func2: VecOpsNoAccelerate.vsinh, accuracy: 1e-8)
     }
     
-    func testCosh() {
-        runTest(type: Float.self, func1: VecOps.cosh, func2: VecOpsNoAccelerate.cosh, accuracy: 1e-4)
-        runTest(type: Double.self, func1: VecOps.cosh, func2: VecOpsNoAccelerate.cosh, accuracy: 1e-8)
+    func testVCosh() {
+        runTest(type: Float.self, func1: VecOps.vcosh, func2: VecOpsNoAccelerate.vcosh, accuracy: 1e-4)
+        runTest(type: Double.self, func1: VecOps.vcosh, func2: VecOpsNoAccelerate.vcosh, accuracy: 1e-8)
     }
     
-    func testTanh() {
-        runTest(type: Float.self, func1: VecOps.tanh, func2: VecOpsNoAccelerate.tanh, accuracy: 1e-4)
-        runTest(type: Double.self, func1: VecOps.tanh, func2: VecOpsNoAccelerate.tanh, accuracy: 1e-8)
+    func testVTanh() {
+        runTest(type: Float.self, func1: VecOps.vtanh, func2: VecOpsNoAccelerate.vtanh, accuracy: 1e-4)
+        runTest(type: Double.self, func1: VecOps.vtanh, func2: VecOpsNoAccelerate.vtanh, accuracy: 1e-8)
     }
     
-    func testASinh() {
-        runTest(type: Float.self, func1: VecOps.asinh, func2: VecOpsNoAccelerate.asinh, accuracy: 1e-4)
-        runTest(type: Double.self, func1: VecOps.asinh, func2: VecOpsNoAccelerate.asinh, accuracy: 1e-8)
+    func testVASinh() {
+        runTest(type: Float.self, func1: VecOps.vasinh, func2: VecOpsNoAccelerate.vasinh, accuracy: 1e-4)
+        runTest(type: Double.self, func1: VecOps.vasinh, func2: VecOpsNoAccelerate.vasinh, accuracy: 1e-8)
     }
     
-    func testACosh() {
-        runTest(type: Float.self, func1: VecOps.acosh, func2: VecOpsNoAccelerate.acosh, range: 1..<Float.pi, accuracy: 1e-4)
-        runTest(type: Double.self, func1: VecOps.acosh, func2: VecOpsNoAccelerate.acosh, range: 1..<Double.pi, accuracy: 1e-8)
+    func testVACosh() {
+        runTest(type: Float.self, func1: VecOps.vacosh, func2: VecOpsNoAccelerate.vacosh, range: 1..<Float.pi, accuracy: 1e-4)
+        runTest(type: Double.self, func1: VecOps.vacosh, func2: VecOpsNoAccelerate.vacosh, range: 1..<Double.pi, accuracy: 1e-8)
     }
     
-    func testATanh() {
-        runTest(type: Float.self, func1: VecOps.atanh, func2: VecOpsNoAccelerate.atanh, accuracy: 1e-4)
-        runTest(type: Double.self, func1: VecOps.atanh, func2: VecOpsNoAccelerate.atanh, accuracy: 1e-8)
+    func testVATanh() {
+        runTest(type: Float.self, func1: VecOps.vatanh, func2: VecOpsNoAccelerate.vatanh, accuracy: 1e-4)
+        runTest(type: Double.self, func1: VecOps.vatanh, func2: VecOpsNoAccelerate.vatanh, accuracy: 1e-8)
     }
 
 }
