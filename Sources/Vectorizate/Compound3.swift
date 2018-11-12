@@ -43,6 +43,54 @@ extension VecOps {
         vDSP_vmsbD(a, ia, b, ib, c, ic, out, iOut, UInt(count))
     }
     
+    // MARK: vam
+    
+    /// Vector add and multiply.
+    ///
+    /// out[i * iOut] = (a[i * ia] + b[i * ib]) * c[i * ic], for 0 <= i < count
+    public static func vam(a: UnsafePointer<Float>, ia: Int,
+                           b: UnsafePointer<Float>, ib: Int,
+                           c: UnsafePointer<Float>, ic: Int,
+                           out: UnsafeMutablePointer<Float>, iOut: Int,
+                           count: Int) {
+        vDSP_vam(a, ia, b, ib, c, ic, out, iOut, UInt(count))
+    }
+    
+    /// Vector add and multiply.
+    ///
+    /// out[i * iOut] = (a[i * ia] + b[i * ib]) * c[i * ic], for 0 <= i < count
+    public static func vam(a: UnsafePointer<Double>, ia: Int,
+                           b: UnsafePointer<Double>, ib: Int,
+                           c: UnsafePointer<Double>, ic: Int,
+                           out: UnsafeMutablePointer<Double>, iOut: Int,
+                           count: Int) {
+        vDSP_vamD(a, ia, b, ib, c, ic, out, iOut, UInt(count))
+    }
+    
+    // MARK: vsbm
+    
+    /// Vector subtract and multiply.
+    ///
+    /// out[i * iOut] = (a[i * ia] - b[i * ib]) * c[i * ic], for 0 <= i < count
+    public static func vsbm(a: UnsafePointer<Float>, ia: Int,
+                           b: UnsafePointer<Float>, ib: Int,
+                           c: UnsafePointer<Float>, ic: Int,
+                           out: UnsafeMutablePointer<Float>, iOut: Int,
+                           count: Int) {
+        vDSP_vsbm(a, ia, b, ib, c, ic, out, iOut, UInt(count))
+    }
+    
+    /// Vector subtract and multiply.
+    ///
+    /// out[i * iOut] = (a[i * ia] - b[i * ib]) * c[i * ic], for 0 <= i < count
+    public static func vsbm(a: UnsafePointer<Double>, ia: Int,
+                           b: UnsafePointer<Double>, ib: Int,
+                           c: UnsafePointer<Double>, ic: Int,
+                           out: UnsafeMutablePointer<Double>, iOut: Int,
+                           count: Int) {
+        vDSP_vsbmD(a, ia, b, ib, c, ic, out, iOut, UInt(count))
+    }
+    
     // MARK: vmsa
     
     /// out[i * iOut] = a[i * ia] * b[i * ib] + c, for 0 <= i < count
@@ -132,7 +180,7 @@ extension VecOps {
 
 #endif
 
-extension VecOpsNoAccelerate {
+extension VecOpsNoAccelerate {    
     // MARK: vma
     
     /// out[i * iOut] = a[i * ia] * b[i * ib] + c[i * ic], for 0 <= i < count
@@ -175,6 +223,58 @@ extension VecOpsNoAccelerate {
                             count: Int) {
         map3(a: a, ia: ia, b: b, ib: ib, c: c, ic: ic, out: out, iOut: iOut,
              operation: { $0 = $1 * $2 - $3 }, count: count)
+    }
+    
+    // MARK: vam
+    
+    /// Vector add and multiply.
+    ///
+    /// out[i * iOut] = (a[i * ia] + b[i * ib]) * c[i * ic], for 0 <= i < count
+    public static func vam(a: UnsafePointer<Float>, ia: Int,
+                           b: UnsafePointer<Float>, ib: Int,
+                           c: UnsafePointer<Float>, ic: Int,
+                           out: UnsafeMutablePointer<Float>, iOut: Int,
+                           count: Int) {
+        map3(a: a, ia: ia, b: b, ib: ib, c: c, ic: ic, out: out, iOut: iOut,
+             operation: { $0 = ($1 + $2) * $3 }, count: count)
+    }
+    
+    /// Vector add and multiply.
+    ///
+    /// out[i * iOut] = (a[i * ia] + b[i * ib]) * c[i * ic], for 0 <= i < count
+    public static func vam(a: UnsafePointer<Double>, ia: Int,
+                           b: UnsafePointer<Double>, ib: Int,
+                           c: UnsafePointer<Double>, ic: Int,
+                           out: UnsafeMutablePointer<Double>, iOut: Int,
+                           count: Int) {
+        map3(a: a, ia: ia, b: b, ib: ib, c: c, ic: ic, out: out, iOut: iOut,
+             operation: { $0 = ($1 + $2) * $3 }, count: count)
+    }
+    
+    // MARK: vsbm
+    
+    /// Vector subtract and multiply.
+    ///
+    /// out[i * iOut] = (a[i * ia] - b[i * ib]) * c[i * ic], for 0 <= i < count
+    public static func vsbm(a: UnsafePointer<Float>, ia: Int,
+                            b: UnsafePointer<Float>, ib: Int,
+                            c: UnsafePointer<Float>, ic: Int,
+                            out: UnsafeMutablePointer<Float>, iOut: Int,
+                            count: Int) {
+        map3(a: a, ia: ia, b: b, ib: ib, c: c, ic: ic, out: out, iOut: iOut,
+             operation: { $0 = ($1 - $2) * $3 }, count: count)
+    }
+    
+    /// Vector subtract and multiply.
+    ///
+    /// out[i * iOut] = (a[i * ia] - b[i * ib]) * c[i * ic], for 0 <= i < count
+    public static func vsbm(a: UnsafePointer<Double>, ia: Int,
+                            b: UnsafePointer<Double>, ib: Int,
+                            c: UnsafePointer<Double>, ic: Int,
+                            out: UnsafeMutablePointer<Double>, iOut: Int,
+                            count: Int) {
+        map3(a: a, ia: ia, b: b, ib: ib, c: c, ic: ic, out: out, iOut: iOut,
+             operation: { $0 = ($1 - $2) * $3 }, count: count)
     }
     
     // MARK: vmsa

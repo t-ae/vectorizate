@@ -22,7 +22,7 @@ If Accelerate Framework is not available, `VecOps` becomes typealias of `VecOpsN
 ## Supported operations
 
 ### From [vDSP](https://developer.apple.com/documentation/accelerate/vdsp)
-vma, vmsb, vmsa, vsma, vsmsb, vsmsb,  
+vma, vmsb, vam, vsbm, vmsa, vsma, vsmsb, vsmsb,  
 vadd, vsub, vmul, vdiv,  
 vsadd, vssub, svsub, vsmul, vsdiv, svdiv,  
 vabs, vnabs, vneg, vsq, vssq,  
@@ -33,7 +33,7 @@ vmax, vmagmg, vmin, vminmg,
 vclip, viclip,  
 minv, minvi, minmgvi, maxv, maxvi, maxmgv, maxmgvi,  
 mmul, mtrans, mmov,  
-vdist, distancesq,
+vdist, distancesq,  
 dotpr, vgathr
 
 ### From [vForce](https://developer.apple.com/documentation/accelerate/veclib/vforce)

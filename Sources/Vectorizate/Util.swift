@@ -14,15 +14,15 @@ func map<T, R>(x: UnsafePointer<T>, ix: Int,
 func map2<T1, T2, R>(a: UnsafePointer<T1>, ia: Int,
                      b: UnsafePointer<T2>, ib: Int,
                      out: UnsafeMutablePointer<R>, iOut: Int,
-                     operation: (_ out: inout R, _ x: T1, _ y: T2)->Void,
+                     operation: (_ out: inout R, _ a: T1, _ b: T2)->Void,
                      count: Int) {
-    var x = a
-    var y = b
+    var a = a
+    var b = b
     var out = out
     for _ in 0..<count {
-        operation(&out.pointee, x.pointee, y.pointee)
-        x += ia
-        y += ib
+        operation(&out.pointee, a.pointee, b.pointee)
+        a += ia
+        b += ib
         out += iOut
     }
 }
@@ -47,17 +47,39 @@ func map3<T1, T2, T3, R>(a: UnsafePointer<T1>, ia: Int,
                          b: UnsafePointer<T2>, ib: Int,
                          c: UnsafePointer<T3>, ic: Int,
                          out: UnsafeMutablePointer<R>, iOut: Int,
-                         operation: (_ out: inout R, _ x: T1, _ y: T2, _ z: T3)->Void,
+                         operation: (_ out: inout R, _ a: T1, _ b: T2, _ c: T3)->Void,
                          count: Int) {
-    var x = a
-    var y = b
-    var z = c
+    var a = a
+    var b = b
+    var c = c
     var out = out
     for _ in 0..<count {
-        operation(&out.pointee, x.pointee, y.pointee, z.pointee)
-        x += ia
-        y += ib
-        z += ic
+        operation(&out.pointee, a.pointee, b.pointee, c.pointee)
+        a += ia
+        b += ib
+        c += ic
+        out += iOut
+    }
+}
+
+func map4<T1, T2, T3, T4, R>(a: UnsafePointer<T1>, ia: Int,
+                             b: UnsafePointer<T2>, ib: Int,
+                             c: UnsafePointer<T3>, ic: Int,
+                             d: UnsafePointer<T4>, id: Int,
+                             out: UnsafeMutablePointer<R>, iOut: Int,
+                             operation: (_ out: inout R, _ a: T1, _ b: T2, _ c: T3, _ d: T4)->Void,
+                             count: Int) {
+    var a = a
+    var b = b
+    var c = c
+    var d = d
+    var out = out
+    for _ in 0..<count {
+        operation(&out.pointee, a.pointee, b.pointee, c.pointee, d.pointee)
+        a += ia
+        b += ib
+        c += ic
+        d += id
         out += iOut
     }
 }
