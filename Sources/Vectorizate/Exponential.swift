@@ -61,12 +61,16 @@ extension VecOps {
     
     // MARK: vlog
     
+    /// Calculates the natural logarithm for each element in an array.
+    ///
     /// out[i * iOut] = log(x[i]), for 0 <= i < count
     public static func vlog(x: UnsafePointer<Float>, out: UnsafeMutablePointer<Float>, count: Int) {
         var count = Int32(count)
         vvlogf(out, x, &count)
     }
     
+    /// Calculates the natural logarithm for each element in an array.
+    ///
     /// out[i * iOut] = log(x[i]), for 0 <= i < count
     public static func vlog(x: UnsafePointer<Double>, out: UnsafeMutablePointer<Double>, count: Int) {
         var count = Int32(count)
@@ -75,12 +79,16 @@ extension VecOps {
     
     // MARK: vlog1p
     
+    /// Calculates log(1+x) for each element in an array.
+    ///
     /// out[i * iOut] = log(x[i] + 1), for 0 <= i < count
     public static func vlog1p(x: UnsafePointer<Float>, out: UnsafeMutablePointer<Float>, count: Int) {
         var count = Int32(count)
         vvlog1pf(out, x, &count)
     }
     
+    /// Calculates log(1+x) for each element in an array.
+    ///
     /// out[i * iOut] = log(x[i] + 1), for 0 <= i < count
     public static func vlog1p(x: UnsafePointer<Double>, out: UnsafeMutablePointer<Double>, count: Int) {
         var count = Int32(count)
@@ -89,12 +97,16 @@ extension VecOps {
     
     // MARK: vlog2
     
+    /// Calculates the base 2 logarithm of each element in an array.
+    ///
     /// out[i * iOut] = log2(x[i]), for 0 <= i < count
     public static func vlog2(x: UnsafePointer<Float>, out: UnsafeMutablePointer<Float>, count: Int) {
         var count = Int32(count)
         vvlog2f(out, x, &count)
     }
     
+    /// Calculates the base 2 logarithm of each element in an array.
+    ///
     /// out[i * iOut] = log2(x[i]), for 0 <= i < count
     public static func vlog2(x: UnsafePointer<Double>, out: UnsafeMutablePointer<Double>, count: Int) {
         var count = Int32(count)
@@ -103,12 +115,16 @@ extension VecOps {
     
     // MARK: vlog10
     
+    /// Calculates the base 10 logarithm of each element in an array.
+    ///
     /// out[i * iOut] = log10(x[i]), for 0 <= i < count
     public static func vlog10(x: UnsafePointer<Float>, out: UnsafeMutablePointer<Float>, count: Int) {
         var count = Int32(count)
         vvlog10f(out, x, &count)
     }
     
+    /// Calculates the base 10 logarithm of each element in an array.
+    ///
     /// out[i * iOut] = log10(x[i]), for 0 <= i < count
     public static func vlog10(x: UnsafePointer<Double>, out: UnsafeMutablePointer<Double>, count: Int) {
         var count = Int32(count)
@@ -117,12 +133,16 @@ extension VecOps {
     
     // MARK: vlogb
     
+    /// Calculates the unbiased exponent of each element in an array.
+    ///
     /// out[i * iOut] = logb(x[i]), for 0 <= i < count
     public static func vlogb(x: UnsafePointer<Float>, out: UnsafeMutablePointer<Float>, count: Int) {
         var count = Int32(count)
         vvlogbf(out, x, &count)
     }
     
+    /// Calculates the unbiased exponent of each element in an array.
+    ///
     /// out[i * iOut] = logb(x[i]), for 0 <= i < count
     public static func vlogb(x: UnsafePointer<Double>, out: UnsafeMutablePointer<Double>, count: Int) {
         var count = Int32(count)
@@ -135,12 +155,16 @@ extension VecOps {
 extension VecOpsNoAccelerate {
     // MARK: vexp
     
+    /// Calculates e raised to the power of each element in an array.
+    ///
     /// out[i * iOut] = exp(x[i]), for 0 <= i < count
     public static func vexp(x: UnsafePointer<Float>, out: UnsafeMutablePointer<Float>, count: Int) {
         map(x: x, ix: 1, out: out, iOut: 1,
             operation: { $0 = exp($1) }, count: count)
     }
     
+    /// Calculates e raised to the power of each element in an array.
+    ///
     /// out[i * iOut] = exp(x[i]), for 0 <= i < count
     public static func vexp(x: UnsafePointer<Double>, out: UnsafeMutablePointer<Double>, count: Int) {
         map(x: x, ix: 1, out: out, iOut: 1,
@@ -149,12 +173,16 @@ extension VecOpsNoAccelerate {
     
     // MARK: vexp2
     
+    /// Calculates 2 raised to the power of each element in an array.
+    ///
     /// out[i * iOut] = exp2(x[i]), for 0 <= i < count
     public static func vexp2(x: UnsafePointer<Float>, out: UnsafeMutablePointer<Float>, count: Int) {
         map(x: x, ix: 1, out: out, iOut: 1,
             operation: { $0 = exp2($1) }, count: count)
     }
     
+    /// Calculates 2 raised to the power of each element in an array.
+    ///
     /// out[i * iOut] = exp2(x[i]), for 0 <= i < count
     public static func vexp2(x: UnsafePointer<Double>, out: UnsafeMutablePointer<Double>, count: Int) {
         map(x: x, ix: 1, out: out, iOut: 1,
@@ -163,12 +191,16 @@ extension VecOpsNoAccelerate {
     
     // MARK: vexpm1
     
+    /// Calculates e^x - 1 for each element in an array.
+    ///
     /// out[i * iOut] = exp(x[i]) - 1, for 0 <= i < count
     public static func vexpm1(x: UnsafePointer<Float>, out: UnsafeMutablePointer<Float>, count: Int) {
         map(x: x, ix: 1, out: out, iOut: 1,
             operation: { $0 = expm1($1) }, count: count)
     }
     
+    /// Calculates e^x - 1 for each element in an array.
+    ///
     /// out[i * iOut] = exp(x[i]) - 1, for 0 <= i < count
     public static func vexpm1(x: UnsafePointer<Double>, out: UnsafeMutablePointer<Double>, count: Int) {
         map(x: x, ix: 1, out: out, iOut: 1,
@@ -177,12 +209,16 @@ extension VecOpsNoAccelerate {
     
     // MARK: vlog
     
+    /// Calculates the natural logarithm for each element in an array.
+    ///
     /// out[i * iOut] = log(x[i]), for 0 <= i < count
     public static func vlog(x: UnsafePointer<Float>, out: UnsafeMutablePointer<Float>, count: Int) {
         map(x: x, ix: 1, out: out, iOut: 1,
             operation: { $0 = log($1) }, count: count)
     }
     
+    /// Calculates the natural logarithm for each element in an array.
+    ///
     /// out[i * iOut] = log(x[i]), for 0 <= i < count
     public static func vlog(x: UnsafePointer<Double>, out: UnsafeMutablePointer<Double>, count: Int) {
         map(x: x, ix: 1, out: out, iOut: 1,
@@ -191,13 +227,17 @@ extension VecOpsNoAccelerate {
     
     // MARK: vlog1p
     
-    /// out[i * iOut] = log(x[i] + 1), for 0 <= i < count
+    /// Calculates log(1+x) for each element in an array.
+    ///
+    /// out[i * iOut] = log(1 + x[i]), for 0 <= i < count
     public static func vlog1p(x: UnsafePointer<Float>, out: UnsafeMutablePointer<Float>, count: Int) {
         map(x: x, ix: 1, out: out, iOut: 1,
             operation: { $0 = log1p($1) }, count: count)
     }
     
-    /// out[i * iOut] = log(x[i] + 1), for 0 <= i < count
+    /// Calculates log(1+x) for each element in an array.
+    ///
+    /// out[i * iOut] = log(1 + x[i]), for 0 <= i < count
     public static func vlog1p(x: UnsafePointer<Double>, out: UnsafeMutablePointer<Double>, count: Int) {
         map(x: x, ix: 1, out: out, iOut: 1,
             operation: { $0 = log1p($1) }, count: count)
@@ -205,12 +245,16 @@ extension VecOpsNoAccelerate {
     
     // MARK: vlog2
     
+    /// Calculates the base 2 logarithm of each element in an array.
+    ///
     /// out[i * iOut] = log2(x[i]), for 0 <= i < count
     public static func vlog2(x: UnsafePointer<Float>, out: UnsafeMutablePointer<Float>, count: Int) {
         map(x: x, ix: 1, out: out, iOut: 1,
             operation: { $0 = log2($1) }, count: count)
     }
     
+    /// Calculates the base 2 logarithm of each element in an array.
+    ///
     /// out[i * iOut] = log2(x[i]), for 0 <= i < count
     public static func vlog2(x: UnsafePointer<Double>, out: UnsafeMutablePointer<Double>, count: Int) {
         map(x: x, ix: 1, out: out, iOut: 1,
@@ -219,12 +263,16 @@ extension VecOpsNoAccelerate {
     
     // MARK: vlog10
     
+    /// Calculates the base 10 logarithm of each element in an array.
+    ///
     /// out[i * iOut] = log10(x[i]), for 0 <= i < count
     public static func vlog10(x: UnsafePointer<Float>, out: UnsafeMutablePointer<Float>, count: Int) {
         map(x: x, ix: 1, out: out, iOut: 1,
             operation: { $0 = log10($1) }, count: count)
     }
     
+    /// Calculates the base 10 logarithm of each element in an array.
+    ///
     /// out[i * iOut] = log10(x[i]), for 0 <= i < count
     public static func vlog10(x: UnsafePointer<Double>, out: UnsafeMutablePointer<Double>, count: Int) {
         map(x: x, ix: 1, out: out, iOut: 1,
@@ -233,12 +281,16 @@ extension VecOpsNoAccelerate {
     
     // MARK: vlogb
     
+    /// Calculates the unbiased exponent of each element in an array.
+    ///
     /// out[i * iOut] = logb(x[i]), for 0 <= i < count
     public static func vlogb(x: UnsafePointer<Float>, out: UnsafeMutablePointer<Float>, count: Int) {
         map(x: x, ix: 1, out: out, iOut: 1,
             operation: { $0 = logb($1) }, count: count)
     }
     
+    /// Calculates the unbiased exponent of each element in an array.
+    ///
     /// out[i * iOut] = logb(x[i]), for 0 <= i < count
     public static func vlogb(x: UnsafePointer<Double>, out: UnsafeMutablePointer<Double>, count: Int) {
         map(x: x, ix: 1, out: out, iOut: 1,
