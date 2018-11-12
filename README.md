@@ -23,6 +23,7 @@ If Accelerate Framework is not available, `VecOps` becomes typealias of `VecOpsN
 
 ### From [vDSP](https://developer.apple.com/documentation/accelerate/vdsp)
 vma, vmsb, vam, vsbm, vmsa, vsma, vsmsb, vsmsb,  
+vmma, vmmsb, vaam, vasbm,  
 vadd, vsub, vmul, vdiv,  
 vsadd, vssub, svsub, vsmul, vsdiv, svdiv,  
 vabs, vnabs, vneg, vsq, vssq,  
