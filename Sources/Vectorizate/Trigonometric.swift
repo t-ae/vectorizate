@@ -7,24 +7,32 @@ import Accelerate
 extension VecOps {
     // MARK: vsin
     
+    /// Calculates the sine of each element in an array.
+    ///
     /// out[i * iOut] = sin(x[i * ix]), for 0 <= i < count
     public static func vsin(x: UnsafePointer<Float>, out: UnsafeMutablePointer<Float>, count: Int) {
         var count = Int32(count)
         vvsinf(out, x, &count)
     }
     
+    /// Calculates the sine of each element in an array.
+    ///
     /// out[i * iOut] = sin(x[i * ix]), for 0 <= i < count
     public static func vsin(x: UnsafePointer<Double>, out: UnsafeMutablePointer<Double>, count: Int) {
         var count = Int32(count)
         vvsin(out, x, &count)
     }
     
+    /// Calculates the sine of pi multiplied by each element in an array.
+    ///
     /// out[i * iOut] = sin(x[i * ix] * pi), for 0 <= i < count
     public static func vsinpi(x: UnsafePointer<Float>, out: UnsafeMutablePointer<Float>, count: Int) {
         var count = Int32(count)
         vvsinpif(out, x, &count)
     }
     
+    /// Calculates the sine of pi multiplied by each element in an array.
+    ///
     /// out[i * iOut] = sin(x[i * ix] * pi), for 0 <= i < count
     public static func vsinpi(x: UnsafePointer<Double>, out: UnsafeMutablePointer<Double>, count: Int) {
         var count = Int32(count)
@@ -33,24 +41,32 @@ extension VecOps {
     
     // MARK: vcos
     
+    /// Calculates the cosine of each element in an array.
+    ///
     /// out[i * iOut] = cos(x[i * ix]), for 0 <= i < count
     public static func vcos(x: UnsafePointer<Float>, out: UnsafeMutablePointer<Float>, count: Int) {
         var count = Int32(count)
         vvcosf(out, x, &count)
     }
     
+    /// Calculates the cosine of each element in an array.
+    ///
     /// out[i * iOut] = cos(x[i * ix]), for 0 <= i < count
     public static func vcos(x: UnsafePointer<Double>, out: UnsafeMutablePointer<Double>, count: Int) {
         var count = Int32(count)
         vvcos(out, x, &count)
     }
     
+    /// Calculates the cosine of pi multiplied by each element in an array.
+    ///
     /// out[i * iOut] = cos(x[i * ix] * pi), for 0 <= i < count
     public static func vcospi(x: UnsafePointer<Float>, out: UnsafeMutablePointer<Float>, count: Int) {
         var count = Int32(count)
         vvcospif(out, x, &count)
     }
     
+    /// Calculates the cosine of pi multiplied by each element in an array.
+    ///
     /// out[i * iOut] = cos(x[i * ix] * pi), for 0 <= i < count
     public static func vcospi(x: UnsafePointer<Double>, out: UnsafeMutablePointer<Double>, count: Int) {
         var count = Int32(count)
@@ -59,6 +75,8 @@ extension VecOps {
     
     // MARK: vsincos
     
+    /// Calculates the sine and cosine of each element in an array.
+    ///
     /// sin[i * iOut] = cos(x[i * ix] * pi),
     /// cos[i * iOut] = cos(x[i * ix] * pi), for 0 <= i < count
     public static func vsincos(x: UnsafePointer<Float>,
@@ -69,6 +87,8 @@ extension VecOps {
         vvsincosf(sin, cos, x, &count)
     }
     
+    /// Calculates the sine and cosine of each element in an array.
+    ///
     /// sin[i * iOut] = cos(x[i * ix] * pi),
     /// cos[i * iOut] = cos(x[i * ix] * pi), for 0 <= i < count
     public static func vsincos(x: UnsafePointer<Double>,
@@ -81,24 +101,32 @@ extension VecOps {
     
     // MARK: vtan
     
+    /// Calculates the tangent of each element in an array.
+    ///
     /// out[i * iOut] = tan(x[i * ix]), for 0 <= i < count
     public static func vtan(x: UnsafePointer<Float>, out: UnsafeMutablePointer<Float>, count: Int) {
         var count = Int32(count)
         vvtanf(out, x, &count)
     }
     
+    /// Calculates the tangent of each element in an array.
+    ///
     /// out[i * iOut] = tan(x[i * ix]), for 0 <= i < count
     public static func vtan(x: UnsafePointer<Double>, out: UnsafeMutablePointer<Double>, count: Int) {
         var count = Int32(count)
         vvtan(out, x, &count)
     }
     
+    /// Calculates the tangent of pi multiplied by each element in an array.
+    ///
     /// out[i * iOut] = tan(x[i * ix] * pi), for 0 <= i < count
     public static func vtanpi(x: UnsafePointer<Float>, out: UnsafeMutablePointer<Float>, count: Int) {
         var count = Int32(count)
         vvtanpif(out, x, &count)
     }
     
+    /// Calculates the tangent of pi multiplied by each element in an array.
+    ///
     /// out[i * iOut] = tan(x[i * ix] * pi), for 0 <= i < count
     public static func vtanpi(x: UnsafePointer<Double>, out: UnsafeMutablePointer<Double>, count: Int) {
         var count = Int32(count)
@@ -107,12 +135,16 @@ extension VecOps {
     
     // MARK: vasin
     
+    /// Calculates the arcsine of each element in an array.
+    ///
     /// out[i * iOut] = asin(x[i * ix]), for 0 <= i < count
     public static func vasin(x: UnsafePointer<Float>, out: UnsafeMutablePointer<Float>, count: Int) {
         var count = Int32(count)
         vvasinf(out, x, &count)
     }
     
+    /// Calculates the arcsine of each element in an array.
+    ///
     /// out[i * iOut] = asin(x[i * ix]), for 0 <= i < count
     public static func vasin(x: UnsafePointer<Double>, out: UnsafeMutablePointer<Double>, count: Int) {
         var count = Int32(count)
@@ -121,12 +153,16 @@ extension VecOps {
     
     // MARK: vacos
     
+    /// Calculates the arccosine of each element in an array.
+    ///
     /// out[i * iOut] = acos(x[i * ix]), for 0 <= i < count
     public static func vacos(x: UnsafePointer<Float>, out: UnsafeMutablePointer<Float>, count: Int) {
         var count = Int32(count)
         vvacosf(out, x, &count)
     }
     
+    /// Calculates the arccosine of each element in an array.
+    ///
     /// out[i * iOut] = acos(x[i * ix]), for 0 <= i < count
     public static func vacos(x: UnsafePointer<Double>, out: UnsafeMutablePointer<Double>, count: Int) {
         var count = Int32(count)
@@ -135,12 +171,16 @@ extension VecOps {
     
     // MARK: vatan
     
+    /// Calculates the arctangent of each element in an array.
+    ///
     /// out[i * iOut] = atan(x[i * ix]), for 0 <= i < count
     public static func vatan(x: UnsafePointer<Float>, out: UnsafeMutablePointer<Float>, count: Int) {
         var count = Int32(count)
         vvatanf(out, x, &count)
     }
     
+    /// Calculates the arctangent of each element in an array.
+    ///
     /// out[i * iOut] = atan(x[i * ix]), for 0 <= i < count
     public static func vatan(x: UnsafePointer<Double>, out: UnsafeMutablePointer<Double>, count: Int) {
         var count = Int32(count)
@@ -149,6 +189,8 @@ extension VecOps {
     
     // MARK: vatan2
     
+    /// Calculates the arctangent of each pair of elements in two arrays.
+    ///
     /// out[i * iOut] = atan2(y[i * iy], x[i * ix]), for 0 <= i < count
     public static func vatan2(y: UnsafePointer<Float>, x: UnsafePointer<Float>,
                              out: UnsafeMutablePointer<Float>, count: Int) {
@@ -156,6 +198,8 @@ extension VecOps {
         vvatan2f(out, y, x, &count)
     }
     
+    /// Calculates the arctangent of each pair of elements in two arrays.
+    ///
     /// out[i * iOut] = atan2(y[i * iy], x[i * ix]), for 0 <= i < count
     public static func vatan2(y: UnsafePointer<Double>, x: UnsafePointer<Double>,
                              out: UnsafeMutablePointer<Double>, count: Int) {
@@ -169,24 +213,32 @@ extension VecOps {
 extension VecOpsNoAccelerate {
     // MARK: vsin
     
+    /// Calculates the sine of each element in an array.
+    ///
     /// out[i * iOut] = sin(x[i * ix]), for 0 <= i < count
     public static func vsin(x: UnsafePointer<Float>, out: UnsafeMutablePointer<Float>, count: Int) {
         map(x: x, ix: 1, out: out, iOut: 1,
             operation: { $0 = sin($1) }, count: count)
     }
     
+    /// Calculates the sine of each element in an array.
+    ///
     /// out[i * iOut] = sin(x[i * ix]), for 0 <= i < count
     public static func vsin(x: UnsafePointer<Double>, out: UnsafeMutablePointer<Double>, count: Int) {
         map(x: x, ix: 1, out: out, iOut: 1,
             operation: { $0 = sin($1) }, count: count)
     }
     
+    /// Calculates the sine of pi multiplied by each element in an array.
+    ///
     /// out[i * iOut] = sin(x[i * ix] * pi), for 0 <= i < count
     public static func vsinpi(x: UnsafePointer<Float>, out: UnsafeMutablePointer<Float>, count: Int) {
         map(x: x, ix: 1, out: out, iOut: 1,
             operation: { $0 = sin($1 * .pi) }, count: count)
     }
     
+    /// Calculates the sine of pi multiplied by each element in an array.
+    ///
     /// out[i * iOut] = sin(x[i * ix] * pi), for 0 <= i < count
     public static func vsinpi(x: UnsafePointer<Double>, out: UnsafeMutablePointer<Double>, count: Int) {
         map(x: x, ix: 1, out: out, iOut: 1,
@@ -195,30 +247,40 @@ extension VecOpsNoAccelerate {
     
     // MARK: vcos
     
+    /// Calculates the cosine of each element in an array.
+    ///
     /// out[i * iOut] = cos(x[i * ix]), for 0 <= i < count
     public static func vcos(x: UnsafePointer<Float>, out: UnsafeMutablePointer<Float>, count: Int) {
         map(x: x, ix: 1, out: out, iOut: 1,
             operation: { $0 = cos($1) }, count: count)
     }
     
+    /// Calculates the cosine of each element in an array.
+    ///
     /// out[i * iOut] = cos(x[i * ix]), for 0 <= i < count
     public static func vcos(x: UnsafePointer<Double>, out: UnsafeMutablePointer<Double>, count: Int) {
         map(x: x, ix: 1, out: out, iOut: 1,
             operation: { $0 = cos($1) }, count: count)
     }
     
+    /// Calculates the cosine of pi multiplied by each element in an array.
+    ///
     /// out[i * iOut] = cos(x[i * ix] * pi), for 0 <= i < count
     public static func vcospi(x: UnsafePointer<Float>, out: UnsafeMutablePointer<Float>, count: Int) {
         map(x: x, ix: 1, out: out, iOut: 1,
             operation: { $0 = cos($1 * .pi) }, count: count)
     }
     
+    /// Calculates the cosine of pi multiplied by each element in an array.
+    ///
     /// out[i * iOut] = cos(x[i * ix] * pi), for 0 <= i < count
     public static func vcospi(x: UnsafePointer<Double>, out: UnsafeMutablePointer<Double>, count: Int) {
         map(x: x, ix: 1, out: out, iOut: 1,
             operation: { $0 = cos($1 * .pi) }, count: count)
     }
     
+    /// Calculates the sine and cosine of each element in an array.
+    ///
     /// sin[i * iOut] = cos(x[i * ix] * pi),
     /// cos[i * iOut] = cos(x[i * ix] * pi), for 0 <= i < count
     public static func vsincos(x: UnsafePointer<Float>,
@@ -231,6 +293,8 @@ extension VecOpsNoAccelerate {
         }, count: count)
     }
     
+    /// Calculates the sine and cosine of each element in an array.
+    ///
     /// sin[i * iOut] = cos(x[i * ix] * pi),
     /// cos[i * iOut] = cos(x[i * ix] * pi), for 0 <= i < count
     public static func vsincos(x: UnsafePointer<Double>,
@@ -245,24 +309,32 @@ extension VecOpsNoAccelerate {
     
     // MARK: vtan
     
+    /// Calculates the tangent of each element in an array.
+    ///
     /// out[i * iOut] = tan(x[i * ix]), for 0 <= i < count
     public static func vtan(x: UnsafePointer<Float>, out: UnsafeMutablePointer<Float>, count: Int) {
         map(x: x, ix: 1, out: out, iOut: 1,
             operation: { $0 = tan($1) }, count: count)
     }
     
+    /// Calculates the tangent of each element in an array.
+    ///
     /// out[i * iOut] = tan(x[i * ix]), for 0 <= i < count
     public static func vtan(x: UnsafePointer<Double>, out: UnsafeMutablePointer<Double>, count: Int) {
         map(x: x, ix: 1, out: out, iOut: 1,
             operation: { $0 = tan($1) }, count: count)
     }
     
+    /// Calculates the tangent of pi multiplied by each element in an array.
+    ///
     /// out[i * iOut] = tan(x[i * ix] * pi), for 0 <= i < count
     public static func vtanpi(x: UnsafePointer<Float>, out: UnsafeMutablePointer<Float>, count: Int) {
         map(x: x, ix: 1, out: out, iOut: 1,
             operation: { $0 = tan($1 * .pi) }, count: count)
     }
     
+    /// Calculates the tangent of pi multiplied by each element in an array.
+    ///
     /// out[i * iOut] = tan(x[i * ix] * pi), for 0 <= i < count
     public static func vtanpi(x: UnsafePointer<Double>, out: UnsafeMutablePointer<Double>, count: Int) {
         map(x: x, ix: 1, out: out, iOut: 1,
@@ -271,12 +343,16 @@ extension VecOpsNoAccelerate {
     
     // MARK: vasin
     
+    /// Calculates the arcsine of each element in an array.
+    ///
     /// out[i * iOut] = asin(x[i * ix]), for 0 <= i < count
     public static func vasin(x: UnsafePointer<Float>, out: UnsafeMutablePointer<Float>, count: Int) {
         map(x: x, ix: 1, out: out, iOut: 1,
             operation: { $0 = asin($1) }, count: count)
     }
     
+    /// Calculates the arcsine of each element in an array.
+    ///
     /// out[i * iOut] = asin(x[i * ix]), for 0 <= i < count
     public static func vasin(x: UnsafePointer<Double>, out: UnsafeMutablePointer<Double>, count: Int) {
         map(x: x, ix: 1, out: out, iOut: 1,
@@ -285,12 +361,16 @@ extension VecOpsNoAccelerate {
     
     // MARK: vacos
     
+    /// Calculates the arccosine of each element in an array.
+    ///
     /// out[i * iOut] = acos(x[i * ix]), for 0 <= i < count
     public static func vacos(x: UnsafePointer<Float>, out: UnsafeMutablePointer<Float>, count: Int) {
         map(x: x, ix: 1, out: out, iOut: 1,
             operation: { $0 = acos($1) }, count: count)
     }
     
+    /// Calculates the arccosine of each element in an array.
+    ///
     /// out[i * iOut] = acos(x[i * ix]), for 0 <= i < count
     public static func vacos(x: UnsafePointer<Double>, out: UnsafeMutablePointer<Double>, count: Int) {
         map(x: x, ix: 1, out: out, iOut: 1,
@@ -299,12 +379,16 @@ extension VecOpsNoAccelerate {
     
     // MARK: vatan
     
+    /// Calculates the arctangent of each element in an array.
+    ///
     /// out[i * iOut] = atan(x[i * ix]), for 0 <= i < count
     public static func vatan(x: UnsafePointer<Float>, out: UnsafeMutablePointer<Float>, count: Int) {
         map(x: x, ix: 1, out: out, iOut: 1,
             operation: { $0 = atan($1) }, count: count)
     }
     
+    /// Calculates the arctangent of each element in an array.
+    ///
     /// out[i * iOut] = atan(x[i * ix]), for 0 <= i < count
     public static func vatan(x: UnsafePointer<Double>, out: UnsafeMutablePointer<Double>, count: Int) {
         map(x: x, ix: 1, out: out, iOut: 1,
@@ -313,6 +397,8 @@ extension VecOpsNoAccelerate {
     
     // MARK: vatan2
     
+    /// Calculates the arctangent of each pair of elements in two arrays.
+    ///
     /// out[i * iOut] = atan2(y[i * iy], x[i * ix]), for 0 <= i < count
     public static func vatan2(y: UnsafePointer<Float>, x: UnsafePointer<Float>,
                              out: UnsafeMutablePointer<Float>, count: Int) {
@@ -320,6 +406,8 @@ extension VecOpsNoAccelerate {
              operation: { $0 = atan2($2, $1) }, count: count)
     }
     
+    /// Calculates the arctangent of each pair of elements in two arrays.
+    ///
     /// out[i * iOut] = atan2(y[i * iy], x[i * ix]), for 0 <= i < count
     public static func vatan2(y: UnsafePointer<Double>, x: UnsafePointer<Double>,
                              out: UnsafeMutablePointer<Double>, count: Int) {
