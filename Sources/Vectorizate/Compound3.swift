@@ -5,6 +5,8 @@ import Accelerate
 extension VecOps {
     // MARK: vma
     
+    /// Vector multiply and add.
+    ///
     /// out[i * iOut] = a[i * ia] * b[i * ib] + c[i * ic], for 0 <= i < count
     public static func vma(a: UnsafePointer<Float>, ia: Int,
                            b: UnsafePointer<Float>, ib: Int,
@@ -14,6 +16,8 @@ extension VecOps {
         vDSP_vma(a, ia, b, ib, c, ic, out, iOut, UInt(count))
     }
     
+    /// Vector multiply and add.
+    ///
     /// out[i * iOut] = a[i * ia] * b[i * ib] + c[i * ic], for 0 <= i < count
     public static func vma(a: UnsafePointer<Double>, ia: Int,
                            b: UnsafePointer<Double>, ib: Int,
@@ -25,6 +29,8 @@ extension VecOps {
     
     // MARK: vmsb
     
+    /// Vector multiply and subtract.
+    ///
     /// out[i * iOut] = a[i * ia] * b[i * ib] - c[i * ic], for 0 <= i < count
     public static func vmsb(a: UnsafePointer<Float>, ia: Int,
                             b: UnsafePointer<Float>, ib: Int,
@@ -34,6 +40,8 @@ extension VecOps {
         vDSP_vmsb(a, ia, b, ib, c, ic, out, iOut, UInt(count))
     }
     
+    /// Vector multiply and subtract.
+    ///
     /// out[i * iOut] = a[i * ia] * b[i * ib] - c[i * ic], for 0 <= i < count
     public static func vmsb(a: UnsafePointer<Double>, ia: Int,
                             b: UnsafePointer<Double>, ib: Int,
@@ -93,6 +101,8 @@ extension VecOps {
     
     // MARK: vmsa
     
+    /// Vector multiply and scalar add.
+    ///
     /// out[i * iOut] = a[i * ia] * b[i * ib] + c, for 0 <= i < count
     public static func vmsa(a: UnsafePointer<Float>, ia: Int,
                             b: UnsafePointer<Float>, ib: Int,
@@ -103,6 +113,8 @@ extension VecOps {
         vDSP_vmsa(a, ia, b, ib, &c, out, iOut, UInt(count))
     }
     
+    /// Vector multiply and scalar add.
+    ///
     /// out[i * iOut] = a[i * ia] * b[i * ib] + c, for 0 <= i < count
     public static func vmsa(a: UnsafePointer<Double>, ia: Int,
                             b: UnsafePointer<Double>, ib: Int,
@@ -115,6 +127,8 @@ extension VecOps {
     
     // MARK: vsma
     
+    /// Scalar multiply and vector add.
+    ///
     /// out[i * iOut] = a[i * ia] * b + c[i * ic], for 0 <= i < count
     public static func vsma(a: UnsafePointer<Float>, ia: Int,
                             b: Float,
@@ -125,6 +139,8 @@ extension VecOps {
         vDSP_vsma(a, ia, &b, c, ic, out, iOut, UInt(count))
     }
     
+    /// Scalar multiply and vector add.
+    ///
     /// out[i * iOut] = a[i * ia] * b + c[i * ic], for 0 <= i < count
     public static func vsma(a: UnsafePointer<Double>, ia: Int,
                             b: Double,
@@ -137,6 +153,8 @@ extension VecOps {
     
     // MARK: vsmsb
     
+    /// Scalar multiply and vector subtract.
+    ///
     /// out[i * iOut] = a[i * ia] * b - c[i * ic], for 0 <= i < count
     public static func vsmsb(a: UnsafePointer<Float>, ia: Int,
                              b: Float,
@@ -147,6 +165,8 @@ extension VecOps {
         vDSP_vsmsb(a, ia, &b, c, ic, out, iOut, UInt(count))
     }
     
+    /// Scalar multiply and vector subtract.
+    ///
     /// out[i * iOut] = a[i * ia] * b - c[i * ic], for 0 <= i < count
     public static func vsmsb(a: UnsafePointer<Double>, ia: Int,
                              b: Double,
@@ -159,6 +179,8 @@ extension VecOps {
     
     // MARK: vsmsa
     
+    /// Scalar multiply and scalar add.
+    ///
     /// out[i * iOut] = a[i * ia] * b + c, for 0 <= i < count
     public static func vsmsa(a: UnsafePointer<Float>, ia: Int,
                              b: Float, c: Float,
@@ -168,6 +190,8 @@ extension VecOps {
         vDSP_vsmsa(a, ia, &b, &c, out, iOut, UInt(count))
     }
     
+    /// Scalar multiply and scalar add.
+    ///
     /// out[i * iOut] = a[i * ia] * b + c, for 0 <= i < count
     public static func vsmsa(a: UnsafePointer<Double>, ia: Int,
                              b: Double, c: Double,
@@ -183,6 +207,8 @@ extension VecOps {
 extension VecOpsNoAccelerate {    
     // MARK: vma
     
+    /// Vector multiply and add.
+    ///
     /// out[i * iOut] = a[i * ia] * b[i * ib] + c[i * ic], for 0 <= i < count
     public static func vma(a: UnsafePointer<Float>, ia: Int,
                            b: UnsafePointer<Float>, ib: Int,
@@ -193,6 +219,8 @@ extension VecOpsNoAccelerate {
              operation: { $0 = $1 * $2 + $3 }, count: count)
     }
     
+    /// Vector multiply and add.
+    ///
     /// out[i * iOut] = a[i * ia] * b[i * ib] + c[i * ic], for 0 <= i < count
     public static func vma(a: UnsafePointer<Double>, ia: Int,
                            b: UnsafePointer<Double>, ib: Int,
@@ -205,6 +233,8 @@ extension VecOpsNoAccelerate {
     
     // MARK: vmsb
     
+    /// Vector multiply and subtract.
+    ///
     /// out[i * iOut] = a[i * ia] * b[i * ib] - c[i * ic], for 0 <= i < count
     public static func vmsb(a: UnsafePointer<Float>, ia: Int,
                             b: UnsafePointer<Float>, ib: Int,
@@ -215,6 +245,8 @@ extension VecOpsNoAccelerate {
              operation: { $0 = $1 * $2 - $3 }, count: count)
     }
     
+    /// Vector multiply and subtract.
+    ///
     /// out[i * iOut] = a[i * ia] * b[i * ib] - c[i * ic], for 0 <= i < count
     public static func vmsb(a: UnsafePointer<Double>, ia: Int,
                             b: UnsafePointer<Double>, ib: Int,
@@ -279,6 +311,8 @@ extension VecOpsNoAccelerate {
     
     // MARK: vmsa
     
+    /// Vector multiply and scalar add.
+    ///
     /// out[i * iOut] = a[i * ia] * b[i * ib] + c, for 0 <= i < count
     public static func vmsa(a: UnsafePointer<Float>, ia: Int,
                             b: UnsafePointer<Float>, ib: Int,
@@ -289,6 +323,8 @@ extension VecOpsNoAccelerate {
              operation: { $0 = $1 * $2 + c }, count: count)
     }
     
+    /// Vector multiply and scalar add.
+    ///
     /// out[i * iOut] = a[i * ia] * b[i * ib] + c, for 0 <= i < count
     public static func vmsa(a: UnsafePointer<Double>, ia: Int,
                             b: UnsafePointer<Double>, ib: Int,
@@ -301,6 +337,8 @@ extension VecOpsNoAccelerate {
     
     // MARK: vsma
     
+    /// Scalar multiply and vector add.
+    ///
     /// out[i * iOut] = a[i * ia] * b + c[i * ic], for 0 <= i < count
     public static func vsma(a: UnsafePointer<Float>, ia: Int,
                             b: Float,
@@ -311,6 +349,8 @@ extension VecOpsNoAccelerate {
              operation: { $0 = $1 * b + $2 }, count: count)
     }
     
+    /// Scalar multiply and vector add.
+    ///
     /// out[i * iOut] = a[i * ia] * b + c[i * ic], for 0 <= i < count
     public static func vsma(a: UnsafePointer<Double>, ia: Int,
                             b: Double,
@@ -323,6 +363,8 @@ extension VecOpsNoAccelerate {
     
     // MARK: vsmsb
     
+    /// Scalar multiply and vector subtract.
+    ///
     /// out[i * iOut] = a[i * ia] * b - c[i * ic], for 0 <= i < count
     public static func vsmsb(a: UnsafePointer<Float>, ia: Int,
                              b: Float,
@@ -333,6 +375,8 @@ extension VecOpsNoAccelerate {
              operation: { $0 = $1 * b - $2 }, count: count)
     }
     
+    /// Scalar multiply and vector subtract.
+    ///
     /// out[i * iOut] = a[i * ia] * b - c[i * ic], for 0 <= i < count
     public static func vsmsb(a: UnsafePointer<Double>, ia: Int,
                              b: Double,
@@ -345,6 +389,8 @@ extension VecOpsNoAccelerate {
     
     // MARK: vsmsa
     
+    /// Scalar multiply and scalar add.
+    ///
     /// out[i * iOut] = a[i * ia] * b + c, for 0 <= i < count
     public static func vsmsa(a: UnsafePointer<Float>, ia: Int,
                              b: Float, c: Float,
@@ -354,6 +400,8 @@ extension VecOpsNoAccelerate {
             operation: { $0 = $1 * b + c }, count: count)
     }
     
+    /// Scalar multiply and scalar add.
+    ///
     /// out[i * iOut] = a[i * ia] * b + c, for 0 <= i < count
     public static func vsmsa(a: UnsafePointer<Double>, ia: Int,
                              b: Double, c: Double,
