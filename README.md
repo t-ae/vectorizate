@@ -34,7 +34,7 @@ vclip, viclip,
 minv, minvi, minmgvi, maxv, maxvi, maxmgv, maxmgvi,  
 mmul, mtrans, mmov,  
 vdist, distancesq,
-vgathr
+dotpr, vgathr
 
 ### From [vForce](https://developer.apple.com/documentation/accelerate/veclib/vforce)
 vsin, vcos, vtan, vasin, vacos, vatan, vatan2,  
