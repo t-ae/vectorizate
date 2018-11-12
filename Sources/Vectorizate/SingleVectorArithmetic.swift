@@ -5,6 +5,8 @@ import Accelerate
 extension VecOps {
     // MARK: vabs
     
+    /// Vector absolute values.
+    ///
     /// out[i * iOut] = abs(x[i * ix]), for 0 <= i < count
     public static func vabs(x: UnsafePointer<Float>, ix: Int,
                             out: UnsafeMutablePointer<Float>, iOut: Int,
@@ -12,6 +14,8 @@ extension VecOps {
         vDSP_vabs(x, ix, out, iOut, UInt(count))
     }
     
+    /// Vector absolute values.
+    ///
     /// out[i * iOut] = abs(x[i * ix]), for 0 <= i < count
     public static func vabs(x: UnsafePointer<Double>, ix: Int,
                             out: UnsafeMutablePointer<Double>, iOut: Int,
@@ -21,6 +25,8 @@ extension VecOps {
     
     // MARK: vnabs
     
+    /// Vector negative absolute values.
+    ///
     /// out[i * iOut] = -abs(x[i * ix]), for 0 <= i < count
     public static func vnabs(x: UnsafePointer<Float>, ix: Int,
                              out: UnsafeMutablePointer<Float>, iOut: Int,
@@ -28,6 +34,8 @@ extension VecOps {
         vDSP_vnabs(x, ix, out, iOut, UInt(count))
     }
     
+    /// Vector negative absolute values.
+    ///
     /// out[i * iOut] = -abs(x[i * ix]), for 0 <= i < count
     public static func vnabs(x: UnsafePointer<Double>, ix: Int,
                              out: UnsafeMutablePointer<Double>, iOut: Int,
@@ -37,6 +45,8 @@ extension VecOps {
     
     // MARK: vneg
     
+    /// Vector negative values.
+    ///
     /// out[i * iOut] = -x[i * ix], for 0 <= i < count
     public static func vneg(x: UnsafePointer<Float>, ix: Int,
                             out: UnsafeMutablePointer<Float>, iOut: Int,
@@ -44,6 +54,8 @@ extension VecOps {
         vDSP_vneg(x, ix, out, iOut, UInt(count))
     }
     
+    /// Vector negative values.
+    ///
     /// out[i * iOut] = -x[i * ix], for 0 <= i < count
     public static func vneg(x: UnsafePointer<Double>, ix: Int,
                             out: UnsafeMutablePointer<Double>, iOut: Int,
@@ -52,6 +64,9 @@ extension VecOps {
     }
     
     // MARK: vsq
+    
+    /// Compute square values of vector.
+    ///
     /// out[i * iOut] = x[i * ix]**2, for 0 <= i < count
     public static func vsq(x: UnsafePointer<Float>, ix: Int,
                            out: UnsafeMutablePointer<Float>, iOut: Int,
@@ -59,6 +74,8 @@ extension VecOps {
         vDSP_vsq(x, ix, out, iOut, UInt(count))
     }
     
+    /// Compute square values of vector.
+    ///
     /// out[i * iOut] = x[i * ix]**2, for 0 <= i < count
     public static func vsq(x: UnsafePointer<Double>, ix: Int,
                            out: UnsafeMutablePointer<Double>, iOut: Int,
@@ -68,6 +85,8 @@ extension VecOps {
     
     // MARK: vssq
     
+    /// Compute signed square values of vector.
+    ///
     /// out[i * iOut] = x[i * ix]*abs(x[i * ix]), for 0 <= i < count
     public static func vssq(x: UnsafePointer<Float>, ix: Int,
                             out: UnsafeMutablePointer<Float>, iOut: Int,
@@ -75,6 +94,8 @@ extension VecOps {
         vDSP_vssq(x, ix, out, iOut, UInt(count))
     }
     
+    /// Compute signed square values of vector.
+    ///
     /// out[i * iOut] = x[i * ix]*abs(x[i * ix]), for 0 <= i < count
     public static func vssq(x: UnsafePointer<Double>, ix: Int,
                             out: UnsafeMutablePointer<Double>, iOut: Int,
@@ -88,6 +109,8 @@ extension VecOps {
 extension VecOpsNoAccelerate {
     // MARK: vabs
     
+    /// Vector absolute values.
+    ///
     /// out[i * iOut] = abs(x[i * ix]), for 0 <= i < count
     public static func vabs(x: UnsafePointer<Float>, ix: Int,
                             out: UnsafeMutablePointer<Float>, iOut: Int,
@@ -96,6 +119,8 @@ extension VecOpsNoAccelerate {
             operation: { $0 = abs($1) }, count: count)
     }
     
+    /// Vector absolute values.
+    ///
     /// out[i * iOut] = abs(x[i * ix]), for 0 <= i < count
     public static func vabs(x: UnsafePointer<Double>, ix: Int,
                             out: UnsafeMutablePointer<Double>, iOut: Int,
@@ -106,6 +131,8 @@ extension VecOpsNoAccelerate {
     
     // MARK: vnabs
     
+    /// Vector negative absolute values.
+    ///
     /// out[i * iOut] = -abs(x[i * ix]), for 0 <= i < count
     public static func vnabs(x: UnsafePointer<Float>, ix: Int,
                              out: UnsafeMutablePointer<Float>, iOut: Int,
@@ -114,6 +141,8 @@ extension VecOpsNoAccelerate {
             operation: { $0 = -abs($1) }, count: count)
     }
     
+    /// Vector negative absolute values.
+    ///
     /// out[i * iOut] = -abs(x[i * ix]), for 0 <= i < count
     public static func vnabs(x: UnsafePointer<Double>, ix: Int,
                              out: UnsafeMutablePointer<Double>, iOut: Int,
@@ -124,6 +153,8 @@ extension VecOpsNoAccelerate {
     
     // MARK: vneg
     
+    /// Vector neagtive values.
+    ///
     /// out[i * iOut] = -x[i * ix], for 0 <= i < count
     public static func vneg(x: UnsafePointer<Float>, ix: Int,
                             out: UnsafeMutablePointer<Float>, iOut: Int,
@@ -132,6 +163,8 @@ extension VecOpsNoAccelerate {
             operation: { $0 = -$1 }, count: count)
     }
     
+    /// Vector negative values.
+    ///
     /// out[i * iOut] = -x[i * ix], for 0 <= i < count
     public static func vneg(x: UnsafePointer<Double>, ix: Int,
                             out: UnsafeMutablePointer<Double>, iOut: Int,
@@ -142,6 +175,8 @@ extension VecOpsNoAccelerate {
     
     // MARK: vsq
     
+    /// Compute square values of vector.
+    ///
     /// out[i * iOut] = x[i * ix]**2, for 0 <= i < count
     public static func vsq(x: UnsafePointer<Float>, ix: Int,
                            out: UnsafeMutablePointer<Float>, iOut: Int,
@@ -150,6 +185,8 @@ extension VecOpsNoAccelerate {
             operation: { $0 = $1*$1 }, count: count)
     }
     
+    /// Compute square values of vector.
+    ///
     /// out[i * iOut] = x[i * ix]**2, for 0 <= i < count
     public static func vsq(x: UnsafePointer<Double>, ix: Int,
                            out: UnsafeMutablePointer<Double>, iOut: Int,
@@ -160,6 +197,8 @@ extension VecOpsNoAccelerate {
     
     // MARK: vssq
     
+    /// Compute signed square values of vector.
+    ///
     /// out[i * iOut] = x[i * ix]*abs(x[i * ix]), for 0 <= i < count
     public static func vssq(x: UnsafePointer<Float>, ix: Int,
                             out: UnsafeMutablePointer<Float>, iOut: Int,
@@ -168,6 +207,8 @@ extension VecOpsNoAccelerate {
             operation: { $0 = abs($1)*$1 }, count: count)
     }
     
+    /// Compute signed square values of vector.
+    ///
     /// out[i * iOut] = x[i * ix]*abs(x[i * ix]), for 0 <= i < count
     public static func vssq(x: UnsafePointer<Double>, ix: Int,
                             out: UnsafeMutablePointer<Double>, iOut: Int,
