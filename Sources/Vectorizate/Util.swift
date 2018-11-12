@@ -72,6 +72,19 @@ func reduce<T, R>(x: UnsafePointer<T>, ix: Int,
     }
 }
 
+func reduce2<T1, T2, R>(a: UnsafePointer<T1>, ia: Int,
+                        b: UnsafePointer<T2>, ib: Int,
+                        out: inout R,
+                        operation: (_ out: inout R, _ a: T1, _ b: T2)-> Void, count: Int) {
+    var a = a
+    var b = b
+    for _ in 0..<count {
+        operation(&out, a.pointee, b.pointee)
+        a += ia
+        b += ib
+    }
+}
+
 func reduce2<T, R1, R2>(x: UnsafePointer<T>, ix: Int,
                         out1: inout R1, out2: inout R2,
                         operation: (inout R1, inout R2, T)-> Void, count: Int) {
