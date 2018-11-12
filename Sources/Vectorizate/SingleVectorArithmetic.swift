@@ -4,6 +4,7 @@ import Accelerate
 
 extension VecOps {
     // MARK: vabs
+    
     /// out[i * iOut] = abs(x[i * ix]), for 0 <= i < count
     public static func vabs(x: UnsafePointer<Float>, ix: Int,
                             out: UnsafeMutablePointer<Float>, iOut: Int,

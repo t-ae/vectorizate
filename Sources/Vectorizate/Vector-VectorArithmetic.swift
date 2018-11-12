@@ -5,6 +5,8 @@ import Accelerate
 extension VecOps {
     // MARK: vadd
     
+    /// Vector add.
+    ///
     /// out[i * iOut] = a[i * ia] + b[i * ib], for 0 <= i < count
     public static func vadd(a: UnsafePointer<Float>, ia: Int,
                             b: UnsafePointer<Float>, ib: Int,
@@ -13,6 +15,8 @@ extension VecOps {
         vDSP_vadd(a, ia, b, ib, out, iOut, UInt(count))
     }
     
+    /// Vector add.
+    ///
     /// out[i * iOut] = a[i * ia] + b[i * ib], for 0 <= i < count
     public static func vadd(a: UnsafePointer<Double>, ia: Int,
                             b: UnsafePointer<Double>, ib: Int,
@@ -23,6 +27,8 @@ extension VecOps {
     
     // MARK: vsub
     
+    /// Vector subtract.
+    ///
     /// out[i * iOut] = a[i * ia] - b[i * ib], for 0 <= i < count
     public static func vsub(a: UnsafePointer<Float>, ia: Int,
                             b: UnsafePointer<Float>, ib: Int,
@@ -31,6 +37,8 @@ extension VecOps {
         vDSP_vsub(b, ib, a, ia, out, iOut, UInt(count))
     }
     
+    /// Vector subtract.
+    ///
     /// out[i * iOut] = a[i * ia] - b[i * ib], for 0 <= i < count
     public static func vsub(a: UnsafePointer<Double>, ia: Int,
                             b: UnsafePointer<Double>, ib: Int,
@@ -41,6 +49,8 @@ extension VecOps {
     
     // MARK: vmul
     
+    /// Vector multiplication.
+    ///
     /// out[i * iOut] = a[i * ia] * b[i * ib], for 0 <= i < count
     public static func vmul(a: UnsafePointer<Float>, ia: Int,
                             b: UnsafePointer<Float>, ib: Int,
@@ -49,6 +59,8 @@ extension VecOps {
         vDSP_vmul(a, ia, b, ib, out, iOut, UInt(count))
     }
     
+    /// Vector multiplication.
+    ///
     /// out[i * iOut] = a[i * ia] * b[i * ib], for 0 <= i < count
     public static func vmul(a: UnsafePointer<Double>, ia: Int,
                             b: UnsafePointer<Double>, ib: Int,
@@ -59,6 +71,8 @@ extension VecOps {
     
     // MARK: vdiv
     
+    /// Vector divide.
+    ///
     /// out[i * iOut] = a[i * ia] / b[i * ib], for 0 <= i < count
     public static func vdiv(a: UnsafePointer<Float>, ia: Int,
                             b: UnsafePointer<Float>, ib: Int,
@@ -67,6 +81,8 @@ extension VecOps {
         vDSP_vdiv(b, ib, a, ia, out, iOut, UInt(count))
     }
     
+    /// Vector divide.
+    ///
     /// out[i * iOut] = a[i * ia] / b[i * ib], for 0 <= i < count
     public static func vdiv(a: UnsafePointer<Double>, ia: Int,
                             b: UnsafePointer<Double>, ib: Int,
@@ -81,6 +97,8 @@ extension VecOps {
 extension VecOpsNoAccelerate {
     // MARK: vadd
     
+    /// Vector add.
+    ///
     /// out[i * iOut] = a[i * ia] + b[i * ib], for 0 <= i < count
     public static func vadd(a: UnsafePointer<Float>, ia: Int,
                             b: UnsafePointer<Float>, ib: Int,
@@ -90,6 +108,8 @@ extension VecOpsNoAccelerate {
              operation: { $0 = $1 + $2 }, count: count)
     }
     
+    /// Vector add.
+    ///
     /// out[i * iOut] = a[i * ia] + b[i * ib], for 0 <= i < count
     public static func vadd(a: UnsafePointer<Double>, ia: Int,
                             b: UnsafePointer<Double>, ib: Int,
@@ -101,6 +121,8 @@ extension VecOpsNoAccelerate {
     
     // MARK: vsub
     
+    /// Vector subtract.
+    ///
     /// out[i * iOut] = a[i * ia] - b[i * ib], for 0 <= i < count
     public static func vsub(a: UnsafePointer<Float>, ia: Int,
                             b: UnsafePointer<Float>, ib: Int,
@@ -110,6 +132,8 @@ extension VecOpsNoAccelerate {
              operation: { $0 = $1 - $2 }, count: count)
     }
     
+    /// Vector subtract.
+    ///
     /// out[i * iOut] = a[i * ia] - b[i * ib], for 0 <= i < count
     public static func vsub(a: UnsafePointer<Double>, ia: Int,
                             b: UnsafePointer<Double>, ib: Int,
@@ -121,6 +145,8 @@ extension VecOpsNoAccelerate {
     
     // MARK: vmul
     
+    /// Vector multiplication.
+    ///
     /// out[i * iOut] = a[i * ia] * b[i * ib], for 0 <= i < count
     public static func vmul(a: UnsafePointer<Float>, ia: Int,
                             b: UnsafePointer<Float>, ib: Int,
@@ -130,6 +156,8 @@ extension VecOpsNoAccelerate {
              operation: { $0 = $1 * $2 }, count: count)
     }
     
+    /// Vector multiplication.
+    ///
     /// out[i * iOut] = a[i * ia] * b[i * ib], for 0 <= i < count
     public static func vmul(a: UnsafePointer<Double>, ia: Int,
                             b: UnsafePointer<Double>, ib: Int,
@@ -141,6 +169,8 @@ extension VecOpsNoAccelerate {
     
     // MARK: vdiv
     
+    /// Vector divide.
+    ///
     /// out[i * iOut] = a[i * ia] / b[i * ib], for 0 <= i < count
     public static func vdiv(a: UnsafePointer<Float>, ia: Int,
                             b: UnsafePointer<Float>, ib: Int,
@@ -150,6 +180,8 @@ extension VecOpsNoAccelerate {
              operation: { $0 = $1 / $2 }, count: count)
     }
     
+    /// Vector divide.
+    ///
     /// out[i * iOut] = a[i * ia] / b[i * ib], for 0 <= i < count
     public static func vdiv(a: UnsafePointer<Double>, ia: Int,
                             b: UnsafePointer<Double>, ib: Int,
