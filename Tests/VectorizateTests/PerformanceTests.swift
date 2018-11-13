@@ -1,7 +1,7 @@
 import XCTest
 import Vectorizate
 
-#if !DEBUG
+//#if !DEBUG
 
 class PerformanceTests: XCTestCase {
 
@@ -50,6 +50,30 @@ class PerformanceTests: XCTestCase {
             }
         }
     }
+    
+    // MARK: mmov
+    func testMMov2_1() {
+        let matrix = [Double](repeating: 0, count: 100000*10)
+        var out = [Double](repeating: 0, count: 100000*30)
+        
+        measure {
+            for _ in 0..<100 {
+                VecOps.mmov(x: matrix, out: &out, cols: 5, rows: 100000, tx: 10, tOut: 30)
+            }
+        }
+    }
+    
+    func testMMov2_2() {
+        let matrix = [Double](repeating: 0, count: 100000*10)
+        var out = [Double](repeating: 0, count: 100000*30)
+        
+        measure {
+            for _ in 0..<100 {
+                VecOpsNoAccelerate.mmov(x: matrix, out: &out, cols: 5, rows: 100000, tx: 10, tOut: 30)
+            }
+        }
+    }
+    
 }
 
-#endif
+//#endif
