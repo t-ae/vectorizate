@@ -8,6 +8,30 @@ class PerformanceTests: XCTestCase {
     // MARK: vadd
     func testVAdd1() {
         let count = 10000
+        let a = [Float](repeating: 0, count: count)
+        let b = [Float](repeating: 0, count: count)
+        var out = [Float](repeating: 0, count: count)
+        measure {
+            for _ in 0..<10000 {
+                VecOps.vadd(a: a, ia: 1, b: b, ib: 1, out: &out, iOut: 1, count: count)
+            }
+        }
+    }
+    
+    func testVAdd2() {
+        let count = 10000
+        let a = [Float](repeating: 0, count: count)
+        let b = [Float](repeating: 0, count: count)
+        var out = [Float](repeating: 0, count: count)
+        measure {
+            for _ in 0..<10000 {
+                VecOpsNoAccelerate.vadd(a: a, ia: 1, b: b, ib: 1, out: &out, iOut: 1, count: count)
+            }
+        }
+    }
+    
+    func testVAddWithStride1() {
+        let count = 10000
         let a = [Float](repeating: 0, count: 2*count)
         let b = [Float](repeating: 0, count: 3*count)
         var out = [Float](repeating: 0, count: 4*count)
@@ -18,7 +42,7 @@ class PerformanceTests: XCTestCase {
         }
     }
     
-    func testVAdd2() {
+    func testVAddWithStride2() {
         let count = 10000
         let a = [Float](repeating: 0, count: 2*count)
         let b = [Float](repeating: 0, count: 3*count)
@@ -33,6 +57,32 @@ class PerformanceTests: XCTestCase {
     // MARK: vma
     func testVAMA1() {
         let count = 10000
+        let a = [Float](repeating: 0, count: count)
+        let b = [Float](repeating: 0, count: count)
+        let c = [Float](repeating: 0, count: count)
+        var out = [Float](repeating: 0, count: count)
+        measure {
+            for _ in 0..<10000 {
+                VecOps.vma(a: a, ia: 1, b: b, ib: 1, c: c, ic: 1, out: &out, iOut: 1, count: count)
+            }
+        }
+    }
+    
+    func testVAMA2() {
+        let count = 10000
+        let a = [Float](repeating: 0, count: count)
+        let b = [Float](repeating: 0, count: count)
+        let c = [Float](repeating: 0, count: count)
+        var out = [Float](repeating: 0, count: count)
+        measure {
+            for _ in 0..<10000 {
+                VecOpsNoAccelerate.vma(a: a, ia: 1, b: b, ib: 1, c: c, ic: 1, out: &out, iOut: 1, count: count)
+            }
+        }
+    }
+    
+    func testVAMAWithStride1() {
+        let count = 10000
         let a = [Float](repeating: 0, count: 2*count)
         let b = [Float](repeating: 0, count: 3*count)
         let c = [Float](repeating: 0, count: 4*count)
@@ -44,7 +94,7 @@ class PerformanceTests: XCTestCase {
         }
     }
     
-    func testVAMA2() {
+    func testVAMAWithStride2() {
         let count = 10000
         let a = [Float](repeating: 0, count: 2*count)
         let b = [Float](repeating: 0, count: 3*count)
@@ -105,29 +155,29 @@ class PerformanceTests: XCTestCase {
     
     // MARK: vrsqrt
     func testVRSqrt1() {
-        let count = 100000
+        let count = 1000000
         let a = [Float](repeating: 0, count: count)
         var out = [Float](repeating: 0, count: count)
         measure {
-            for _ in 0..<10000 {
+            for _ in 0..<1000 {
                 VecOps.vrsqrt(x: a, out: &out, count: count)
             }
         }
     }
     
     func testVRSqrt2() {
-        let count = 100000
+        let count = 1000000
         let a = [Float](repeating: 0, count: count)
         var out = [Float](repeating: 0, count: count)
         measure {
-            for _ in 0..<10000 {
+            for _ in 0..<1000 {
                 VecOpsNoAccelerate.vrsqrt(x: a, out: &out, count: count)
             }
         }
     }
     
     // MARK: mmov
-    func testMMov2_1() {
+    func testMMov1() {
         let matrix = [Double](repeating: 0, count: 100000*10)
         var out = [Double](repeating: 0, count: 100000*30)
         
@@ -138,7 +188,7 @@ class PerformanceTests: XCTestCase {
         }
     }
     
-    func testMMov2_2() {
+    func testMMov2() {
         let matrix = [Double](repeating: 0, count: 100000*10)
         var out = [Double](repeating: 0, count: 100000*30)
         

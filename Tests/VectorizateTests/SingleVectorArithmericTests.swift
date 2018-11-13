@@ -5,10 +5,10 @@ class SingleVectorArithmericTests: XCTestCase {
 
     let count = 100
     
+    typealias V<F> = (UnsafePointer<F>, Int, UnsafeMutablePointer<F>, Int, Int)->Void
+    
     func runTest<F: BinaryFloatingPoint>(
-        type: F.Type,
-        func1: (UnsafePointer<F>, Int, UnsafeMutablePointer<F>, Int, Int)->Void,
-        func2: (UnsafePointer<F>, Int, UnsafeMutablePointer<F>, Int, Int)->Void,
+        type: F.Type, func1: V<F>, func2: V<F>, 
         ix: Int, iOut: Int,
         accuracy: F = 0,
         file: StaticString = #file, line: UInt = #line)
