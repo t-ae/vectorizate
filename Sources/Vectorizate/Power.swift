@@ -41,44 +41,44 @@ extension VecOps {
     
     // MARK: sqrt
     
-    /// out[i] = sqrt(base[i]), for 0 <= i < count
-    public static func vsqrt(base: UnsafePointer<Float>, out: UnsafeMutablePointer<Float>, count: Int) {
+    /// out[i] = sqrt(x[i]), for 0 <= i < count
+    public static func vsqrt(x: UnsafePointer<Float>, out: UnsafeMutablePointer<Float>, count: Int) {
         var count = Int32(count)
-        vvsqrtf(out, base, &count)
+        vvsqrtf(out, x, &count)
     }
     
-    /// out[i] = sqrt(base[i]), for 0 <= i < count
-    public static func vsqrt(base: UnsafePointer<Double>, out: UnsafeMutablePointer<Double>, count: Int) {
+    /// out[i] = sqrt(x[i]), for 0 <= i < count
+    public static func vsqrt(x: UnsafePointer<Double>, out: UnsafeMutablePointer<Double>, count: Int) {
         var count = Int32(count)
-        vvsqrt(out, base, &count)
+        vvsqrt(out, x, &count)
     }
     
     // MARK: rsqrt
     
-    /// out[i] = 1 / sqrt(base[i]), for 0 <= i < count
-    public static func vrsqrt(base: UnsafePointer<Float>, out: UnsafeMutablePointer<Float>, count: Int) {
+    /// out[i] = 1 / sqrt(x[i]), for 0 <= i < count
+    public static func vrsqrt(x: UnsafePointer<Float>, out: UnsafeMutablePointer<Float>, count: Int) {
         var count = Int32(count)
-        vvrsqrtf(out, base, &count)
+        vvrsqrtf(out, x, &count)
     }
     
-    /// out[i] = sqrt(base[i]), for 0 <= i < count
-    public static func vrsqrt(base: UnsafePointer<Double>, out: UnsafeMutablePointer<Double>, count: Int) {
+    /// out[i] = 1 / sqrt(x[i]), for 0 <= i < count
+    public static func vrsqrt(x: UnsafePointer<Double>, out: UnsafeMutablePointer<Double>, count: Int) {
         var count = Int32(count)
-        vvrsqrt(out, base, &count)
+        vvrsqrt(out, x, &count)
     }
     
     // MARK: cbrt
     
-    /// out[i] = cbrt(base[i]), for 0 <= i < count
-    public static func vcbrt(base: UnsafePointer<Float>, out: UnsafeMutablePointer<Float>, count: Int) {
+    /// out[i] = cbrt(x[i]), for 0 <= i < count
+    public static func vcbrt(x: UnsafePointer<Float>, out: UnsafeMutablePointer<Float>, count: Int) {
         var count = Int32(count)
-        vvcbrtf(out, base, &count)
+        vvcbrtf(out, x, &count)
     }
     
-    /// out[i] = cbrt(base[i]), for 0 <= i < count
-    public static func vcbrt(base: UnsafePointer<Double>, out: UnsafeMutablePointer<Double>, count: Int) {
+    /// out[i] = cbrt(x[i]), for 0 <= i < count
+    public static func vcbrt(x: UnsafePointer<Double>, out: UnsafeMutablePointer<Double>, count: Int) {
         var count = Int32(count)
-        vvcbrt(out, base, &count)
+        vvcbrt(out, x, &count)
     }
 }
 
@@ -123,48 +123,48 @@ extension VecOpsNoAccelerate {
     
     // MARK: sqrt
     
-    /// out[i] = sqrt(base[i]), for 0 <= i < count
-    public static func vsqrt(base: UnsafePointer<Float>, out: UnsafeMutablePointer<Float>, count: Int) {
-        map(x: base, ix: 1, out: out, iOut: 1, operation: {
+    /// out[i] = sqrt(x[i]), for 0 <= i < count
+    public static func vsqrt(x: UnsafePointer<Float>, out: UnsafeMutablePointer<Float>, count: Int) {
+        map(x: x, ix: 1, out: out, iOut: 1, operation: {
             $0 = sqrt($1)
         }, count: count)
     }
     
-    /// out[i] = sqrt(base[i]), for 0 <= i < count
-    public static func vsqrt(base: UnsafePointer<Double>, out: UnsafeMutablePointer<Double>, count: Int) {
-        map(x: base, ix: 1, out: out, iOut: 1, operation: {
+    /// out[i] = sqrt(x[i]), for 0 <= i < count
+    public static func vsqrt(x: UnsafePointer<Double>, out: UnsafeMutablePointer<Double>, count: Int) {
+        map(x: x, ix: 1, out: out, iOut: 1, operation: {
             $0 = sqrt($1)
         }, count: count)
     }
     
     // MARK: rsqrt
     
-    /// out[i] = 1 / sqrt(base[i]), for 0 <= i < count
-    public static func vrsqrt(base: UnsafePointer<Float>, out: UnsafeMutablePointer<Float>, count: Int) {
-        map(x: base, ix: 1, out: out, iOut: 1, operation: {
+    /// out[i] = 1 / sqrt(x[i]), for 0 <= i < count
+    public static func vrsqrt(x: UnsafePointer<Float>, out: UnsafeMutablePointer<Float>, count: Int) {
+        map(x: x, ix: 1, out: out, iOut: 1, operation: {
             $0 = 1 / sqrt($1)
         }, count: count)
     }
     
-    /// out[i] = sqrt(base[i]), for 0 <= i < count
-    public static func vrsqrt(base: UnsafePointer<Double>, out: UnsafeMutablePointer<Double>, count: Int) {
-        map(x: base, ix: 1, out: out, iOut: 1, operation: {
+    /// out[i] = 1 / sqrt(x[i]), for 0 <= i < count
+    public static func vrsqrt(x: UnsafePointer<Double>, out: UnsafeMutablePointer<Double>, count: Int) {
+        map(x: x, ix: 1, out: out, iOut: 1, operation: {
             $0 = 1 / sqrt($1)
         }, count: count)
     }
     
     // MARK: cbrt
     
-    /// out[i] = cbrt(base[i]), for 0 <= i < count
-    public static func vcbrt(base: UnsafePointer<Float>, out: UnsafeMutablePointer<Float>, count: Int) {
-        map(x: base, ix: 1, out: out, iOut: 1, operation: {
+    /// out[i] = cbrt(x[i]), for 0 <= i < count
+    public static func vcbrt(x: UnsafePointer<Float>, out: UnsafeMutablePointer<Float>, count: Int) {
+        map(x: x, ix: 1, out: out, iOut: 1, operation: {
             $0 = cbrt($1)
         }, count: count)
     }
     
-    /// out[i] = cbrt(base[i]), for 0 <= i < count
-    public static func vcbrt(base: UnsafePointer<Double>, out: UnsafeMutablePointer<Double>, count: Int) {
-        map(x: base, ix: 1, out: out, iOut: 1, operation: {
+    /// out[i] = cbrt(x[i]), for 0 <= i < count
+    public static func vcbrt(x: UnsafePointer<Double>, out: UnsafeMutablePointer<Double>, count: Int) {
+        map(x: x, ix: 1, out: out, iOut: 1, operation: {
             $0 = cbrt($1)
         }, count: count)
     }

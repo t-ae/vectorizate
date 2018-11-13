@@ -1,9 +1,61 @@
 import XCTest
 import Vectorizate
 
-//#if !DEBUG
+#if !DEBUG
 
 class PerformanceTests: XCTestCase {
+    
+    // MARK: vadd
+    func testVAdd1() {
+        let count = 10000
+        let a = [Float](repeating: 0, count: 2*count)
+        let b = [Float](repeating: 0, count: 3*count)
+        var out = [Float](repeating: 0, count: 4*count)
+        measure {
+            for _ in 0..<10000 {
+                VecOps.vadd(a: a, ia: 2, b: b, ib: 3, out: &out, iOut: 4, count: count)
+            }
+        }
+    }
+    
+    func testVAdd2() {
+        let count = 10000
+        let a = [Float](repeating: 0, count: 2*count)
+        let b = [Float](repeating: 0, count: 3*count)
+        var out = [Float](repeating: 0, count: 4*count)
+        measure {
+            for _ in 0..<10000 {
+                VecOpsNoAccelerate.vadd(a: a, ia: 2, b: b, ib: 3, out: &out, iOut: 4, count: count)
+            }
+        }
+    }
+    
+    // MARK: vma
+    func testVAMA1() {
+        let count = 10000
+        let a = [Float](repeating: 0, count: 2*count)
+        let b = [Float](repeating: 0, count: 3*count)
+        let c = [Float](repeating: 0, count: 4*count)
+        var out = [Float](repeating: 0, count: 5*count)
+        measure {
+            for _ in 0..<10000 {
+                VecOps.vma(a: a, ia: 2, b: b, ib: 3, c: c, ic: 4, out: &out, iOut: 5, count: count)
+            }
+        }
+    }
+    
+    func testVAMA2() {
+        let count = 10000
+        let a = [Float](repeating: 0, count: 2*count)
+        let b = [Float](repeating: 0, count: 3*count)
+        let c = [Float](repeating: 0, count: 4*count)
+        var out = [Float](repeating: 0, count: 5*count)
+        measure {
+            for _ in 0..<10000 {
+                VecOpsNoAccelerate.vma(a: a, ia: 2, b: b, ib: 3, c: c, ic: 4, out: &out, iOut: 5, count: count)
+            }
+        }
+    }
 
     // MARK: sve
     func testSve1() {
@@ -30,7 +82,7 @@ class PerformanceTests: XCTestCase {
     
     // MARK: vmin
     func testMinv1() {
-        let count = 10000
+        let count = 100000
         let x = [Float](repeating: 0, count: count)
         var out: Float = 0
         measure {
@@ -41,12 +93,35 @@ class PerformanceTests: XCTestCase {
     }
     
     func testMinv2() {
-        let count = 10000
+        let count = 100000
         let x = [Float](repeating: 0, count: count)
         var out: Float = 0
         measure {
             for _ in 0..<10000 {
                 VecOpsNoAccelerate.minv(x: x, ix: 1, out: &out, count: count)
+            }
+        }
+    }
+    
+    // MARK: vrsqrt
+    func testVRSqrt1() {
+        let count = 100000
+        let a = [Float](repeating: 0, count: count)
+        var out = [Float](repeating: 0, count: count)
+        measure {
+            for _ in 0..<10000 {
+                VecOps.vrsqrt(x: a, out: &out, count: count)
+            }
+        }
+    }
+    
+    func testVRSqrt2() {
+        let count = 100000
+        let a = [Float](repeating: 0, count: count)
+        var out = [Float](repeating: 0, count: count)
+        measure {
+            for _ in 0..<10000 {
+                VecOpsNoAccelerate.vrsqrt(x: a, out: &out, count: count)
             }
         }
     }
@@ -76,4 +151,4 @@ class PerformanceTests: XCTestCase {
     
 }
 
-//#endif
+#endif
