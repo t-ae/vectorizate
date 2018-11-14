@@ -153,6 +153,53 @@ class PerformanceTests: XCTestCase {
         }
     }
     
+    // MARK: vsin
+    func testVSin1() {
+        let count = 1000000
+        let a = [Float](repeating: 0, count: count)
+        var out = [Float](repeating: 0, count: count)
+        measure {
+            for _ in 0..<1000 {
+                VecOps.vsin(x: a, out: &out, count: count)
+            }
+        }
+    }
+    
+    func testVSin2() {
+        let count = 1000000
+        let a = [Float](repeating: 0, count: count)
+        var out = [Float](repeating: 0, count: count)
+        measure {
+            for _ in 0..<1000 {
+                VecOpsNoAccelerate.vsin(x: a, out: &out, count: count)
+            }
+        }
+    }
+    // MARK: vatan2
+    func testVATan2_1() {
+        let count = 1000000
+        let a = [Float](repeating: 0, count: count)
+        let b = [Float](repeating: 0, count: count)
+        var out = [Float](repeating: 0, count: count)
+        measure {
+            for _ in 0..<1000 {
+                VecOps.vatan2(y: a, x: b, out: &out, count: count)
+            }
+        }
+    }
+    
+    func testVAtan2_2() {
+        let count = 1000000
+        let a = [Float](repeating: 0, count: count)
+        let b = [Float](repeating: 0, count: count)
+        var out = [Float](repeating: 0, count: count)
+        measure {
+            for _ in 0..<1000 {
+                VecOpsNoAccelerate.vatan2(y: a, x: b, out: &out, count: count)
+            }
+        }
+    }
+    
     // MARK: vrsqrt
     func testVRSqrt1() {
         let count = 1000000
