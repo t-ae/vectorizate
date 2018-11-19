@@ -55,7 +55,7 @@ class PerformanceTests: XCTestCase {
     }
     
     // MARK: vma
-    func testVAMA1() {
+    func testVMA1() {
         let count = 10000
         let a = [Float](repeating: 0, count: count)
         let b = [Float](repeating: 0, count: count)
@@ -68,7 +68,7 @@ class PerformanceTests: XCTestCase {
         }
     }
     
-    func testVAMA2() {
+    func testVMA2() {
         let count = 10000
         let a = [Float](repeating: 0, count: count)
         let b = [Float](repeating: 0, count: count)
@@ -81,7 +81,7 @@ class PerformanceTests: XCTestCase {
         }
     }
     
-    func testVAMAWithStride1() {
+    func testVMAWithStride1() {
         let count = 10000
         let a = [Float](repeating: 0, count: 2*count)
         let b = [Float](repeating: 0, count: 3*count)
@@ -94,7 +94,7 @@ class PerformanceTests: XCTestCase {
         }
     }
     
-    func testVAMAWithStride2() {
+    func testVMAWithStride2() {
         let count = 10000
         let a = [Float](repeating: 0, count: 2*count)
         let b = [Float](repeating: 0, count: 3*count)
@@ -130,7 +130,7 @@ class PerformanceTests: XCTestCase {
         }
     }
     
-    // MARK: vmin
+    // MARK: minv
     func testMinv1() {
         let count = 100000
         let x = [Float](repeating: 0, count: count)
