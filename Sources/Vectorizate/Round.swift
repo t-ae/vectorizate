@@ -7,12 +7,16 @@ import Accelerate
 extension VecOps {
     // MARK: vceil
     
+    /// Calculates the ceiling of each element in an array.
+    ///
     /// out[i] = ceil(x[i]), for 0 <= i < count
     public static func vceil(x: UnsafePointer<Float>, out: UnsafeMutablePointer<Float>, count: Int) {
         var count = Int32(count)
         vvceilf(out, x, &count)
     }
     
+    /// Calculates the ceiling of each element in an array.
+    ///
     /// out[i] = ceil(x[i]), for 0 <= i < count
     public static func vceil(x: UnsafePointer<Double>, out: UnsafeMutablePointer<Double>, count: Int) {
         var count = Int32(count)
@@ -21,12 +25,16 @@ extension VecOps {
     
     // MARK: vfloor
     
+    /// Calculates the floor of each element in an array.
+    ///
     /// out[i] = floor(x[i]), for 0 <= i < count
     public static func vfloor(x: UnsafePointer<Float>, out: UnsafeMutablePointer<Float>, count: Int) {
         var count = Int32(count)
         vvfloorf(out, x, &count)
     }
     
+    /// Calculates the floor of each element in an array.
+    ///
     /// out[i] = floor(x[i]), for 0 <= i < count
     public static func vfloor(x: UnsafePointer<Double>, out: UnsafeMutablePointer<Double>, count: Int) {
         var count = Int32(count)
@@ -36,6 +44,7 @@ extension VecOps {
     // MAKR: vint
     
     /// Rounding towards 0.
+    ///
     /// out[i] = trunc(x[i]), for 0 <= i < count
     public static func vint(x: UnsafePointer<Float>, out: UnsafeMutablePointer<Float>, count: Int) {
         var count = Int32(count)
@@ -43,6 +52,7 @@ extension VecOps {
     }
     
     /// Rounding towards 0.
+    ///
     /// out[i] = trunc(x[i]), for 0 <= i < count
     public static func vint(x: UnsafePointer<Double>, out: UnsafeMutablePointer<Double>, count: Int) {
         var count = Int32(count)
@@ -51,12 +61,16 @@ extension VecOps {
     
     // MAKR: vnint
     
+    /// Calculates the nearest integer for each element in an array.
+    ///
     /// out[i] = round(x[i]), for 0 <= i < count
     public static func vnint(x: UnsafePointer<Float>, out: UnsafeMutablePointer<Float>, count: Int) {
         var count = Int32(count)
         vvnintf(out, x, &count)
     }
     
+    /// Calculates the nearest integer for each element in an array.
+    ///
     /// out[i] = round(x[i]), for 0 <= i < count
     public static func vnint(x: UnsafePointer<Double>, out: UnsafeMutablePointer<Double>, count: Int) {
         var count = Int32(count)
@@ -69,6 +83,8 @@ extension VecOps {
 extension VecOpsNoAccelerate {
     // MARK: vceil
     
+    /// Calculates the ceiling of each element in an array.
+    ///
     /// out[i] = ceil(x[i]), for 0 <= i < count
     public static func vceil(x: UnsafePointer<Float>, out: UnsafeMutablePointer<Float>, count: Int) {
         map(x: x, ix: 1, out: out, iOut: 1, operation: {
@@ -76,6 +92,8 @@ extension VecOpsNoAccelerate {
         }, count: count)
     }
     
+    /// Calculates the ceiling of each element in an array.
+    ///
     /// out[i] = ceil(x[i]), for 0 <= i < count
     public static func vceil(x: UnsafePointer<Double>, out: UnsafeMutablePointer<Double>, count: Int) {
         map(x: x, ix: 1, out: out, iOut: 1, operation: {
@@ -85,6 +103,8 @@ extension VecOpsNoAccelerate {
     
     // MARK: vfloor
     
+    /// Calculates the floor of each element in an array.
+    ///
     /// out[i] = floor(x[i]), for 0 <= i < count
     public static func vfloor(x: UnsafePointer<Float>, out: UnsafeMutablePointer<Float>, count: Int) {
         map(x: x, ix: 1, out: out, iOut: 1, operation: {
@@ -92,6 +112,8 @@ extension VecOpsNoAccelerate {
         }, count: count)
     }
     
+    /// Calculates the floor of each element in an array.
+    ///
     /// out[i] = floor(x[i]), for 0 <= i < count
     public static func vfloor(x: UnsafePointer<Double>, out: UnsafeMutablePointer<Double>, count: Int) {
         map(x: x, ix: 1, out: out, iOut: 1, operation: {
@@ -102,6 +124,7 @@ extension VecOpsNoAccelerate {
     // MAKR: vint
     
     /// Rounding towards 0.
+    ///
     /// out[i] = trunc(x[i]), for 0 <= i < count
     public static func vint(x: UnsafePointer<Float>, out: UnsafeMutablePointer<Float>, count: Int) {
         map(x: x, ix: 1, out: out, iOut: 1, operation: {
@@ -110,6 +133,7 @@ extension VecOpsNoAccelerate {
     }
     
     /// Rounding towards 0.
+    ///
     /// out[i] = trunc(x[i]), for 0 <= i < count
     public static func vint(x: UnsafePointer<Double>, out: UnsafeMutablePointer<Double>, count: Int) {
         map(x: x, ix: 1, out: out, iOut: 1, operation: {
@@ -119,6 +143,8 @@ extension VecOpsNoAccelerate {
     
     // MAKR: vnint
     
+    /// Calculates the nearest integer for each element in an array.
+    ///
     /// out[i] = round(x[i]), for 0 <= i < count
     public static func vnint(x: UnsafePointer<Float>, out: UnsafeMutablePointer<Float>, count: Int) {
         map(x: x, ix: 1, out: out, iOut: 1, operation: {
@@ -126,6 +152,8 @@ extension VecOpsNoAccelerate {
         }, count: count)
     }
     
+    /// Calculates the nearest integer for each element in an array.
+    ///
     /// out[i] = round(x[i]), for 0 <= i < count
     public static func vnint(x: UnsafePointer<Double>, out: UnsafeMutablePointer<Double>, count: Int) {
         map(x: x, ix: 1, out: out, iOut: 1, operation: {

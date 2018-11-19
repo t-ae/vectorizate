@@ -7,6 +7,8 @@ import Accelerate
 extension VecOps {
     // MARK: vdist
     
+    /// Vector distance.
+    ///
     /// out[i * iOut] = sqrt(a[i * ia]**2 + b[i * ib]**2), for 0 <= i < count
     public static func vdist(a: UnsafePointer<Float>, ia: Int,
                              b: UnsafePointer<Float>, ib: Int,
@@ -15,6 +17,8 @@ extension VecOps {
         vDSP_vdist(a, ia, b, ib, out, iOut, UInt(count))
     }
     
+    /// Vector distance.
+    ///
     /// out[i * iOut] = sqrt(a[i * ia]**2 + b[i * ib]**2), for 0 <= i < count
     public static func vdist(a: UnsafePointer<Double>, ia: Int,
                              b: UnsafePointer<Double>, ib: Int,
@@ -26,6 +30,7 @@ extension VecOps {
     // MARK: distancesq
     
     /// Calculate euclidian distance of two vectors.
+    ///
     /// out = sqrt(sum((a[i * ia] - b[i * ib]) ** 2))
     public static func distancesq(a: UnsafePointer<Float>, ia: Int,
                                   b: UnsafePointer<Float>, ib: Int,
@@ -34,6 +39,7 @@ extension VecOps {
     }
     
     /// Calculate euclidian distance of two vectors.
+    ///
     /// out = sqrt(sum((a[i * ia] - b[i * ib]) ** 2))
     public static func distancesq(a: UnsafePointer<Double>, ia: Int,
                                   b: UnsafePointer<Double>, ib: Int,
@@ -47,6 +53,8 @@ extension VecOps {
 extension VecOpsNoAccelerate {
     // MARK: vdist
     
+    /// Vector distance.
+    ///
     /// out[i * iOut] = sqrt(a[i * ia]**2 + b[i * ib]**2), for 0 <= i < count
     public static func vdist(a: UnsafePointer<Float>, ia: Int,
                              b: UnsafePointer<Float>, ib: Int,
@@ -57,6 +65,8 @@ extension VecOpsNoAccelerate {
         }, count: count)
     }
     
+    /// Vector distance.
+    ///
     /// out[i * iOut] = sqrt(a[i * ia]**2 + b[i * ib]**2), for 0 <= i < count
     public static func vdist(a: UnsafePointer<Double>, ia: Int,
                              b: UnsafePointer<Double>, ib: Int,
@@ -83,6 +93,7 @@ extension VecOpsNoAccelerate {
     }
     
     /// Calculate euclidian distance of two vectors.
+    ///
     /// out = sqrt(sum((a[i * ia] - b[i * ib]) ** 2))
     public static func distancesq(a: UnsafePointer<Float>, ia: Int,
                                   b: UnsafePointer<Float>, ib: Int,
@@ -91,6 +102,7 @@ extension VecOpsNoAccelerate {
     }
     
     /// Calculate euclidian distance of two vectors.
+    ///
     /// out = sqrt(sum((a[i * ia] - b[i * ib]) ** 2))
     public static func distancesq(a: UnsafePointer<Double>, ia: Int,
                                   b: UnsafePointer<Double>, ib: Int,

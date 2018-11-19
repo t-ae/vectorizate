@@ -7,6 +7,8 @@ import Accelerate
 extension VecOps {
     // MARK: vclip
     
+    /// Vector clip.
+    ///
     /// out[i * iOut] = max(min(x[i * ix], high), low), for 0 <= i < count
     public static func vclip(x: UnsafePointer<Float>, ix: Int,
                              low: Float, high: Float,
@@ -17,6 +19,8 @@ extension VecOps {
         vDSP_vclip(x, ix, &low, &high, out, iOut, UInt(count))
     }
     
+    /// Vector clip.
+    ///
     /// out[i * iOut] = max(min(x[i * ix], high), low), for 0 <= i < count
     public static func vclip(x: UnsafePointer<Double>, ix: Int,
                              low: Double, high: Double,
@@ -29,6 +33,8 @@ extension VecOps {
     
     // MARK: viclip
     
+    /// Vector inverted clip.
+    ///
     /// out[i * iOut] = max(min(x[i * ix], high), low), for 0 <= i < count
     public static func viclip(x: UnsafePointer<Float>, ix: Int,
                               low: Float, high: Float,
@@ -39,6 +45,9 @@ extension VecOps {
         vDSP_viclip(x, ix, &low, &high, out, iOut, UInt(count))
     }
     
+    /// Vector inverted clip.
+    ///
+    /// out[i * iOut] = max(min(x[i * ix], high), low), for 0 <= i < count
     public static func viclip(x: UnsafePointer<Double>, ix: Int,
                               low: Double, high: Double,
                               out: UnsafeMutablePointer<Double>, iOut: Int,
@@ -73,6 +82,8 @@ extension VecOpsNoAccelerate {
     
     // MARK: vclip
     
+    /// Vector clip.
+    ///
     /// out[i * iOut] = max(min(x[i * ix], high), low), for 0 <= i < count
     public static func vclip(x: UnsafePointer<Float>, ix: Int,
                              low: Float, high: Float,
@@ -82,6 +93,8 @@ extension VecOpsNoAccelerate {
             operation: { $0 = min(max($1, low), high) }, count: count)
     }
     
+    /// Vector clip.
+    ///
     /// out[i * iOut] = max(min(x[i * ix], high), low), for 0 <= i < count
     public static func vclip(x: UnsafePointer<Double>, ix: Int,
                              low: Double, high: Double,
@@ -92,6 +105,10 @@ extension VecOpsNoAccelerate {
     }
     
     // MARK: viclip
+    
+    /// Vector inverted clip.
+    ///
+    /// out[i * iOut] = max(min(x[i * ix], high), low), for 0 <= i < count
     public static func viclip(x: UnsafePointer<Float>, ix: Int,
                               low: Float, high: Float,
                               out: UnsafeMutablePointer<Float>, iOut: Int,
@@ -99,6 +116,9 @@ extension VecOpsNoAccelerate {
         _viclip(x: x, ix: ix, low: low, high: high, out: out, iOut: iOut, count: count)
     }
     
+    /// Vector inverted clip.
+    ///
+    /// out[i * iOut] = max(min(x[i * ix], high), low), for 0 <= i < count
     public static func viclip(x: UnsafePointer<Double>, ix: Int,
                               low: Double, high: Double,
                               out: UnsafeMutablePointer<Double>, iOut: Int,

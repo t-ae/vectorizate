@@ -7,6 +7,8 @@ import Accelerate
 extension VecOps {
     // MARK: vpow
     
+    /// Raises each element in an array to the power of the corresponding element in a second array.
+    ///
     /// out[i] = base[i] ** exponent[i], for 0 <= i < count
     public static func vpow(base: UnsafePointer<Float>, exponent: UnsafePointer<Float>,
                             out: UnsafeMutablePointer<Float>, count: Int) {
@@ -14,6 +16,8 @@ extension VecOps {
         vvpowf(out, exponent, base, &count)
     }
     
+    /// Raises each element in an array to the power of the corresponding element in a second array.
+    ///
     /// out[i] = base[i] ** exponent[i], for 0 <= i < count
     public static func vpow(base: UnsafePointer<Double>, exponent: UnsafePointer<Double>,
                             out: UnsafeMutablePointer<Double>, count: Int) {
@@ -23,6 +27,8 @@ extension VecOps {
     
     // MARK: pows
     
+    /// Calculates, elementwise, x**y for a vector x and a scalar y.
+    ///
     /// out[i] = base[i] ** exponent[i], for 0 <= i < count
     public static func vpows(base: UnsafePointer<Float>, exponent: Float,
                             out: UnsafeMutablePointer<Float>, count: Int) {
@@ -31,6 +37,8 @@ extension VecOps {
         vvpowsf(out, &exponent, base, &count)
     }
     
+    /// Calculates, elementwise, x**y for a vector x and a scalar y.
+    ///
     /// out[i] = base[i] ** exponent[i], for 0 <= i < count
     public static func vpows(base: UnsafePointer<Double>, exponent: Double,
                              out: UnsafeMutablePointer<Double>, count: Int) {
@@ -41,12 +49,16 @@ extension VecOps {
     
     // MARK: sqrt
     
+    /// Calculates the square root of each element in an array.
+    ///
     /// out[i] = sqrt(x[i]), for 0 <= i < count
     public static func vsqrt(x: UnsafePointer<Float>, out: UnsafeMutablePointer<Float>, count: Int) {
         var count = Int32(count)
         vvsqrtf(out, x, &count)
     }
     
+    /// Calculates the square root of each element in an array.
+    ///
     /// out[i] = sqrt(x[i]), for 0 <= i < count
     public static func vsqrt(x: UnsafePointer<Double>, out: UnsafeMutablePointer<Double>, count: Int) {
         var count = Int32(count)
@@ -55,12 +67,16 @@ extension VecOps {
     
     // MARK: rsqrt
     
+    /// Calculates the reciprocal square root of each element in an array.
+    ///
     /// out[i] = 1 / sqrt(x[i]), for 0 <= i < count
     public static func vrsqrt(x: UnsafePointer<Float>, out: UnsafeMutablePointer<Float>, count: Int) {
         var count = Int32(count)
         vvrsqrtf(out, x, &count)
     }
     
+    /// Calculates the reciprocal square root of each element in an array.
+    ///
     /// out[i] = 1 / sqrt(x[i]), for 0 <= i < count
     public static func vrsqrt(x: UnsafePointer<Double>, out: UnsafeMutablePointer<Double>, count: Int) {
         var count = Int32(count)
@@ -69,12 +85,16 @@ extension VecOps {
     
     // MARK: cbrt
     
+    /// Calculates the cube root for each element of a vector.
+    ///
     /// out[i] = cbrt(x[i]), for 0 <= i < count
     public static func vcbrt(x: UnsafePointer<Float>, out: UnsafeMutablePointer<Float>, count: Int) {
         var count = Int32(count)
         vvcbrtf(out, x, &count)
     }
     
+    /// Calculates the cube root for each element of a vector.
+    ///
     /// out[i] = cbrt(x[i]), for 0 <= i < count
     public static func vcbrt(x: UnsafePointer<Double>, out: UnsafeMutablePointer<Double>, count: Int) {
         var count = Int32(count)
@@ -87,6 +107,8 @@ extension VecOps {
 extension VecOpsNoAccelerate {
     // MARK: vpow
     
+    /// Raises each element in an array to the power of the corresponding element in a second array.
+    ///
     /// out[i] = base[i] ** exponent[i], for 0 <= i < count
     public static func vpow(base: UnsafePointer<Float>, exponent: UnsafePointer<Float>,
                             out: UnsafeMutablePointer<Float>, count: Int) {
@@ -95,6 +117,8 @@ extension VecOpsNoAccelerate {
         }, count: count)
     }
     
+    /// Raises each element in an array to the power of the corresponding element in a second array.
+    ///
     /// out[i] = base[i] ** exponent[i], for 0 <= i < count
     public static func vpow(base: UnsafePointer<Double>, exponent: UnsafePointer<Double>,
                             out: UnsafeMutablePointer<Double>, count: Int) {
@@ -105,6 +129,8 @@ extension VecOpsNoAccelerate {
     
     // MARK: pows
     
+    /// Calculates, elementwise, x**y for a vector x and a scalar y.
+    ///
     /// out[i] = base[i] ** exponent[i], for 0 <= i < count
     public static func vpows(base: UnsafePointer<Float>, exponent: Float,
                              out: UnsafeMutablePointer<Float>, count: Int) {
@@ -113,6 +139,8 @@ extension VecOpsNoAccelerate {
         }, count: count)
     }
     
+    /// Calculates, elementwise, x**y for a vector x and a scalar y.
+    ///
     /// out[i] = base[i] ** exponent[i], for 0 <= i < count
     public static func vpows(base: UnsafePointer<Double>, exponent: Double,
                              out: UnsafeMutablePointer<Double>, count: Int) {
@@ -123,6 +151,8 @@ extension VecOpsNoAccelerate {
     
     // MARK: sqrt
     
+    /// Calculates the square root of each element in an array.
+    ///
     /// out[i] = sqrt(x[i]), for 0 <= i < count
     public static func vsqrt(x: UnsafePointer<Float>, out: UnsafeMutablePointer<Float>, count: Int) {
         map(x: x, ix: 1, out: out, iOut: 1, operation: {
@@ -130,6 +160,8 @@ extension VecOpsNoAccelerate {
         }, count: count)
     }
     
+    /// Calculates the square root of each element in an array.
+    ///
     /// out[i] = sqrt(x[i]), for 0 <= i < count
     public static func vsqrt(x: UnsafePointer<Double>, out: UnsafeMutablePointer<Double>, count: Int) {
         map(x: x, ix: 1, out: out, iOut: 1, operation: {
@@ -139,6 +171,8 @@ extension VecOpsNoAccelerate {
     
     // MARK: rsqrt
     
+    /// Calculates the reciprocal square root of each element in an array.
+    ///
     /// out[i] = 1 / sqrt(x[i]), for 0 <= i < count
     public static func vrsqrt(x: UnsafePointer<Float>, out: UnsafeMutablePointer<Float>, count: Int) {
         map(x: x, ix: 1, out: out, iOut: 1, operation: {
@@ -146,6 +180,8 @@ extension VecOpsNoAccelerate {
         }, count: count)
     }
     
+    /// Calculates the reciprocal square root of each element in an array.
+    ///
     /// out[i] = 1 / sqrt(x[i]), for 0 <= i < count
     public static func vrsqrt(x: UnsafePointer<Double>, out: UnsafeMutablePointer<Double>, count: Int) {
         map(x: x, ix: 1, out: out, iOut: 1, operation: {
@@ -155,6 +191,8 @@ extension VecOpsNoAccelerate {
     
     // MARK: cbrt
     
+    /// Calculates the cube root for each element of a vector.
+    ///
     /// out[i] = cbrt(x[i]), for 0 <= i < count
     public static func vcbrt(x: UnsafePointer<Float>, out: UnsafeMutablePointer<Float>, count: Int) {
         map(x: x, ix: 1, out: out, iOut: 1, operation: {
@@ -162,6 +200,8 @@ extension VecOpsNoAccelerate {
         }, count: count)
     }
     
+    /// Calculates the cube root for each element of a vector.
+    ///
     /// out[i] = cbrt(x[i]), for 0 <= i < count
     public static func vcbrt(x: UnsafePointer<Double>, out: UnsafeMutablePointer<Double>, count: Int) {
         map(x: x, ix: 1, out: out, iOut: 1, operation: {

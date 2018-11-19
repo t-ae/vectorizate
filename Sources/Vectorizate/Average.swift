@@ -7,12 +7,16 @@ import Accelerate
 extension VecOps {
     // MARK: meanv
     
+    /// Vector mean value.
+    ///
     /// out = sum(x[i * ix]) / count, for 0 <= i < count
     /// out = NaN if count == 0
     public static func meanv(x: UnsafePointer<Float>, ix: Int, out: inout Float, count: Int) {
         vDSP_meanv(x, ix, &out, UInt(count))
     }
     
+    /// Vector mean value.
+    ///
     /// out = sum(x[i * ix]) / count, for 0 <= i < count
     /// out = NaN if count == 0
     public static func meanv(x: UnsafePointer<Double>, ix: Int, out: inout Double, count: Int) {
@@ -21,12 +25,16 @@ extension VecOps {
     
     // MARK: meamgv
     
+    /// Vector mean magnitude.
+    ///
     /// out = sum(abs(x[i * ix])) / count, for 0 <= i < count
     /// out = NaN if count == 0
     public static func meamgv(x: UnsafePointer<Float>, ix: Int, out: inout Float, count: Int) {
         vDSP_meamgv(x, ix, &out, UInt(count))
     }
     
+    /// Vector mean magnitude.
+    ///
     /// out = sum(abs(x[i * ix])) / count, for 0 <= i < count
     /// out = NaN if count == 0
     public static func meamgv(x: UnsafePointer<Double>, ix: Int, out: inout Double, count: Int) {
@@ -35,12 +43,16 @@ extension VecOps {
     
     // MARK: measqv
     
+    /// Vector mean square value.
+    ///
     /// out = sum(x[i * ix] ** 2) / count, for 0 <= i < count
     /// out = NaN if count == 0
     public static func measqv(x: UnsafePointer<Float>, ix: Int, out: inout Float, count: Int) {
         vDSP_measqv(x, ix, &out, UInt(count))
     }
     
+    /// Vector mean square value.
+    ///
     /// out = sum(x[i * ix] ** 2) / count, for 0 <= i < count
     /// out = NaN if count == 0
     public static func measqv(x: UnsafePointer<Double>, ix: Int, out: inout Double, count: Int) {
@@ -49,12 +61,16 @@ extension VecOps {
     
     // MARK: mvessq
     
+    /// Vector mean of signed squares.
+    ///
     /// out = sum(x[i * ix] * abs(x[i * ix])) / count, for 0 <= i < count
     /// out = NaN if count == 0
     public static func mvessq(x: UnsafePointer<Float>, ix: Int, out: inout Float, count: Int) {
         vDSP_mvessq(x, ix, &out, UInt(count))
     }
     
+    /// Vector mean of signed squares.
+    ///
     /// out = sum(x[i * ix] * abs(x[i * ix])) / count, for 0 <= i < count
     /// out = NaN if count == 0
     public static func mvessq(x: UnsafePointer<Double>, ix: Int, out: inout Double, count: Int) {
@@ -63,12 +79,16 @@ extension VecOps {
     
     // MARK: rmsqv
     
+    /// Vector root-mean-square.
+    ///
     /// out = sqrt(sum(x[i * ix] * abs(x[i * ix]))) / count, for 0 <= i < count
     /// out = NaN if count == 0
     public static func rmsqv(x: UnsafePointer<Float>, ix: Int, out: inout Float, count: Int) {
         vDSP_rmsqv(x, ix, &out, UInt(count))
     }
     
+    /// Vector root-mean-square.
+    ///
     /// out = sqrt(sum(x[i * ix] * abs(x[i * ix]))) / count, for 0 <= i < count
     /// out = NaN if count == 0
     public static func rmsqv(x: UnsafePointer<Double>, ix: Int, out: inout Double, count: Int) {
@@ -81,6 +101,8 @@ extension VecOps {
 extension VecOpsNoAccelerate {
     // MARK: meanv
     
+    /// Vector mean value.
+    ///
     /// out = sum(x[i * ix]) / count, for 0 <= i < count
     /// out = NaN if count == 0
     public static func meanv(x: UnsafePointer<Float>, ix: Int, out: inout Float, count: Int) {
@@ -92,6 +114,8 @@ extension VecOpsNoAccelerate {
         }
     }
     
+    /// Vector mean value.
+    ///
     /// out = sum(x[i * ix]) / count, for 0 <= i < count
     /// out = NaN if count == 0
     public static func meanv(x: UnsafePointer<Double>, ix: Int, out: inout Double, count: Int) {
@@ -105,6 +129,8 @@ extension VecOpsNoAccelerate {
     
     // MARK: meamgv
     
+    /// Vector mean magnitude.
+    ///
     /// out = sum(abs(x[i * ix])) / count, for 0 <= i < count
     /// out = NaN if count == 0
     public static func meamgv(x: UnsafePointer<Float>, ix: Int, out: inout Float, count: Int) {
@@ -116,6 +142,8 @@ extension VecOpsNoAccelerate {
         }
     }
     
+    /// Vector mean magnitude.
+    ///
     /// out = sum(abs(x[i * ix])) / count, for 0 <= i < count
     /// out = NaN if count == 0
     public static func meamgv(x: UnsafePointer<Double>, ix: Int, out: inout Double, count: Int) {
@@ -129,6 +157,8 @@ extension VecOpsNoAccelerate {
     
     // MARK: measqv
     
+    /// Vector mean square value.
+    ///
     /// out = sum(x[i * ix] ** 2) / count, for 0 <= i < count
     /// out = NaN if count == 0
     public static func measqv(x: UnsafePointer<Float>, ix: Int, out: inout Float, count: Int) {
@@ -140,6 +170,8 @@ extension VecOpsNoAccelerate {
         }
     }
     
+    /// Vector mean square value.
+    ///
     /// out = sum(x[i * ix] ** 2) / count, for 0 <= i < count
     /// out = NaN if count == 0
     public static func measqv(x: UnsafePointer<Double>, ix: Int, out: inout Double, count: Int) {
@@ -153,6 +185,8 @@ extension VecOpsNoAccelerate {
     
     // MARK: mvessq
     
+    /// Vector mean of signed squares.
+    ///
     /// out = sum(x[i * ix] * abs(x[i * ix])) / count, for 0 <= i < count
     /// out = NaN if count == 0
     public static func mvessq(x: UnsafePointer<Float>, ix: Int, out: inout Float, count: Int) {
@@ -164,6 +198,8 @@ extension VecOpsNoAccelerate {
         }
     }
     
+    /// Vector mean of signed squares.
+    ///
     /// out = sum(x[i * ix] * abs(x[i * ix])) / count, for 0 <= i < count
     /// out = NaN if count == 0
     public static func mvessq(x: UnsafePointer<Double>, ix: Int, out: inout Double, count: Int) {
@@ -177,6 +213,8 @@ extension VecOpsNoAccelerate {
     
     // MARK: rmsqv
     
+    /// Vector root-mean-square.
+    ///
     /// out = sqrt(sum(x[i * ix] * abs(x[i * ix]))) / count, for 0 <= i < count
     /// out = NaN if count == 0
     public static func rmsqv(x: UnsafePointer<Float>, ix: Int, out: inout Float, count: Int) {
@@ -184,6 +222,8 @@ extension VecOpsNoAccelerate {
         out = sqrt(out)
     }
     
+    /// Vector root-mean-square.
+    ///
     /// out = sqrt(sum(x[i * ix] * abs(x[i * ix]))) / count, for 0 <= i < count
     /// out = NaN if count == 0
     public static func rmsqv(x: UnsafePointer<Double>, ix: Int, out: inout Double, count: Int) {

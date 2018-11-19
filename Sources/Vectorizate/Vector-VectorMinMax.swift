@@ -7,6 +7,8 @@ import Accelerate
 extension VecOps {
     // MARK: vmin
     
+    /// Vector minima.
+    ///
     /// out[i * iOut] = min(a[i * ia], b[i * ib]), for 0 <= i < count
     public static func vmin(a: UnsafePointer<Float>, ia: Int,
                             b: UnsafePointer<Float>, ib: Int,
@@ -15,6 +17,8 @@ extension VecOps {
         vDSP_vmin(a, ia, b, ib, out, iOut, UInt(count))
     }
     
+    /// Vector minima.
+    ///
     /// out[i * iOut] = min(a[i * ia], b[i * ib]), for 0 <= i < count
     public static func vmin(a: UnsafePointer<Double>, ia: Int,
                             b: UnsafePointer<Double>, ib: Int,
@@ -25,6 +29,8 @@ extension VecOps {
     
     // MARK: vminmg
     
+    /// Vector minimum magnitudes.
+    ///
     /// out[i * iOut] = min(abs(a[i * ia]), abs(b[i * ib])), for 0 <= i < count
     public static func vminmg(a: UnsafePointer<Float>, ia: Int,
                               b: UnsafePointer<Float>, ib: Int,
@@ -33,6 +39,8 @@ extension VecOps {
         vDSP_vminmg(a, ia, b, ib, out, iOut, UInt(count))
     }
     
+    /// Vector minimum magnitudes.
+    ///
     /// out[i * iOut] = min(abs(a[i * ia]), abs(b[i * ib])), for 0 <= i < count
     public static func vminmg(a: UnsafePointer<Double>, ia: Int,
                               b: UnsafePointer<Double>, ib: Int,
@@ -43,6 +51,8 @@ extension VecOps {
     
     // MARK: vmax
     
+    /// Vector maxima.
+    ///
     /// out[i * iOut] = max(a[i * ia], b[i * ib]), for 0 <= i < count
     public static func vmax(a: UnsafePointer<Float>, ia: Int,
                             b: UnsafePointer<Float>, ib: Int,
@@ -51,6 +61,8 @@ extension VecOps {
         vDSP_vmax(a, ia, b, ib, out, iOut, UInt(count))
     }
     
+    /// Vector maxima.
+    ///
     /// out[i * iOut] = max(a[i * ia], b[i * ib]), for 0 <= i < count
     public static func vmax(a: UnsafePointer<Double>, ia: Int,
                             b: UnsafePointer<Double>, ib: Int,
@@ -61,20 +73,24 @@ extension VecOps {
     
     // MARK: vmaxmg
     
+    /// Vector maximum magnitudes.
+    ///
     /// out[i * iOut] = max(abs(a[i * ia]), abs(b[i * ib])), for 0 <= i < count
     public static func vmaxmg(a: UnsafePointer<Float>, ia: Int,
                               b: UnsafePointer<Float>, ib: Int,
                               out: UnsafeMutablePointer<Float>, iOut: Int,
                               count: Int) {
-        vDSP_vmax(a, ia, b, ib, out, iOut, UInt(count))
+        vDSP_vmaxmg(a, ia, b, ib, out, iOut, UInt(count))
     }
     
+    /// Vector maximum magnitudes.
+    ///
     /// out[i * iOut] = max(abs(a[i * ia]), abs(b[i * ib])), for 0 <= i < count
     public static func vmaxmg(a: UnsafePointer<Double>, ia: Int,
                               b: UnsafePointer<Double>, ib: Int,
                               out: UnsafeMutablePointer<Double>, iOut: Int,
                               count: Int) {
-        vDSP_vmaxD(a, ia, b, ib, out, iOut, UInt(count))
+        vDSP_vmaxmgD(a, ia, b, ib, out, iOut, UInt(count))
     }
 }
 
@@ -83,6 +99,8 @@ extension VecOps {
 extension VecOpsNoAccelerate {
     // MARK: vmin
     
+    /// Vector minima.
+    ///
     /// out[i * iOut] = min(a[i * ia], b[i * ib]), for 0 <= i < count
     public static func vmin(a: UnsafePointer<Float>, ia: Int,
                             b: UnsafePointer<Float>, ib: Int,
@@ -92,6 +110,8 @@ extension VecOpsNoAccelerate {
              operation: { $0 = min($1, $2) }, count: count)
     }
     
+    /// Vector minima.
+    ///
     /// out[i * iOut] = min(a[i * ia], b[i * ib]), for 0 <= i < count
     public static func vmin(a: UnsafePointer<Double>, ia: Int,
                             b: UnsafePointer<Double>, ib: Int,
@@ -103,6 +123,8 @@ extension VecOpsNoAccelerate {
     
     // MARK: vminmg
     
+    /// Vector minimum magnitudes.
+    ///
     /// out[i * iOut] = min(abs(a[i * ia]), abs(b[i * ib])), for 0 <= i < count
     public static func vminmg(a: UnsafePointer<Float>, ia: Int,
                               b: UnsafePointer<Float>, ib: Int,
@@ -112,6 +134,8 @@ extension VecOpsNoAccelerate {
              operation: { $0 = min(abs($1), abs($2)) }, count: count)
     }
     
+    /// Vector minimum magnitudes.
+    ///
     /// out[i * iOut] = min(abs(a[i * ia]), abs(b[i * ib])), for 0 <= i < count
     public static func vminmg(a: UnsafePointer<Double>, ia: Int,
                               b: UnsafePointer<Double>, ib: Int,
@@ -123,6 +147,8 @@ extension VecOpsNoAccelerate {
     
     // MARK: vmax
     
+    /// Vector maxima.
+    ///
     /// out[i * iOut] = max(a[i * ia], b[i * ib]), for 0 <= i < count
     public static func vmax(a: UnsafePointer<Float>, ia: Int,
                             b: UnsafePointer<Float>, ib: Int,
@@ -132,6 +158,8 @@ extension VecOpsNoAccelerate {
              operation: { $0 = max($1, $2) }, count: count)
     }
     
+    /// Vector maxima.
+    ///
     /// out[i * iOut] = max(a[i * ia], b[i * ib]), for 0 <= i < count
     public static func vmax(a: UnsafePointer<Double>, ia: Int,
                             b: UnsafePointer<Double>, ib: Int,
@@ -143,6 +171,8 @@ extension VecOpsNoAccelerate {
     
     // MARK: vmaxmg
     
+    /// Vector maximum magnitudes.
+    ///
     /// out[i * iOut] = max(abs(a[i * ia]), abs(b[i * ib])), for 0 <= i < count
     public static func vmaxmg(a: UnsafePointer<Float>, ia: Int,
                               b: UnsafePointer<Float>, ib: Int,
@@ -152,6 +182,8 @@ extension VecOpsNoAccelerate {
              operation: { $0 = max(abs($1), abs($2)) }, count: count)
     }
     
+    /// Vector maximum magnitudes.
+    ///
     /// out[i * iOut] = max(abs(a[i * ia]), abs(b[i * ib])), for 0 <= i < count
     public static func vmaxmg(a: UnsafePointer<Double>, ia: Int,
                               b: UnsafePointer<Double>, ib: Int,

@@ -7,6 +7,8 @@ import Accelerate
 extension VecOps {
     // MARK: - vgathr
     
+    /// Vector gather.
+    ///
     /// out[i * iOut] = a[b[i * ib]], for 0 <= i < count
     /// - Parameters:
     ///   - b: UInt vector containing **1-based** indices.
@@ -16,6 +18,8 @@ extension VecOps {
         vDSP_vgathr(a, b, ib, out, iOut, UInt(count))
     }
     
+    /// Vector gather.
+    ///
     /// out[i * iOut] = a[b[i * ib]], for 0 <= i < count
     /// - Parameters:
     ///   - b: UInt vector containing **1-based** indices.
@@ -31,6 +35,8 @@ extension VecOps {
 extension VecOpsNoAccelerate {
     // MARK: - vgathr
     
+    /// Vector gather.
+    ///
     /// out[i * iOut] = a[b[i * ib]], for 0 <= i < count
     /// - Parameters:
     ///   - b: UInt vector containing **1-based** indices.
@@ -42,6 +48,8 @@ extension VecOpsNoAccelerate {
         }, count: count)
     }
     
+    /// Vector gather.
+    ///
     /// out[i * iOut] = a[b[i * ib]], for 0 <= i < count
     /// - Parameters:
     ///   - b: UInt vector containing **1-based** indices.
